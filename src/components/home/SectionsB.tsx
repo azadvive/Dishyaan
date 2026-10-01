@@ -82,37 +82,37 @@ export function ProjectsSection() {
           eyebrow="Project-based learning"
           eyebrowTone="cyan"
           title="Don't just learn. Build."
-          lead="Every track ends in something that exists. Here is the shape of a Dishayaan project: a problem, a build, a mentor, and a lesson you keep."
-          titleClassName="text-white"
+          lead="Every track ends in something that exists. Here is the shape of a DishaYaaN project: a problem, a build, a mentor, and a lesson you keep."
+          titleClassName="text-ink"
         />
 
         <div className="mt-10 grid gap-5 md:grid-cols-2">
           {STUDENT_PROJECTS.map((project, i) => (
             <Reveal key={project.id} delay={i * 0.05}>
-              <article className="flex h-full flex-col border-2 border-white bg-midnight">
-                <div className="flex items-start justify-between gap-3 border-b-2 border-white p-5">
-                  <h3 className="text-lg font-bold text-white">{project.title}</h3>
+              <article className="flex h-full flex-col border-2 border-ink bg-panel">
+                <div className="flex items-start justify-between gap-3 border-b-2 border-ink p-5">
+                  <h3 className="text-lg font-bold text-ink">{project.title}</h3>
                   <span
                     className={cn(
-                      "border-2 border-ink px-2 py-0.5 text-[10px] font-bold whitespace-nowrap",
+                      "border-2 border-ink px-2 py-0.5 font-mono text-[10px] font-bold whitespace-nowrap",
                       accentBg[project.accent],
                     )}
                   >
                     {project.studentClass}
                   </span>
                 </div>
-                <div className="flex-1 space-y-4 p-5 text-sm text-white/75">
+                <div className="flex-1 space-y-4 p-5 text-sm text-ink/70">
                   <p className="inline-block border border-neo-yellow px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-neo-yellow">
                     Illustrative example — not a real student claim
                   </p>
                   <div>
-                    <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-white/50">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-ink/45">
                       Problem
                     </p>
                     <p className="mt-1 leading-relaxed">{project.problem}</p>
                   </div>
                   <div>
-                    <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-white/50">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-ink/45">
                       Solution
                     </p>
                     <p className="mt-1 leading-relaxed">{project.solution}</p>
@@ -121,18 +121,18 @@ export function ProjectsSection() {
                     {project.stack.map((s) => (
                       <span
                         key={s}
-                        className="border border-white/40 px-2 py-0.5 text-[11px] font-medium text-white/80"
+                        className="border border-ink/40 px-2 py-0.5 font-mono text-[11px] font-medium text-ink/80"
                       >
                         {s}
                       </span>
                     ))}
                   </div>
-                  <div className="border-t border-white/20 pt-3">
-                    <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-white/50">
+                  <div className="border-t border-ink/20 pt-3">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-ink/45">
                       Mentor
                     </p>
                     <p className="mt-1">{project.mentor}</p>
-                    <p className="mt-3 text-[11px] font-bold uppercase tracking-[0.14em] text-white/50">
+                    <p className="mt-3 text-[11px] font-bold uppercase tracking-[0.14em] text-ink/45">
                       What was learned
                     </p>
                     <p className="mt-1 italic">{project.learned}</p>
@@ -152,7 +152,7 @@ export function JourneySection() {
     <Section tone="paper" id="how">
       <Container>
         <SectionHeader
-          eyebrow="How Dishayaan works"
+          eyebrow="How DishaYaaN works"
           title="Six steps, in this order, every time."
           lead="No student is dropped into content. The sequence is the product."
         />
@@ -160,7 +160,7 @@ export function JourneySection() {
         <ol className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {JOURNEY_STEPS.map((step, i) => (
             <Reveal key={step.id} delay={i * 0.05}>
-              <li className="flex h-full flex-col border-2 border-ink bg-white p-5">
+              <li className="flex h-full flex-col border-2 border-ink bg-card p-5">
                 <div className="flex items-center justify-between">
                   <span className="font-display text-3xl font-bold text-ink/30">
                     {step.id}
@@ -168,7 +168,7 @@ export function JourneySection() {
                   {i < JOURNEY_STEPS.length - 1 ? (
                     <ArrowRight className="size-5 text-muted-foreground" />
                   ) : (
-                    <span className="border-2 border-ink bg-neo-green px-2 py-0.5 text-[10px] font-bold uppercase text-white">
+                    <span className="border-2 border-ink bg-neo-green px-2 py-0.5 font-mono text-[10px] font-bold uppercase text-deep">
                       Grow
                     </span>
                   )}
@@ -234,7 +234,7 @@ export function ParentSection() {
           </div>
 
           <Reveal>
-            <div className="border-2 border-ink bg-white shadow-neo">
+            <div className="border-2 border-ink bg-card shadow-neo">
               <div className="flex items-center justify-between gap-2 border-b-2 border-ink bg-paper px-5 py-3">
                 <p className="text-sm font-bold uppercase tracking-[0.12em]">
                   Parent dashboard preview
@@ -266,7 +266,7 @@ export function ParentSection() {
                       next.
                     </p>
                   </div>
-                  <div className="border-2 border-ink bg-neo-yellow p-3">
+                  <div className="border-2 border-ink bg-neo-yellow p-3 text-deep">
                     <p className="text-[11px] font-bold uppercase tracking-wider">
                       Next recommended step
                     </p>
@@ -296,7 +296,7 @@ export function PartnerSection() {
           eyebrow="Institution collaboration"
           eyebrowTone="cyan"
           title="Schools, colleges and coaching centres — let's build the layer you don't have."
-          lead="Dishayaan runs alongside your institution: we bring the mentors, labs and future-readiness pathways, you keep your academic strength."
+          lead="DishaYaaN runs alongside your institution: we bring the mentors, labs and future-readiness pathways, you keep your academic strength."
         />
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -304,7 +304,7 @@ export function PartnerSection() {
             const Icon = PARTNER_ICONS[partner.icon] ?? Building2;
             return (
               <Reveal key={partner.id}>
-                <article className="flex h-full flex-col border-2 border-ink bg-white">
+                <article className="flex h-full flex-col border-2 border-ink bg-card">
                   <div className={cn("border-b-2 border-ink p-4", accentBg[partner.accent])}>
                     <Icon className="size-6" />
                     <h3 className="mt-3 text-base font-bold">{partner.name}</h3>
@@ -321,7 +321,7 @@ export function PartnerSection() {
           })}
         </div>
 
-        <div className="mt-8 border-2 border-ink bg-white p-6">
+        <div className="mt-8 border-2 border-ink bg-card p-6">
           <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr] lg:items-center">
             <div>
               <Eyebrow tone="ink">Requirement first</Eyebrow>
@@ -361,7 +361,7 @@ export function VoicesSection() {
         <SectionHeader
           eyebrow="Social proof"
           title="We would rather show nothing than show fake proof."
-          lead="Dishayaan's first cohort is in progress. These slots fill with real, consented voices as soon as we have them."
+          lead="DishaYaaN's first cohort is in progress. These slots fill with real, consented voices as soon as we have them."
         />
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {TESTIMONIALS.map((t) => (
@@ -392,9 +392,9 @@ export function FaqSection() {
           <SectionHeader
             eyebrow="Questions"
             title="Straight answers."
-            lead="If your question is not here, ask Dishayaan AI or a mentor directly."
+            lead="If your question is not here, ask DishaYaaN AI or a mentor directly."
           />
-          <Accordion type="single" collapsible className="border-2 border-ink bg-white">
+          <Accordion type="single" collapsible className="border-2 border-ink bg-card">
             {FAQS.map((faq, i) => (
               <AccordionItem
                 key={faq.q}
@@ -441,10 +441,10 @@ export function FinalCtaSection() {
           <div className="grid gap-8 lg:grid-cols-[1.3fr_1fr] lg:items-center">
             <div>
               <Eyebrow tone="cyan">Your next step</Eyebrow>
-              <h2 className="mt-5 text-3xl font-bold leading-[1.05] text-white sm:text-4xl lg:text-5xl">
+              <h2 className="mt-5 text-3xl font-bold leading-[1.05] text-ink sm:text-4xl lg:text-5xl">
                 Your next step can start here.
               </h2>
-              <p className="mt-4 max-w-xl text-base leading-relaxed text-white/70">
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-ink/70">
                 Two minutes to tell us what you need. Or skip the form and have a free
                 conversation with a mentor who works in the field you are curious
                 about.
@@ -470,16 +470,16 @@ export function FinalCtaSection() {
                 </Button>
               </div>
             </div>
-            <div className="border-2 border-white bg-midnight p-6">
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-neo-cyan">
+            <div className="border-2 border-ink bg-panel p-6">
+              <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-neo-cyan">
                 What happens after you reach out
               </p>
-              <ol className="mt-4 space-y-4 text-sm text-white/80">
+              <ol className="mt-4 space-y-4 text-sm text-ink/75">
                 {[
                   "We read what you sent — a person, not an autoresponder.",
                   "A mentor in your domain messages you on WhatsApp within a day.",
                   "You get a free 20-minute conversation before any payment.",
-                  "If Dishayaan is not the right fit, we will say so.",
+                  "If DishaYaaN is not the right fit, we will say so.",
                 ].map((line, i) => (
                   <li key={line} className="flex gap-3">
                     <span className="flex size-6 shrink-0 items-center justify-center border-2 border-neo-cyan text-[11px] font-bold text-neo-cyan">

@@ -50,17 +50,17 @@ export function Eyebrow({
   tone?: "ink" | "blue" | "violet" | "green" | "cyan" | "white";
 }) {
   const tones: Record<string, string> = {
-    ink: "bg-ink text-white",
+    ink: "bg-invert text-deep",
     blue: "bg-neo-blue text-white",
     violet: "bg-neo-violet text-white",
-    green: "bg-neo-green text-white",
-    cyan: "bg-neo-cyan text-ink",
-    white: "bg-white text-ink",
+    green: "bg-neo-green text-deep",
+    cyan: "bg-neo-cyan text-deep",
+    white: "bg-invert text-deep",
   };
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2 border-2 border-ink px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em]",
+        "inline-flex items-center gap-2 border-2 border-ink px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.18em]",
         tones[tone],
         className,
       )}
@@ -132,17 +132,17 @@ export function NeoPanel({
   const accents: Record<string, string> = {
     blue: "bg-neo-blue text-white",
     violet: "bg-neo-violet text-white",
-    cyan: "bg-neo-cyan text-ink",
-    green: "bg-neo-green text-white",
-    yellow: "bg-neo-yellow text-ink",
-    paper: "bg-white text-ink",
-    ink: "bg-ink text-white",
+    cyan: "bg-neo-cyan text-deep",
+    green: "bg-neo-green text-deep",
+    yellow: "bg-neo-yellow text-deep",
+    paper: "bg-panel text-ink",
+    ink: "bg-panel-2 text-ink",
   };
   return (
     <div
       className={cn(
         "border-2 border-ink",
-        accent ? accents[accent] : "bg-white text-ink",
+        accent ? accents[accent] : "bg-panel text-ink",
         hover &&
           "transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-neo",
         className,
@@ -181,10 +181,10 @@ export function Section({
 }) {
   const tones: Record<string, string> = {
     paper: "bg-paper",
-    white: "bg-white",
-    ink: "bg-ink text-white",
+    white: "bg-card",
+    ink: "bg-panel-2 text-ink",
     blue: "bg-neo-blue text-white",
-    yellow: "bg-neo-yellow text-ink",
+    yellow: "bg-neo-yellow text-deep",
   };
   return (
     <section
@@ -199,8 +199,8 @@ export function Section({
 /** A thin scrolling strip of flat blocks — used as a section divider. */
 export function Tape({ items, tone = "ink" }: { items: string[]; tone?: "ink" | "yellow" | "blue" }) {
   const tones: Record<string, string> = {
-    ink: "bg-ink text-white",
-    yellow: "bg-neo-yellow text-ink",
+    ink: "bg-panel-2 text-ink",
+    yellow: "bg-neo-yellow text-deep",
     blue: "bg-neo-blue text-white",
   };
   const row = [...items, ...items];
@@ -210,7 +210,7 @@ export function Tape({ items, tone = "ink" }: { items: string[]; tone?: "ink" | 
         {row.map((item, i) => (
           <span
             key={`${item}-${i}`}
-            className="flex items-center gap-8 text-xs font-bold uppercase tracking-[0.22em] whitespace-nowrap"
+            className="flex items-center gap-8 font-mono text-xs font-bold uppercase tracking-[0.22em] whitespace-nowrap"
           >
             {item}
             <span aria-hidden className="text-base leading-none">

@@ -31,8 +31,8 @@ export default function MentorDetail() {
   useSeo({
     title: mentor ? mentor.role : "Mentor profile",
     description: mentor
-      ? `${mentor.role} at Dishayaan — covers ${mentor.expertise.join(", ")}. Availability: ${mentor.availability}.`
-      : "Dishayaan mentor profile.",
+      ? `${mentor.role} at DishaYaaN — covers ${mentor.expertise.join(", ")}. Availability: ${mentor.availability}.`
+      : "DishaYaaN mentor profile.",
     path: `/mentor/${slug}`,
   });
 
@@ -44,7 +44,7 @@ export default function MentorDetail() {
     return (
       <Section tone="paper" className="py-24">
         <Container>
-          <div className="border-2 border-ink bg-white p-10 text-center">
+          <div className="border-2 border-ink bg-card p-10 text-center">
             <h1 className="text-2xl font-bold">That mentor seat does not exist.</h1>
             <p className="mx-auto mt-3 max-w-md text-sm text-muted-foreground">
               Mentor seats are added and retired as the network changes. Browse the
@@ -124,7 +124,7 @@ export default function MentorDetail() {
                     {mentor.expertise.map((e) => (
                       <li
                         key={e}
-                        className="border-2 border-ink bg-white px-2.5 py-1 text-xs font-semibold"
+                        className="border-2 border-ink bg-card px-2.5 py-1 text-xs font-semibold"
                       >
                         {e}
                       </li>
@@ -161,7 +161,7 @@ export default function MentorDetail() {
 
             <aside className="space-y-4 lg:sticky lg:top-28 lg:self-start">
               <div className="flex h-52 flex-col items-center justify-center gap-3 border-2 border-dashed border-ink/40 bg-paper">
-                <span className="flex size-14 items-center justify-center border-2 border-ink bg-white">
+                <span className="flex size-14 items-center justify-center border-2 border-ink bg-card">
                   <Play className="size-6" />
                 </span>
                 <p className="max-w-[220px] text-center text-xs font-semibold leading-snug text-muted-foreground">
@@ -180,7 +180,7 @@ export default function MentorDetail() {
                 </Button>
               </div>
 
-              <div className="border-2 border-ink bg-white p-5">
+              <div className="border-2 border-ink bg-card p-5">
                 <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-muted-foreground">
                   Institution
                 </p>
@@ -193,11 +193,11 @@ export default function MentorDetail() {
                 <p className="mt-1 text-sm font-semibold">{mentor.availability}</p>
               </div>
 
-              <div className="border-2 border-ink bg-neo-yellow p-5">
+              <div className="border-2 border-ink bg-neo-yellow p-5 text-deep">
                 <p className="text-sm font-bold">
                   Booking opens with the first cohort.
                 </p>
-                <p className="mt-2 text-xs leading-relaxed text-ink/80">
+                <p className="mt-2 text-xs leading-relaxed text-deep/80">
                   Leave your requirement now and we will confirm a slot in this
                   domain, in your language, at a time that works.
                 </p>
@@ -238,7 +238,7 @@ export default function MentorDetail() {
               <Link
                 key={other.id}
                 to={`/mentor/${other.slug}`}
-                className="border-2 border-ink bg-white p-5 transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-neo"
+                className="border-2 border-ink bg-card p-5 transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-neo"
               >
                 <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-muted-foreground">
                   {other.code}

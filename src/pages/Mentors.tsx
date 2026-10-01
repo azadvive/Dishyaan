@@ -30,7 +30,7 @@ export default function Mentors() {
   useSeo({
     title: "Find a mentor who understands your path",
     description:
-      "Browse Dishayaan mentor seats across AI, machine learning, robotics, drone technology, computer science, markets, life sciences and exam strategy. Matched by domain, language and schedule.",
+      "Browse DishaYaaN mentor seats across AI, machine learning, robotics, drone technology, computer science, markets, life sciences and exam strategy. Matched by domain, language and schedule.",
     path: "/mentors",
     keywords: [
       "student mentor India",
@@ -84,7 +84,7 @@ export default function Mentors() {
             eyebrow="Mentors"
             eyebrowTone="violet"
             title="Find someone who understands your path."
-            lead="Every entry below is a mentor seat in the Dishayaan network: the domain it covers, what it helps with, and when it is available. Verified mentor profiles publish with a 2-minute introduction video."
+            lead="Every entry below is a mentor seat in the DishaYaaN network: the domain it covers, what it helps with, and when it is available. Verified mentor profiles publish with a 2-minute introduction video."
           />
           <div className="mt-8 grid gap-4 border-2 border-ink bg-paper p-5 lg:grid-cols-[1.3fr_repeat(4,1fr)]">
             <Input
@@ -92,10 +92,10 @@ export default function Mentors() {
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search mentor, skill or goal…"
               aria-label="Search mentors"
-              className="border-2 border-ink bg-white"
+              className="border-2 border-ink bg-card"
             />
             <Select value={domain} onValueChange={setDomain}>
-              <SelectTrigger className="border-2 border-ink bg-white">
+              <SelectTrigger className="border-2 border-ink bg-card">
                 <SelectValue placeholder="Domain" />
               </SelectTrigger>
               <SelectContent>
@@ -107,7 +107,7 @@ export default function Mentors() {
               </SelectContent>
             </Select>
             <Select value={language} onValueChange={setLanguage}>
-              <SelectTrigger className="border-2 border-ink bg-white">
+              <SelectTrigger className="border-2 border-ink bg-card">
                 <SelectValue placeholder="Language" />
               </SelectTrigger>
               <SelectContent>
@@ -119,7 +119,7 @@ export default function Mentors() {
               </SelectContent>
             </Select>
             <Select value={availability} onValueChange={setAvailability}>
-              <SelectTrigger className="border-2 border-ink bg-white">
+              <SelectTrigger className="border-2 border-ink bg-card">
                 <SelectValue placeholder="Availability" />
               </SelectTrigger>
               <SelectContent>
@@ -139,7 +139,7 @@ export default function Mentors() {
               </SelectContent>
             </Select>
             <Select value={format} onValueChange={setFormat}>
-              <SelectTrigger className="border-2 border-ink bg-white">
+              <SelectTrigger className="border-2 border-ink bg-card">
                 <SelectValue placeholder="Format" />
               </SelectTrigger>
               <SelectContent>
@@ -152,7 +152,7 @@ export default function Mentors() {
             </Select>
           </div>
           <div className="mt-3 flex flex-wrap items-center gap-3">
-            <p className="text-xs font-semibold text-muted-foreground">
+            <p className="font-mono text-xs font-semibold text-muted-foreground">
               {filtered.length} of {MENTORS.length} mentor seats shown
             </p>
             <Button
@@ -176,7 +176,7 @@ export default function Mentors() {
               ))}
             </div>
           ) : (
-            <div className="border-2 border-dashed border-ink/40 bg-white p-10 text-center">
+            <div className="border-2 border-dashed border-ink/40 bg-card p-10 text-center">
               <p className="text-sm font-semibold">
                 No seat matches those filters yet.
               </p>
@@ -195,13 +195,13 @@ export default function Mentors() {
             </div>
           )}
 
-          <div className="mt-12 grid gap-6 border-2 border-ink bg-white p-6 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+          <div className="mt-12 grid gap-6 border-2 border-ink bg-card p-6 lg:grid-cols-[1.4fr_1fr] lg:items-center">
             <div>
               <h2 className="text-xl font-bold">
                 Are you a professional who wants to mentor?
               </h2>
               <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-                Dishayaan mentors commit to at least one hour a week, follow a
+                DishaYaaN mentors commit to at least one hour a week, follow a
                 structured review format, and get paid for their time. Verification
                 includes an identity check, a domain conversation and two reference
                 calls before your profile goes live.
@@ -218,7 +218,7 @@ export default function Mentors() {
               <MentorConnectButton
                 variant="neo"
                 source="mentors_apply"
-                context="Wants to become a Dishayaan mentor."
+                context="Wants to become a DishaYaaN mentor."
                 className="font-bold"
               >
                 Talk to the mentor team

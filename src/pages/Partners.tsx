@@ -24,7 +24,7 @@ const PARTNER_ICONS: Record<string, ComponentType<{ className?: string }>> = {
 const DELIVERY_MODELS = [
   {
     title: "Add-on lab",
-    body: "One slot a week on your timetable. Dishayaan supplies the mentor, the curriculum and the equipment plan; your faculty supervise.",
+    body: "One slot a week on your timetable. DishaYaaN supplies the mentor, the curriculum and the equipment plan; your faculty supervise.",
   },
   {
     title: "Mentor pool",
@@ -51,9 +51,9 @@ const REQUIREMENT_QUESTIONS = [
 
 export default function Partners() {
   useSeo({
-    title: "Partner with Dishayaan — schools, colleges and coaching centres",
+    title: "Partner with DishaYaaN — schools, colleges and coaching centres",
     description:
-      "Dishayaan collaborates with schools, colleges, coaching centres and NGOs to deliver future-readiness labs, mentor pools and project programmes. Submit your student requirement and we will scope a pilot.",
+      "DishaYaaN collaborates with schools, colleges, coaching centres and NGOs to deliver future-readiness labs, mentor pools and project programmes. Submit your student requirement and we will scope a pilot.",
     path: "/partners",
     keywords: [
       "school partnership robotics lab",
@@ -73,7 +73,7 @@ export default function Partners() {
               eyebrow="Institution collaboration"
               eyebrowTone="cyan"
               title="We build alongside institutions, not against them."
-              lead="Dishayaan is not trying to replace your faculty or your pedagogy. We add the layer that is hardest to staff internally: current technology exposure, industry mentors, project supervision and career guidance."
+              lead="DishaYaaN is not trying to replace your faculty or your pedagogy. We add the layer that is hardest to staff internally: current technology exposure, industry mentors, project supervision and career guidance."
             />
             <div className="border-2 border-ink bg-paper p-6">
               <Eyebrow tone="ink">What we need from you</Eyebrow>
@@ -109,7 +109,7 @@ export default function Partners() {
               const Icon = PARTNER_ICONS[partner.icon] ?? Building2;
               return (
                 <Reveal key={partner.id}>
-                  <article className="flex h-full flex-col border-2 border-ink bg-white">
+                  <article className="flex h-full flex-col border-2 border-ink bg-card">
                     <div
                       className={cn(
                         "flex items-center gap-3 border-b-2 border-ink p-5",
@@ -143,7 +143,7 @@ export default function Partners() {
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
             {DELIVERY_MODELS.map((model, i) => (
               <div key={model.title} className="border-2 border-ink bg-paper p-6">
-                <span className="font-display text-3xl font-bold text-ink/25">
+                <span className="font-mono text-3xl font-bold text-ink/25">
                   0{i + 1}
                 </span>
                 <h3 className="mt-4 text-lg font-bold">{model.title}</h3>
@@ -164,10 +164,10 @@ export default function Partners() {
                 eyebrow="Student requirement enquiry"
                 eyebrowTone="green"
                 title="Tell us what your students need."
-                lead="This form exists for our improvement: the requirements we receive decide what Dishayaan builds next. Nothing here is used for marketing."
+                lead="This form exists for our improvement: the requirements we receive decide what DishaYaaN builds next. Nothing here is used for marketing."
               />
-              <div className="mt-8 border-2 border-ink bg-white p-5">
-                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-muted-foreground">
+              <div className="mt-8 border-2 border-ink bg-card p-5">
+                <p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-muted-foreground">
                   We will ask you
                 </p>
                 <ol className="mt-3 space-y-2">

@@ -1,5 +1,6 @@
 import { internalMutation, query } from "./_generated/server";
 import { v } from "convex/values";
+import { requireAdmin } from "./roles";
 
 export const PLAN_ARGS = {
   planSlug: v.string(),
@@ -69,6 +70,7 @@ export const markPaid = internalMutation({
 export const list = query({
   args: { limit: v.optional(v.number()) },
   handler: async (ctx, args) => {
+    await requireAdmin(ctx);
     return await ctx.db.query("payments").order("desc").take(args.limit ?? 50);
   },
 });
@@ -76,6 +78,7 @@ export const list = query({
 export const enrollments = query({
   args: { limit: v.optional(v.number()) },
   handler: async (ctx, args) => {
+    await requireAdmin(ctx);
     return await ctx.db
       .query("enrollments")
       .order("desc")

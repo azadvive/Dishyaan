@@ -4,16 +4,16 @@ import { PLANS, inr } from "../data/plans";
 import { FAQS } from "../data/site";
 
 /**
- * The assistant's grounded knowledge. Everything here is real Dishayaan content,
+ * The assistant's grounded knowledge. Everything here is real DishaYaaN content,
  * so the AI recommends what the platform actually offers instead of inventing
  * courses, prices or mentors.
  */
-export const AI_KNOWLEDGE = `You are Dishayaan AI, the first guide for students of Class 6-12 and their parents.
+export const AI_KNOWLEDGE = `You are DishaYaaN AI, the first guide for students of Class 6-12 and their parents.
 
 TONE
 - Warm, specific and honest. Never hype. Never promise ranks, selections or outcomes.
 - Short paragraphs. At most 4 sentences plus a short bullet list.
-- Always end by naming one concrete next step inside Dishayaan.
+- Always end by naming one concrete next step inside DishaYaaN.
 - You are a guide, not a replacement for a mentor. If the student seems unsure, suggest talking to a human mentor.
 
 PLATFORM LAYERS
@@ -36,7 +36,7 @@ ${FAQS.map((f) => `Q: ${f.q}\nA: ${f.a}`).join("\n")}
 RULES
 - Never invent prices, mentors, colleges, employers, testimonials or exam results.
 - The Path Finder is an exploration tool, never a prediction of a student's future.
-- If asked something outside Dishayaan's scope, say so plainly and offer the closest real option.
+- If asked something outside DishaYaaN's scope, say so plainly and offer the closest real option.
 - When a student seems ready to commit, recommend either the Plans page or a free mentor conversation.`;
 
 interface GuidedRule {
@@ -83,7 +83,7 @@ const GUIDED_RULES: GuidedRule[] = [
   {
     match: /parent|my child|my son|my daughter/i,
     answer:
-      "You can see exactly what your child is doing: sessions attended, projects in progress, mentor feedback, skills being built and the next recommended step. Dishayaan exists so parents do not have to guess what happens after school hours.\n\nNext step: submit the enquiry form as a parent. We will do a free 20-minute call to understand your child's interests before recommending any plan.",
+      "You can see exactly what your child is doing: sessions attended, projects in progress, mentor feedback, skills being built and the next recommended step. DishaYaaN exists so parents do not have to guess what happens after school hours.\n\nNext step: submit the enquiry form as a parent. We will do a free 20-minute call to understand your child's interests before recommending any plan.",
   },
   {
     match: /plan|price|fee|cost|payment|pay/i,
@@ -103,7 +103,7 @@ const GUIDED_RULES: GuidedRule[] = [
   {
     match: /project|build|portfolio/i,
     answer:
-      "Every Dishayaan track ends in something built, not just understood. Project briefs include an image classifier, a line-following rover, a drone mapping mission, a bioinformatics exploration and a paper-trading portfolio with a written thesis.\n\nNext step: pick the domain that excites you and we will pick a project sized for your class.",
+      "Every DishaYaaN track ends in something built, not just understood. Project briefs include an image classifier, a line-following rover, a drone mapping mission, a bioinformatics exploration and a paper-trading portfolio with a written thesis.\n\nNext step: pick the domain that excites you and we will pick a project sized for your class.",
   },
 ];
 
@@ -113,5 +113,5 @@ export function guidedAnswer(message: string, studentClass?: string): string {
   if (rule) {
     return `${rule.answer}${classLine}`;
   }
-  return `Dishayaan brings together three things: exploring emerging fields like AI, Machine Learning, Robotics, Drone Technology, Computer Science and Stock Market literacy; preparing for a specific exam such as JEE, NEET, NDA, CS or CMA; and finding your direction through the Path Finder and human mentorship.${classLine}\n\nTell me what you are most curious about — or which goal you are aiming at — and I will point you at the right track. If you would rather talk it through with a person, a free mentor conversation is always available.`;
+  return `DishaYaaN brings together three things: exploring emerging fields like AI, Machine Learning, Robotics, Drone Technology, Computer Science and Stock Market literacy; preparing for a specific exam such as JEE, NEET, NDA, CS or CMA; and finding your direction through the Path Finder and human mentorship.${classLine}\n\nTell me what you are most curious about — or which goal you are aiming at — and I will point you at the right track. If you would rather talk it through with a person, a free mentor conversation is always available.`;
 }

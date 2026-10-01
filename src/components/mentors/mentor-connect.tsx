@@ -223,7 +223,7 @@ function MentorConnectDialog({
   return (
     <Dialog open={state.isOpen} onOpenChange={(o) => !o && close()}>
       <DialogContent className="max-h-[92vh] overflow-y-auto border-2 border-ink p-0 sm:max-w-[560px]">
-        <div className="border-b-2 border-ink bg-neo-yellow px-6 py-4">
+        <div className="border-b-2 border-ink bg-neo-yellow px-6 py-4 text-deep">
           <DialogHeader>
             <DialogTitle className="text-xl font-bold">
               {status === "sent"
@@ -232,7 +232,7 @@ function MentorConnectDialog({
                   ? "Still exploring? Talk to a real mentor."
                   : "Connect with a mentor"}
             </DialogTitle>
-            <DialogDescription className="text-sm font-medium text-ink/80">
+            <DialogDescription className="text-sm font-medium text-deep/80">
               {status === "sent"
                 ? "A mentor from the matching domain will reach out on WhatsApp."
                 : "Free 20-minute conversation. No fees, no pressure, no sales script."}

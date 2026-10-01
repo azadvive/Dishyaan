@@ -1,6 +1,7 @@
 import { mutation, query } from "./_generated/server";
 import { v } from "convex/values";
 import { leadStatusValidator } from "./schema";
+import { requireAdmin } from "./roles";
 
 /** Institution collaboration requests — schools, colleges, coaching centres, NGOs. */
 export const submit = mutation({
@@ -42,6 +43,7 @@ export const submit = mutation({
 export const list = query({
   args: { limit: v.optional(v.number()) },
   handler: async (ctx, args) => {
+    await requireAdmin(ctx);
     return await ctx.db
       .query("partnerEnquiries")
       .order("desc")
@@ -52,6 +54,7 @@ export const list = query({
 export const setStatus = mutation({
   args: { id: v.id("partnerEnquiries"), status: leadStatusValidator },
   handler: async (ctx, args) => {
+    await requireAdmin(ctx);
     await ctx.db.patch(args.id, { status: args.status });
     return { ok: true };
   },

@@ -22,7 +22,7 @@ export const PLANS: Plan[] = [
       "Full course & exam catalogue access",
       "Guided track for one exploration domain",
       "Monthly Path Finder re-run with a written profile",
-      "100 Dishayaan AI credits per month",
+      "100 DishaYaaN AI credits per month",
       "1 group mentor session every month",
       "Project library with starter briefs",
     ],

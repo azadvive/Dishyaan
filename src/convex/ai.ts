@@ -7,7 +7,7 @@ import { vly } from "../lib/vly-integrations";
 import { AI_KNOWLEDGE, guidedAnswer } from "./knowledge";
 
 /**
- * Dishayaan AI. Runs as a Node action so the provider key stays server-side.
+ * DishaYaaN AI. Runs as a Node action so the provider key stays server-side.
  * If the model is unavailable we fall back to a grounded, rule-based guide and
  * still answer usefully — we never show a fake "typing" success.
  */

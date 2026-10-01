@@ -1,6 +1,7 @@
 import { mutation, query } from "./_generated/server";
 import { v } from "convex/values";
 import { leadRoleValidator, leadStatusValidator } from "./schema";
+import { requireAdmin } from "./roles";
 
 /**
  * Demand discovery. Who is asking, what they actually need, and what would
@@ -49,18 +50,16 @@ export const submit = mutation({
 });
 
 export const list = query({
-  args: { limit: v.optional(v.number()) },
-  handler: async (ctx, args) => {
-    return await ctx.db
-      .query("leads")
-      .order("desc")
-      .take(args.limit ?? 50);
+  args: { limit: v.optional(v.number()) },  handler: async (ctx, args) => {
+    await requireAdmin(ctx);
+    return await ctx.db.query("leads").order("desc").take(args.limit ?? 50);
   },
 });
 
 export const setStatus = mutation({
   args: { id: v.id("leads"), status: leadStatusValidator },
   handler: async (ctx, args) => {
+    await requireAdmin(ctx);
     await ctx.db.patch(args.id, { status: args.status });
     return { ok: true };
   },

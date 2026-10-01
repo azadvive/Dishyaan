@@ -31,11 +31,11 @@ import { Link } from "react-router";
 export const accentBg: Record<Accent, string> = {
   blue: "bg-neo-blue text-white",
   violet: "bg-neo-violet text-white",
-  cyan: "bg-neo-cyan text-ink",
-  green: "bg-neo-green text-white",
-  orange: "bg-neo-orange text-ink",
-  pink: "bg-neo-pink text-white",
-  yellow: "bg-neo-yellow text-ink",
+  cyan: "bg-neo-cyan text-deep",
+  green: "bg-neo-green text-deep",
+  orange: "bg-neo-orange text-deep",
+  pink: "bg-neo-pink text-deep",
+  yellow: "bg-neo-yellow text-deep",
 };
 
 export const accentText: Record<Accent, string> = {
@@ -90,13 +90,13 @@ export function TrackCard({
   onExplore?: (track: ExploreTrack) => void;
 }) {
   return (
-    <article className="group flex h-full flex-col border-2 border-ink bg-white">
+    <article className="group flex h-full flex-col border-2 border-ink bg-card">
       <div className={cn("flex items-start justify-between gap-3 border-b-2 border-ink p-4", accentBg[track.accent])}>
         <div className="flex items-center gap-3">
           <TrackIcon icon={track.icon} className="size-6" />
           <h3 className="text-base font-bold leading-tight">{track.short}</h3>
         </div>
-        <span className="border-2 border-ink bg-white px-2 py-0.5 text-[10px] font-bold text-ink">
+        <span className="border-2 border-ink bg-invert px-2 py-0.5 font-mono text-[10px] font-bold text-deep">
           {track.classRange}
         </span>
       </div>
@@ -126,7 +126,7 @@ export function TrackCard({
         <button
           type="button"
           onClick={() => onExplore?.(track)}
-          className="mt-2 flex items-center justify-between border-2 border-ink bg-paper px-3 py-2 text-sm font-bold transition-colors group-hover:bg-neo-yellow"
+          className="mt-2 flex items-center justify-between border-2 border-ink bg-paper px-3 py-2 font-mono text-sm font-bold transition-colors group-hover:bg-neo-yellow group-hover:text-deep"
         >
           Explore this field
           <ArrowUpRight className="size-4" />
@@ -138,7 +138,7 @@ export function TrackCard({
 
 export function ProgramCard({ program }: { program: Program }) {
   return (
-    <article className="flex h-full flex-col border-2 border-ink bg-white">
+    <article className="flex h-full flex-col border-2 border-ink bg-card">
       <div className="flex items-center justify-between gap-2 border-b-2 border-ink bg-paper px-4 py-2.5">
         <span className="text-[11px] font-bold uppercase tracking-[0.16em]">
           {program.examCode ?? "Explore"}
@@ -197,7 +197,7 @@ export function ProgramCard({ program }: { program: Program }) {
             )}
           </p>
           <Button asChild variant="neo" size="sm" className="font-bold">
-            <Link to="/catalog">Details</Link>
+            <Link to={`/program/${program.slug}`}>View details</Link>
           </Button>
         </div>
       </div>
@@ -213,7 +213,7 @@ export function MentorCard({
   compact?: boolean;
 }) {
   return (
-    <article className="group flex h-full flex-col border-2 border-ink bg-white transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-neo">
+    <article className="group flex h-full flex-col border-2 border-ink bg-card transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-neo">
       <div className="flex items-start gap-3 border-b-2 border-ink p-4">
         <span className="flex size-12 shrink-0 items-center justify-center border-2 border-ink bg-neo-violet text-lg font-black text-white">
           {mentor.role.slice(0, 1)}
@@ -315,12 +315,12 @@ export function PlanCard({
   return (
     <article
       className={cn(
-        "relative flex h-full flex-col border-2 border-ink bg-white",
+        "relative flex h-full flex-col border-2 border-ink bg-card",
         plan.popular && "shadow-neo",
       )}
     >
       {plan.popular ? (
-        <span className="absolute -top-3 left-4 border-2 border-ink bg-neo-yellow px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">
+        <span className="absolute -top-3 left-4 border-2 border-ink bg-neo-yellow px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-deep">
           Most chosen
         </span>
       ) : null}

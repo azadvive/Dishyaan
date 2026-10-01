@@ -3,7 +3,7 @@ import type { Mentor } from "../types";
 /**
  * HONEST ROSTER — READ THIS BEFORE EDITING
  *
- * Dishayaan has not yet published verified mentors. Rather than inventing
+ * DishaYaaN has not yet published verified mentors. Rather than inventing
  * names, colleges or employers, these entries describe the *mentor seats* the
  * network is staffing: the domain a mentor covers, what they help with and when
  * they are available. Every card is labelled "profile in verification".

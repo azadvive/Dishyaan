@@ -1,6 +1,6 @@
-/* Dishayaan type system — premium tech display + readable body, with
-   graceful fallbacks if webfonts are unavailable. */
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap");
+/* DishaYaaN type system — a technical display face, a readable body face and a
+   mono face for labels, with graceful fallbacks if webfonts are unavailable. */
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap");
 
 /* DO NOT CHANGE */
 @import "tailwindcss";
@@ -46,8 +46,8 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* ── NEOBRUTALISM MINIMALISM EXTENSIONS ───────────────────────────────
-   Square corners everywhere, flat brand blocks, black ink borders. */
+/* ── NEOBRUTALISM MINIMALISM, DARK AND TECHNICAL ─────────────────────
+   Square corners, hard light borders, flat neon blocks, mono labels. */
 
 @theme {
   --radius-none: 0px;
@@ -59,23 +59,29 @@
   --radius-3xl: 0px;
   --radius-4xl: 0px;
 
-  --color-ink: #0f172a;
-  --color-midnight: #07111f;
-  --color-paper: #f8fafc;
-  --color-bone: #ffffff;
+  /* Structure */
+  --color-ink: #f2f5fa;
+  --color-deep: #06080d;
+  --color-paper: #0a0f19;
+  --color-panel: #0d1220;
+  --color-panel-2: #141c2e;
+  --color-invert: #f2f5fa;
 
+  /* Neon accents. Rule for the dark theme: blue and violet blocks carry light
+     text, every other accent is bright enough to carry near-black text. */
   --color-neo-blue: #2563eb;
   --color-neo-violet: #7c3aed;
-  --color-neo-cyan: #06b6d4;
-  --color-neo-green: #16a34a;
+  --color-neo-cyan: #22d3ee;
+  --color-neo-green: #22c55e;
   --color-neo-yellow: #facc15;
   --color-neo-orange: #fb923c;
   --color-neo-pink: #ec4899;
-  --color-neo-red: #dc2626;
+  --color-neo-red: #ef4444;
 
   --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
     sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --animate-tape: tape 30s linear infinite;
   --animate-caret: caret 1s steps(2, start) infinite;
@@ -96,7 +102,7 @@
   }
 }
 
-/* Hard, offset shadows are the signature of the theme. */
+/* Hard offset shadows: light by default, neon for emphasis. */
 @utility shadow-neo-sm {
   box-shadow: 3px 3px 0 0 var(--color-ink);
 }
@@ -106,8 +112,20 @@
 @utility shadow-neo-lg {
   box-shadow: 9px 9px 0 0 var(--color-ink);
 }
-@utility shadow-neo-color {
-  box-shadow: 6px 6px 0 0 var(--color-ink);
+@utility shadow-neo-blue {
+  box-shadow: 5px 5px 0 0 var(--color-neo-blue);
+}
+@utility shadow-neo-violet {
+  box-shadow: 5px 5px 0 0 var(--color-neo-violet);
+}
+@utility shadow-neo-cyan {
+  box-shadow: 5px 5px 0 0 #22d3ee;
+}
+@utility shadow-neo-green {
+  box-shadow: 5px 5px 0 0 #22c55e;
+}
+@utility shadow-neo-yellow {
+  box-shadow: 5px 5px 0 0 var(--color-neo-yellow);
 }
 
 @utility neo-border {
@@ -116,81 +134,85 @@
   border-color: var(--color-ink);
 }
 
+/* Technical grid, drawn in light hairlines on the dark surface. */
 @utility neo-grid {
   background-image:
-    linear-gradient(to right, rgba(15, 23, 42, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+    linear-gradient(to right, rgba(242, 245, 250, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(242, 245, 250, 0.055) 1px, transparent 1px);
   background-size: 56px 56px;
+}
+
+@utility neo-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 /* CHANGE VALUES FOR THEME */
 :root {
   --radius: 0px;
-  --background: #f8fafc;
-  --foreground: #0f172a;
-  --card: #ffffff;
-  --card-foreground: #0f172a;
-  --popover: #ffffff;
-  --popover-foreground: #0f172a;
-  --primary: #0f172a;
-  --primary-foreground: #ffffff;
-  --secondary: #eef2f7;
-  --secondary-foreground: #0f172a;
-  --muted: #eef2f7;
-  --muted-foreground: #64748b;
-  --accent: #dbeafe;
-  --accent-foreground: #0f172a;
-  --destructive: #dc2626;
-  --border: #0f172a;
-  --input: #0f172a;
-  --ring: #2563eb;
+  --background: #06080d;
+  --foreground: #f2f5fa;
+  --card: #0d1220;
+  --card-foreground: #f2f5fa;
+  --popover: #0d1220;
+  --popover-foreground: #f2f5fa;
+  --primary: #f2f5fa;
+  --primary-foreground: #06080d;
+  --secondary: #141c2e;
+  --secondary-foreground: #f2f5fa;
+  --muted: #141c2e;
+  --muted-foreground: #97a5bd;
+  --accent: #1b2438;
+  --accent-foreground: #f2f5fa;
+  --destructive: #f87171;
+  --border: #e8edf6;
+  --input: #e8edf6;
+  --ring: #22d3ee;
   --chart-1: #2563eb;
-  --chart-2: #06b6d4;
+  --chart-2: #22d3ee;
   --chart-3: #7c3aed;
-  --chart-4: #16a34a;
-  --chart-5: #fb923c;
-  --sidebar: #ffffff;
-  --sidebar-foreground: #0f172a;
-  --sidebar-primary: #0f172a;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #eef2f7;
-  --sidebar-accent-foreground: #0f172a;
-  --sidebar-border: #0f172a;
-  --sidebar-ring: #2563eb;
+  --chart-4: #22c55e;
+  --chart-5: #f59e0b;
+  --sidebar: #0d1220;
+  --sidebar-foreground: #f2f5fa;
+  --sidebar-primary: #f2f5fa;
+  --sidebar-primary-foreground: #06080d;
+  --sidebar-accent: #141c2e;
+  --sidebar-accent-foreground: #f2f5fa;
+  --sidebar-border: #e8edf6;
+  --sidebar-ring: #22d3ee;
 }
 
 .dark {
-  --background: #07111f;
-  --foreground: #f8fafc;
-  --card: #0f172a;
-  --card-foreground: #f8fafc;
-  --popover: #0f172a;
-  --popover-foreground: #f8fafc;
-  --primary: #f8fafc;
-  --primary-foreground: #0f172a;
-  --secondary: #16203a;
-  --secondary-foreground: #f8fafc;
-  --muted: #16203a;
-  --muted-foreground: #94a3b8;
-  --accent: #1e293b;
-  --accent-foreground: #f8fafc;
-  --destructive: #ef4444;
-  --border: #f8fafc;
-  --input: #f8fafc;
-  --ring: #60a5fa;
-  --chart-1: #60a5fa;
-  --chart-2: #22d3ee;
-  --chart-3: #a78bfa;
-  --chart-4: #4ade80;
-  --chart-5: #fb923c;
-  --sidebar: #0f172a;
-  --sidebar-foreground: #f8fafc;
-  --sidebar-primary: #f8fafc;
-  --sidebar-primary-foreground: #0f172a;
-  --sidebar-accent: #16203a;
-  --sidebar-accent-foreground: #f8fafc;
-  --sidebar-border: #f8fafc;
-  --sidebar-ring: #60a5fa;
+  --background: #06080d;
+  --foreground: #f2f5fa;
+  --card: #0d1220;
+  --card-foreground: #f2f5fa;
+  --popover: #0d1220;
+  --popover-foreground: #f2f5fa;
+  --primary: #f2f5fa;
+  --primary-foreground: #06080d;
+  --secondary: #141c2e;
+  --secondary-foreground: #f2f5fa;
+  --muted: #141c2e;
+  --muted-foreground: #97a5bd;
+  --accent: #1b2438;
+  --accent-foreground: #f2f5fa;
+  --destructive: #f87171;
+  --border: #e8edf6;
+  --input: #e8edf6;
+  --ring: #22d3ee;
+  --sidebar: #0d1220;
+  --sidebar-foreground: #f2f5fa;
+  --sidebar-primary: #f2f5fa;
+  --sidebar-primary-foreground: #06080d;
+  --sidebar-accent: #141c2e;
+  --sidebar-accent-foreground: #f2f5fa;
+  --sidebar-border: #e8edf6;
+  --sidebar-ring: #22d3ee;
 }
 
 @layer base {
@@ -199,6 +221,7 @@
   }
   html {
     -webkit-text-size-adjust: 100%;
+    color-scheme: dark;
   }
   body {
     @apply bg-background text-foreground;
@@ -218,13 +241,30 @@
     cursor: pointer;
   }
   :focus-visible {
-    outline: 3px solid var(--color-neo-blue);
+    outline: 3px solid #22d3ee;
     outline-offset: 2px;
   }
   ::selection {
     background: var(--color-neo-yellow);
-    color: var(--color-ink);
+    color: var(--color-deep);
   }
+  ::placeholder {
+    color: #6b7a93;
+  }
+}
+
+/* Thin, technical scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2a3446 transparent;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #26304a;
+  border: 2px solid var(--color-deep);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -24,7 +24,7 @@ const PRINCIPLES = [
   },
   {
     title: "AI assists; humans decide",
-    body: "Dishayaan AI narrows the field quickly. A person then helps you choose a direction and stay with it.",
+    body: "DishaYaaN AI narrows the field quickly. A person then helps you choose a direction and stay with it.",
   },
   {
     title: "Parents are partners",
@@ -35,13 +35,13 @@ const PRINCIPLES = [
 const AUDIENCE_THINKING = [
   {
     title: "How we think about students",
-    body: "You are not a syllabus to be covered. You are someone with curiosity, limited time and real pressure from school. Dishayaan tries to make exploration cheap — one hour a week that widens what you think is possible for yourself.",
+    body: "You are not a syllabus to be covered. You are someone with curiosity, limited time and real pressure from school. DishaYaaN tries to make exploration cheap — one hour a week that widens what you think is possible for yourself.",
     accent: "bg-neo-blue text-white",
   },
   {
     title: "How we think about parents",
     body: "You deserve to know what happens after school hours without interrogating your child. You get the same roadmap, attendance and mentor notes they do, in plain language.",
-    accent: "bg-neo-green text-white",
+    accent: "bg-neo-green text-deep",
   },
   {
     title: "How we think about mentors",
@@ -52,9 +52,9 @@ const AUDIENCE_THINKING = [
 
 export default function About() {
   useSeo({
-    title: "Why Dishayaan exists",
+    title: "Why DishaYaaN exists",
     description:
-      "Dishayaan bridges the gap between academics and the real world for students of Class 6–12: exposure, mentorship, technology awareness, projects, career guidance and decision-making.",
+      "DishaYaaN bridges the gap between academics and the real world for students of Class 6–12: exposure, mentorship, technology awareness, projects, career guidance and decision-making.",
     path: "/about",
     keywords: [
       "why mentorship matters for students",
@@ -71,9 +71,9 @@ export default function About() {
           <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr]">
             <div>
               <SectionHeader
-                eyebrow="About Dishayaan"
+                eyebrow="About DishaYaaN"
                 eyebrowTone="violet"
-                title="Why Dishayaan exists."
+                title="Why DishaYaaN exists."
                 lead="Traditional academics matter — and they are not enough on their own. A student can score well and still have no idea what they enjoy, what they are good at, or what the world they are stepping into actually looks like."
               />
             </div>
@@ -96,7 +96,7 @@ export default function About() {
                 ))}
               </ul>
               <p className="mt-5 border-t-2 border-dashed border-ink/30 pt-4 text-sm leading-relaxed text-muted-foreground">
-                Dishayaan exists to close that gap without pretending school does not
+                DishaYaaN exists to close that gap without pretending school does not
                 matter.
               </p>
             </div>
@@ -108,7 +108,7 @@ export default function About() {
         <Container>
           <div className="grid gap-10 lg:grid-cols-2">
             <Reveal>
-              <div className="h-full border-2 border-ink bg-white p-6">
+              <div className="h-full border-2 border-ink bg-card p-6">
                 <Eyebrow tone="blue">Our vision</Eyebrow>
                 <h2 className="mt-4 text-2xl font-bold leading-tight">
                   Every student should be able to name three futures they would
@@ -122,7 +122,7 @@ export default function About() {
               </div>
             </Reveal>
             <Reveal delay={0.08}>
-              <div className="h-full border-2 border-ink bg-white p-6">
+              <div className="h-full border-2 border-ink bg-card p-6">
                 <Eyebrow tone="ink">The problem</Eyebrow>
                 <div className="mt-4 space-y-4 text-sm leading-relaxed text-muted-foreground">
                   <p>
@@ -204,7 +204,7 @@ export default function About() {
           <div className="mt-10 grid gap-5 sm:grid-cols-2">
             {PRINCIPLES.map((p) => (
               <Reveal key={p.title}>
-                <div className="h-full border-2 border-ink bg-white p-6">
+                <div className="h-full border-2 border-ink bg-card p-6">
                   <h3 className="text-lg font-bold">{p.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                     {p.body}
@@ -225,7 +225,7 @@ export default function About() {
           />
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
             {AUDIENCE_THINKING.map((item) => (
-              <div key={item.title} className="border-2 border-ink bg-white">
+              <div key={item.title} className="border-2 border-ink bg-card">
                 <div className={`border-b-2 border-ink p-5 ${item.accent}`}>
                   <h3 className="text-lg font-bold">{item.title}</h3>
                 </div>
@@ -243,10 +243,10 @@ export default function About() {
           <div className="grid gap-8 lg:grid-cols-[1.3fr_1fr] lg:items-center">
             <div>
               <Eyebrow tone="cyan">The future of learning</Eyebrow>
-              <h2 className="mt-5 text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
+              <h2 className="mt-5 text-2xl font-bold text-ink sm:text-3xl lg:text-4xl">
                 The digital campus for the future.
               </h2>
-              <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/70">
+              <p className="mt-4 max-w-2xl text-sm leading-relaxed text-ink/70">
                 Students explore. Mentors guide. AI assists. Projects demonstrate.
                 Parents understand. Careers become clearer. That is the whole
                 architecture — and v1 is the first honest slice of it, built around
@@ -271,16 +271,16 @@ export default function About() {
                 </MentorConnectButton>
               </div>
             </div>
-            <div className="border-2 border-white bg-midnight p-6">
-              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-neo-cyan">
+            <div className="border-2 border-ink bg-panel p-6">
+              <p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-neo-cyan">
                 Founder story
               </p>
-              <p className="mt-3 text-sm leading-relaxed text-white/70">
+              <p className="mt-3 text-sm leading-relaxed text-ink/70">
                 This section publishes when the founding team is ready to be named
                 publicly, with their own words — not a marketing paragraph written for
                 them. Nothing is written here on their behalf until then.
               </p>
-              <p className="mt-4 text-xs text-white/50">
+              <p className="mt-4 text-xs text-ink/45">
                 Require further detail? Ask through the partnership or enquiry form and
                 we will answer directly.
               </p>

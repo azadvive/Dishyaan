@@ -1,4 +1,4 @@
-/** Shared domain types for Dishayaan v1. */
+/** Shared domain types for DishaYaaN v1. */
 
 export type Accent =
   | "blue"
@@ -9,7 +9,7 @@ export type Accent =
   | "pink"
   | "yellow";
 
-/** The strategic layers Dishayaan organises every offering into. */
+/** The strategic layers DishaYaaN organises every offering into. */
 export type OfferingLayer = "goal" | "future" | "direction";
 
 export type ExploreTrackId =

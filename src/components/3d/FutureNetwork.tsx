@@ -14,7 +14,7 @@ import type {
   WebGLRenderer,
 } from "three";
 
-/** Domains orbiting the Dishayaan core — real v1 tracks plus exam routes. */
+/** Domains orbiting the DishaYaaN core — real v1 tracks plus exam routes. */
 export interface NetworkNode {
   id: string;
   label: string;
@@ -203,7 +203,7 @@ function HoverTooltip({ hover }: { hover: HoverState | null }) {
   if (!hover) return null;
   return (
     <div
-      className="pointer-events-none absolute z-20 w-[210px] border-2 border-ink bg-white p-3 shadow-neo"
+      className="pointer-events-none absolute z-20 w-[210px] border-2 border-ink bg-card p-3 shadow-neo"
       style={{
         left: hover.x,
         top: hover.y,
@@ -261,7 +261,7 @@ function mountScene(
   // ── Core node ─────────────────────────────────────────────────────
   const coreGeo = new THREE.IcosahedronGeometry(0.62, 1);
   const coreMat = new THREE.MeshBasicMaterial({
-    color: 0x0f172a,
+    color: 0xf2f5fa,
     wireframe: true,
   });
   const core = new THREE.Mesh(coreGeo, coreMat);
@@ -272,7 +272,7 @@ function mountScene(
   const coreInner = new THREE.Mesh(coreInnerGeo, coreInnerMat);
   root.add(coreInner);
 
-  const coreLabel = makeLabel(THREE, "DISHAAYAAN", 36, "#ffffff", "#0f172a", 1.9);
+  const coreLabel = makeLabel(THREE, "DISHAYAAN", 36, "#06080d", "#facc15", 1.9);
   coreLabel.position.set(0, -1.05, 0);
   root.add(coreLabel);
 
@@ -329,9 +329,9 @@ function mountScene(
     new THREE.Float32BufferAttribute(linePositions, 3),
   );
   const lineMat = new THREE.LineBasicMaterial({
-    color: 0x0f172a,
+    color: 0xf2f5fa,
     transparent: true,
-    opacity: 0.22,
+    opacity: 0.28,
   });
   const lines = new THREE.LineSegments(lineGeo, lineMat);
   root.add(lines);
@@ -354,7 +354,7 @@ function mountScene(
     new THREE.BufferAttribute(particlePositions, 3),
   );
   const particleMat = new THREE.PointsMaterial({
-    color: 0x64748b,
+    color: 0x7b8aa3,
     size: 0.045,
     transparent: true,
     opacity: 0.55,
@@ -560,8 +560,8 @@ function FutureNetwork2D({
       >
         <div className="absolute inset-6 border-2 border-dashed border-ink/25" />
         <div className="absolute inset-16 border-2 border-ink/15" />
-        <div className="absolute left-1/2 top-1/2 flex size-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center border-2 border-ink bg-ink text-center text-[10px] font-bold uppercase tracking-wider text-white">
-          Dishayaan
+        <div className="absolute left-1/2 top-1/2 flex size-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center border-2 border-ink bg-panel-2 text-center font-mono text-[10px] font-bold uppercase tracking-wider text-ink">
+          DishaYaaN
         </div>
         {NETWORK_NODES.map((node, i) => {
           const angle = (i / NETWORK_NODES.length) * Math.PI * 2;
@@ -580,7 +580,7 @@ function FutureNetwork2D({
                 onHover?.(null);
                 onHoverChange(null);
               }}
-              className="absolute -translate-x-1/2 -translate-y-1/2 border-2 border-ink bg-white px-2 py-1 text-[10px] font-bold whitespace-nowrap"
+              className="absolute -translate-x-1/2 -translate-y-1/2 border-2 border-ink bg-card px-2 py-1 font-mono text-[10px] font-bold whitespace-nowrap"
               style={{ left: `${left}%`, top: `${top}%` }}
             >
               {node.label}
@@ -588,7 +588,7 @@ function FutureNetwork2D({
           );
         })}
       </motion.div>
-      <p className="mt-4 text-center text-xs text-muted-foreground">
+      <p className="mt-4 text-center font-mono text-xs text-muted-foreground">
         Lightweight view — the full interactive 3D network runs on larger screens.
       </p>
     </div>

@@ -1,7 +1,7 @@
 import type { ExploreTrack, Program } from "../types";
 
 /**
- * Every Dishayaan offering sits in one of three strategic layers so the
+ * Every DishaYaaN offering sits in one of three strategic layers so the
  * catalogue never reads like a random pile of courses:
  *   future    → explore emerging technology & science
  *   goal      → prepare for a specific exam or pathway

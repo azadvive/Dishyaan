@@ -77,7 +77,7 @@ function Field({
 }) {
   return (
     <div className={cn("space-y-2", className)}>
-      <Label className="text-xs font-bold uppercase tracking-[0.14em]">
+      <Label className="font-mono text-xs font-bold uppercase tracking-[0.14em]">
         {label}
       </Label>
       {children}
@@ -115,8 +115,8 @@ function ChipGroup({
             aria-pressed={isOn}
             onClick={() => onToggle(option)}
             className={cn(
-              "border-2 border-ink px-3 py-2 text-left text-xs font-semibold transition-colors",
-              isOn ? "bg-neo-yellow" : "bg-white hover:bg-paper",
+              "border-2 border-ink px-3 py-2 text-left font-mono text-xs font-semibold transition-colors",
+              isOn ? "bg-neo-yellow text-deep" : "bg-card hover:bg-paper",
             )}
           >
             {option}
@@ -143,13 +143,13 @@ function FormSection({
   children: ReactNode;
 }) {
   return (
-    <fieldset className="border-2 border-ink bg-white">
+    <fieldset className="border-2 border-ink bg-card">
       <legend className="sr-only">{title}</legend>
       <div className="flex items-center gap-3 border-b-2 border-ink bg-paper px-5 py-3">
-        <span className="flex size-7 items-center justify-center border-2 border-ink bg-neo-blue text-xs font-bold text-white">
+        <span className="flex size-7 items-center justify-center border-2 border-ink bg-neo-blue font-mono text-xs font-bold text-white">
           {step}
         </span>
-        <span className="text-sm font-bold uppercase tracking-[0.12em]">
+        <span className="font-mono text-sm font-bold uppercase tracking-[0.12em]">
           {title}
         </span>
       </div>
@@ -233,7 +233,7 @@ export function EnquiryForm({ source = "home" }: { source?: string }) {
       <motion.div
         initial={reduce ? undefined : { opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        className="border-2 border-ink bg-white p-8 text-center shadow-neo"
+        className="border-2 border-ink bg-card p-8 text-center shadow-neo"
       >
         <CheckCircle2 className="mx-auto size-12 text-neo-green" />
         <h3 className="mt-4 text-xl font-bold">Thank you — this shapes what we build.</h3>
@@ -278,7 +278,7 @@ export function EnquiryForm({ source = "home" }: { source?: string }) {
               aria-pressed={role === value}
               className={cn(
                 "border-2 border-ink p-4 text-left transition-colors",
-                role === value ? "bg-neo-yellow" : "bg-white hover:bg-paper",
+                role === value ? "bg-neo-yellow text-deep" : "bg-card hover:bg-paper",
               )}
             >
               <span className="block text-sm font-bold">{label}</span>
@@ -437,7 +437,7 @@ export function EnquiryForm({ source = "home" }: { source?: string }) {
           </Field>
         </div>
         {isEducator ? (
-          <Field label="What would you want Dishayaan to run for your students?">
+          <Field label="What would you want DishaYaaN to run for your students?">
             <Textarea
               rows={3}
               value={message}
@@ -512,7 +512,7 @@ export function EnquiryForm({ source = "home" }: { source?: string }) {
               rows={3}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              placeholder="Optional. Tell us the specific thing that would make Dishayaan worth it for you."
+              placeholder="Optional. Tell us the specific thing that would make DishaYaaN worth it for you."
               className="border-2 border-ink"
             />
           </Field>
@@ -525,7 +525,7 @@ export function EnquiryForm({ source = "home" }: { source?: string }) {
             aria-label="Consent to being contacted"
           />
           <span className="text-xs leading-relaxed text-muted-foreground">
-            I agree that Dishayaan may store this enquiry and contact me on WhatsApp
+            I agree that DishaYaaN may store this enquiry and contact me on WhatsApp
             about it. Checkbox selection and free-text answers are used only to
             improve the platform. We never sell data, and you can ask us to delete
             it at any time.
@@ -617,7 +617,7 @@ export function PartnerForm() {
       <motion.div
         initial={reduce ? undefined : { opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        className="border-2 border-ink bg-white p-8 text-center shadow-neo"
+        className="border-2 border-ink bg-card p-8 text-center shadow-neo"
       >
         <CheckCircle2 className="mx-auto size-12 text-neo-green" />
         <h3 className="mt-4 text-xl font-bold">Requirement received.</h3>
@@ -777,7 +777,7 @@ export function PartnerForm() {
           aria-label="Consent to being contacted"
         />
         <span className="text-xs leading-relaxed text-muted-foreground">
-          I agree that Dishayaan may store this institutional enquiry and contact me
+          I agree that DishaYaaN may store this institutional enquiry and contact me
           about it. Requirements are used to design programmes, not shared publicly.
         </span>
       </label>

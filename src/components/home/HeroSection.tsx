@@ -26,7 +26,7 @@ export function HeroSection() {
   const [activeNode, setActiveNode] = useState<string | null>(null);
 
   return (
-    <section className="relative overflow-hidden border-b-2 border-ink bg-white">
+    <section className="relative overflow-hidden border-b-2 border-ink bg-deep">
       <div className="pointer-events-none absolute inset-0 neo-grid opacity-70" />
       <Container className="relative py-12 sm:py-16 lg:py-20">
         <motion.div
@@ -62,9 +62,9 @@ export function HeroSection() {
               variants={reduce ? undefined : staggerChild}
               className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
             >
-              Dishayaan helps students of Class 6–12 explore emerging technology,
-              discover career possibilities, build real projects and learn from
-              mentors who have walked the path.
+              DishaYaaN is a mentorship programme for students of Class 6–12:
+              one-to-one counselling, emerging technology, real projects and honest
+              guidance from mentors who have walked the path.
             </motion.p>
 
             <motion.div
@@ -98,7 +98,7 @@ export function HeroSection() {
                 }}
               >
                 <Sparkles className="size-4" />
-                Ask Dishayaan AI
+                Ask DishaYaaN AI
               </Button>
             </motion.div>
 
@@ -109,7 +109,7 @@ export function HeroSection() {
               {TRUST_LINE.map((item) => (
                 <p
                   key={item}
-                  className="text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground"
+                  className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground"
                 >
                   {item}
                 </p>
@@ -118,9 +118,16 @@ export function HeroSection() {
 
             <motion.div
               variants={reduce ? undefined : staggerChild}
-              className="mt-6"
+              className="mt-6 flex flex-wrap items-center gap-3"
             >
               <MentorConnectButton source="hero" variant="neo-green" size="sm" />
+              <Link
+                to="/book"
+                onClick={() => track("hero_cta_click", { cta: "book_session" })}
+                className="border-2 border-ink px-3 py-1.5 font-mono text-xs font-bold uppercase tracking-wider transition-colors hover:bg-neo-cyan hover:text-deep"
+              >
+                Book a one-to-one session →
+              </Link>
             </motion.div>
 
             {activeNode ? (
@@ -132,11 +139,11 @@ export function HeroSection() {
           </div>
 
           <div className="relative">
-            <div className="mb-4 flex items-center justify-between gap-3">
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground">
+            <div className="mb-4 flex items-center justify-between gap-3 font-mono">
+              <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-neo-cyan">
                 Future path network — hover a node
               </p>
-              <span className="border-2 border-ink bg-white px-2 py-0.5 text-[10px] font-bold">
+              <span className="border-2 border-ink bg-invert px-2 py-0.5 font-mono text-[10px] font-bold text-deep">
                 {NETWORK_NODES.length} paths
               </span>
             </div>
@@ -150,8 +157,8 @@ export function HeroSection() {
                 />
               </Suspense>
             </div>
-            <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-              Every node is a real Dishayaan track. Hover to see the skills and
+            <p className="mt-3 font-mono text-xs leading-relaxed text-muted-foreground">
+              Every node is a real DishaYaaN track. Hover to see the skills and
               projects inside it. On phones and low-power devices this renders as a
               lighter 2D map so the page stays fast.
             </p>

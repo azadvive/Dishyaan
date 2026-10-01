@@ -29,7 +29,16 @@ export type AnalyticsEvent =
   | "plan_view"
   | "checkout_start"
   | "checkout_complete"
-  | "track_explore";
+  | "track_explore"
+  | "booking_form_start"
+  | "booking_create"
+  | "community_view"
+  | "community_post_create"
+  | "community_post_delete"
+  | "community_comment_add"
+  | "admin_view"
+  | "admin_status_change"
+  | "admin_moderate_post";
 
 type Props = Record<string, string | number | boolean | undefined>;
 

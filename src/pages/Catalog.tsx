@@ -31,7 +31,7 @@ export default function Catalog() {
   useSeo({
     title: "Course & exam catalogue",
     description:
-      "The complete Dishayaan catalogue: AI and machine learning, robotics, drone technology, computer science, stock market literacy and more — plus JEE, NEET, NDA, CS and CMA preparation pathways.",
+      "The complete DishaYaaN catalogue: AI and machine learning, robotics, drone technology, computer science, stock market literacy and more — plus JEE, NEET, NDA, CS and CMA preparation pathways.",
     path: "/catalog",
     keywords: [
       "AI course for school students",
@@ -67,11 +67,11 @@ export default function Catalog() {
             <SectionHeader
               eyebrow="Course & exam catalogue"
               eyebrowTone="blue"
-              title="Everything Dishayaan runs, in one place."
+              title="Everything DishaYaaN runs, in one place."
               lead="Organised in three layers so you always know whether you are exploring, preparing for a goal, or working out what to aim at."
             />
             <div className="border-2 border-ink bg-paper p-5">
-              <p className="text-sm font-bold">Built for Class 6–12.</p>
+              <p className="font-mono text-sm font-bold">Built for Class 6–12.</p>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 Exploration tracks start at Class 6, technology labs from Class 7–8,
                 and exam pathways from Class 9 upwards. Every programme lists its
@@ -97,7 +97,7 @@ export default function Catalog() {
 
       <Section tone="paper" className="py-12 sm:py-16">
         <Container>
-          <div className="flex flex-col gap-4 border-2 border-ink bg-white p-5 lg:flex-row lg:items-end lg:justify-between">
+          <div className="flex flex-col gap-4 border-2 border-ink bg-card p-5 lg:flex-row lg:items-end lg:justify-between">
             <div className="flex flex-wrap gap-2">
               {(
                 [
@@ -113,8 +113,8 @@ export default function Catalog() {
                   onClick={() => setLayer(value)}
                   aria-pressed={layer === value}
                   className={cn(
-                    "border-2 border-ink px-3 py-2 text-sm font-bold transition-colors",
-                    layer === value ? "bg-ink text-white" : "bg-white hover:bg-paper",
+                    "border-2 border-ink px-3 py-2 font-mono text-sm font-bold transition-colors",
+                    layer === value ? "bg-invert text-deep" : "bg-card hover:bg-paper",
                   )}
                 >
                   {label}
@@ -151,7 +151,7 @@ export default function Catalog() {
           </div>
 
           {programs.length === 0 ? (
-            <p className="mt-6 border-2 border-dashed border-ink/40 bg-white p-8 text-center text-sm text-muted-foreground">
+            <p className="mt-6 border-2 border-dashed border-ink/40 bg-card p-8 text-center text-sm text-muted-foreground">
               Nothing matches that filter yet. Clear the search or ask a mentor what
               fits — we will tell you honestly if we do not run it.
             </p>
@@ -171,7 +171,7 @@ export default function Catalog() {
                 {EXAM_PROGRAMS.map((exam) => (
                   <article
                     key={exam.code}
-                    className="flex h-full flex-col border-2 border-ink bg-white"
+                    className="flex h-full flex-col border-2 border-ink bg-card"
                   >
                     <div className={cn("border-b-2 border-ink px-5 py-3", accentBg[exam.accent])}>
                       <h3 className="text-lg font-bold">{exam.name}</h3>

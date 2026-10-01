@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <Section tone="paper" className="py-20 sm:py-28">
       <Container>
-        <div className="mx-auto max-w-2xl border-2 border-ink bg-white p-8 shadow-neo sm:p-12">
+        <div className="mx-auto max-w-2xl border-2 border-ink bg-card p-8 shadow-neo sm:p-12">
           <p className="font-display text-6xl font-bold leading-none">404</p>
           <h1 className="mt-4 text-2xl font-bold sm:text-3xl">
             This page does not exist — but your future still does.

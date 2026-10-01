@@ -45,14 +45,6 @@ declare global {
 
 type PaymentStep = "details" | "processing" | "manual" | "paid" | "error";
 
-const COMPARISON_ROWS: Array<{ label: string; key: keyof Plan | "mentorship" | "ai" }> = [
-  { label: "Mentorship", key: "mentorship" },
-  { label: "AI access", key: "ai" },
-  { label: "Projects", key: "features" },
-  { label: "Progress tracking", key: "features" },
-  { label: "Parent visibility", key: "features" },
-];
-
 export default function Plans() {
   const [selected, setSelected] = useState<Plan | null>(null);
   const [open, setOpen] = useState(false);
@@ -71,7 +63,7 @@ export default function Plans() {
   useSeo({
     title: "Plans & pricing",
     description:
-      "Dishayaan plans: Explore, Mentorship, Specialized Projects, Exam Preparation and the one-time Goal Sprint. Monthly billing with mentor sessions, AI credits, projects and parent visibility included.",
+      "DishaYaaN plans: Explore, Mentorship, Specialized Projects, Exam Preparation and the one-time Goal Sprint. Monthly billing with mentor sessions, AI credits, projects and parent visibility included.",
     path: "/plans",
     keywords: [
       "student mentorship pricing",
@@ -140,7 +132,7 @@ export default function Plans() {
         order_id: result.orderId,
         amount: result.amount,
         currency: result.currency,
-        name: "Dishayaan",
+        name: "DishaYaaN",
         description: `${selected.name} plan`,
         prefill: { name: studentName, contact: whatsapp, email },
         theme: { color: "#2563eb" },
@@ -216,7 +208,7 @@ export default function Plans() {
             {PLANS.map((plan) => (
               <PlanCard key={plan.id} plan={plan} onChoose={choosePlan} />
             ))}
-            <article className="flex h-full flex-col border-2 border-dashed border-ink/50 bg-white p-5">
+            <article className="flex h-full flex-col border-2 border-dashed border-ink/50 bg-card p-5">
               <Eyebrow tone="ink">Institutions</Eyebrow>
               <h3 className="mt-4 text-xl font-bold">
                 Custom quotation for schools, colleges and centres
@@ -238,22 +230,22 @@ export default function Plans() {
             </article>
           </div>
 
-          <div className="mt-12 border-2 border-ink bg-white">
-            <div className="border-b-2 border-ink bg-ink px-5 py-3 text-white">
-              <p className="text-sm font-bold uppercase tracking-[0.14em]">
+          <div className="mt-12 border-2 border-ink bg-card">
+            <div className="border-b-2 border-ink bg-panel-2 px-5 py-3 text-ink">
+              <p className="font-mono text-sm font-bold uppercase tracking-[0.14em]">
                 What every plan includes
               </p>
             </div>
-            <div className="grid gap-px bg-ink sm:grid-cols-2">
+            <div className="grid gap-px border-t-0 bg-ink sm:grid-cols-2">
               {[
                 ["Mentorship", "1–6 live mentor sessions per month, matched by domain, language and schedule."],
-                ["Dishayaan AI", "100–500 exploration credits per month, stored server-side."],
+                ["DishaYaaN AI", "100–500 exploration credits per month, stored server-side."],
                 ["Projects", "Project briefs with mentor review; two portfolio projects per term on Specialized."],
                 ["Progress tracking", "Weekly plan adherence, skills gained and mentor notes."],
                 ["Parent visibility", "A parent view of attendance, projects and the next recommended step."],
                 ["Materials", "Digital materials included. Hardware kits are arranged separately at cost."],
               ].map(([title, body]) => (
-                <div key={title} className="bg-white p-5">
+                <div key={title} className="bg-card p-5">
                   <p className="text-sm font-bold">{title}</p>
                   <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
                     {body}
@@ -269,7 +261,7 @@ export default function Plans() {
               title="No fine print traps."
               lead="If something here is unclear, ask a mentor or the AI before paying."
             />
-            <Accordion type="single" collapsible className="border-2 border-ink bg-white">
+            <Accordion type="single" collapsible className="border-2 border-ink bg-card">
               {[
                 {
                   q: "How is billing handled?",
@@ -397,7 +389,7 @@ export default function Plans() {
 
                 <div className="border-2 border-dashed border-ink/40 bg-paper p-4 text-xs leading-relaxed text-muted-foreground">
                   Payments are created server-side and verified with a signature
-                  check. Card details never touch Dishayaan's servers.
+                  check. Card details never touch DishaYaaN's servers.
                 </div>
 
                 <Button

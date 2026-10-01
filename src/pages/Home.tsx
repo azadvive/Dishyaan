@@ -28,9 +28,9 @@ export default function Home() {
   const [audience, setAudience] = useState<Audience>(null);
 
   useSeo({
-    title: "Dishayaan — mentorship, technology and career guidance for Class 6–12",
+    title: "DishaYaaN — mentorship, technology and career guidance for Class 6–12",
     description:
-      "Dishayaan helps students of Class 6–12 explore emerging technology, prepare for JEE, NEET, NDA, CS and CMA, and build real projects with human mentors. Your future is bigger than your syllabus.",
+      "DishaYaaN helps students of Class 6–12 explore emerging technology, prepare for JEE, NEET, NDA, CS and CMA, and build real projects with human mentors. Your future is bigger than your syllabus.",
     path: "/",
     keywords: [
       "student mentorship India",
@@ -74,7 +74,7 @@ function DemandSection() {
             <SectionHeader
               eyebrow="Tell us what you need"
               eyebrowTone="blue"
-              title="We are building Dishayaan around students and parents — not assumptions."
+              title="We are building DishaYaaN around students and parents — not assumptions."
               lead="Every answer here goes into what we design next: which programmes exist, what earns trust, and what parents actually want to see."
             />
             <Button
@@ -83,7 +83,7 @@ function DemandSection() {
               onClick={openAIAssistant}
             >
               <Sparkles className="size-4" />
-              Ask Dishayaan AI instead
+              Ask DishaYaaN AI instead
             </Button>
             <div className="mt-8 border-2 border-ink bg-paper p-5">
               <Eyebrow tone="ink">Privacy</Eyebrow>
@@ -106,14 +106,14 @@ function AISection() {
   return (
     <Section tone="paper" id="ai">
       <Container>
-        <div className="grid gap-8 border-2 border-ink bg-white p-6 lg:grid-cols-[1.3fr_1fr] lg:p-10">
+        <div className="grid gap-8 border-2 border-ink bg-card p-6 shadow-neo-cyan lg:grid-cols-[1.3fr_1fr] lg:p-10">
           <div>
-            <Eyebrow tone="cyan">Dishayaan AI</Eyebrow>
+            <Eyebrow tone="cyan">DishaYaaN AI</Eyebrow>
             <h2 className="mt-5 text-3xl font-bold leading-[1.05] sm:text-4xl">
               Your first guide to what comes next.
             </h2>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
-              Ten free questions to explore domains, plans and pathways. Dishayaan AI
+              Ten free questions to explore domains, plans and pathways. DishaYaaN AI
               asks about your class and interests so its answers are useful — and
               every conversation ends with the option to speak to a human.
             </p>
@@ -125,13 +125,13 @@ function AISection() {
                 onClick={openAIAssistant}
               >
                 <Sparkles className="size-4" />
-                Ask Dishayaan AI
+                Ask DishaYaaN AI
               </Button>
             </div>
           </div>
           <ul className="space-y-3 text-sm">
             {[
-              "Grounded in real Dishayaan programmes, plans and mentor seats",
+              "Grounded in real DishaYaaN programmes, plans and mentor seats",
               "Credits stored server-side — they survive a reload",
               "Never invents prices, mentors or exam outcomes",
               "Always hands off to a human mentor",

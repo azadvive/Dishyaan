@@ -2,15 +2,17 @@ import type { Faq, PartnerType, StudentProject, Testimonial } from "../types";
 
 export const NAV_LINKS = [
   { label: "Home", to: "/" },
-  { label: "About Us", to: "/about" },
-  { label: "Plans", to: "/plans" },
+  { label: "Catalogue", to: "/catalog" },
   { label: "Mentors", to: "/mentors" },
+  { label: "Community", to: "/community" },
+  { label: "Plans", to: "/plans" },
 ];
 
 export const SECONDARY_LINKS = [
-  { label: "Course & Exam Catalogue", to: "/catalog" },
+  { label: "Book a one-to-one session", to: "/book" },
   { label: "Path Finder", to: "/pathfinder" },
-  { label: "For Schools & Centres", to: "/partners" },
+  { label: "About Us", to: "/about" },
+  { label: "For schools & centres", to: "/partners" },
 ];
 
 export const JOURNEY_STEPS = [
@@ -48,8 +50,8 @@ export const JOURNEY_STEPS = [
 
 export const FAQS: Faq[] = [
   {
-    q: "Is Dishayaan a coaching institute?",
-    a: "No. Dishayaan is a mentorship and future-readiness platform. Exam preparation is one layer of it; exploration, projects, career discovery and human mentorship sit alongside it.",
+    q: "Is DishaYaaN a coaching institute?",
+    a: "No. DishaYaaN is a mentorship and future-readiness platform. Exam preparation is one layer of it; exploration, projects, career discovery and human mentorship sit alongside it.",
   },
   {
     q: "Which classes do you work with?",
@@ -65,7 +67,7 @@ export const FAQS: Faq[] = [
   },
   {
     q: "How does the AI assistant relate to a real mentor?",
-    a: "Dishayaan AI helps you explore quickly and asks the right context questions. It never replaces a human mentor — every AI conversation ends with an option to talk to a person.",
+    a: "DishaYaaN AI helps you explore quickly and asks the right context questions. It never replaces a human mentor — every AI conversation ends with an option to talk to a person.",
   },
   {
     q: "What do parents actually get to see?",
@@ -73,11 +75,23 @@ export const FAQS: Faq[] = [
   },
   {
     q: "How does payment work?",
-    a: "Plans are billed monthly, with a one-time option for the 12-week Goal Sprint. You pay online from the Plans page and receive a receipt; nothing is charged automatically without your knowledge.",
+    a: "Plans are billed monthly, with a one-time option for the twelve-week Goal Sprint. You pay online from the Plans page and receive a receipt; nothing is charged without your knowledge.",
+  },
+  {
+    q: "How do bookings and scheduling work?",
+    a: "Pick a domain, a format and a slot on the booking page. The request lands with the mentor-matching team, you get a confirmation on WhatsApp, and the session appears in your dashboard with everything the mentor already knows about you.",
+  },
+  {
+    q: "Can students publish their own work?",
+    a: "Yes. Every learner can post an update, upload a file or an image, and comment on other students' posts in the community area. Posts are visible to the DishaYaaN community and to mentors.",
+  },
+  {
+    q: "Who can see my work and my conversations?",
+    a: "Your posts are visible to the community and to mentors. Your private sessions, bookings and payment records are visible only to you, your mentor and the DishaYaaN team.",
   },
   {
     q: "We are a school or coaching centre. Can we partner?",
-    a: "Yes. Dishayaan runs alongside institutions as an add-on lab, a mentor pool or a future-readiness programme. Send a requirement through the partnership form and we will scope it with you.",
+    a: "Yes. DishaYaaN runs alongside institutions as an add-on lab, a mentor pool or a future-readiness programme. Send a requirement through the partnership form and we will scope it with you.",
   },
   {
     q: "What if the plan is not right for us?",
@@ -91,7 +105,7 @@ export const PARTNER_TYPES: PartnerType[] = [
     name: "Schools",
     line: "Add future-readiness without adding timetable pressure.",
     detail:
-      "AI, robotics, drone and financial-literacy labs delivered inside your school calendar, with mentors provided by Dishayaan and progress reported to your academic team.",
+      "AI, robotics, drone and financial-literacy labs delivered inside your school calendar, with mentors provided by DishaYaaN and progress reported to your academic team.",
     icon: "school",
     accent: "blue",
   },
@@ -109,7 +123,7 @@ export const PARTNER_TYPES: PartnerType[] = [
     name: "Coaching Centres",
     line: "Keep your academic strength. Add the missing future layer.",
     detail:
-      "Your faculty handle the exam pedagogy; Dishayaan adds exploration tracks, project labs and mentor matching on top of what you already run.",
+      "Your faculty handle the exam pedagogy; DishaYaaN adds exploration tracks, project labs and mentor matching on top of what you already run.",
     icon: "building",
     accent: "cyan",
   },
@@ -118,7 +132,7 @@ export const PARTNER_TYPES: PartnerType[] = [
     name: "NGOs & Community Labs",
     line: "Reach students who have ambition but not exposure.",
     detail:
-      "Sponsored seats, low-bandwidth delivery and mentor time donated by the Dishayaan network for students in government and aided schools.",
+      "Sponsored seats, low-bandwidth delivery and mentor time donated by the DishaYaaN network for students in government and aided schools.",
     icon: "heart-handshake",
     accent: "green",
   },
@@ -190,16 +204,16 @@ export const STUDENT_PROJECTS: StudentProject[] = [
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      "Parent testimonials publish here after the first cohort completes a full term and consents to being quoted.",
+      "Parent testimonials publish here after the first cohort completes a full term and gives written consent to being quoted.",
     author: "Parent story coming soon",
-    context: "First Dishayaan cohort in progress",
+    context: "First DishaYaaN cohort in progress",
     placeholder: true,
   },
   {
     quote:
       "Student stories publish here after the first cohort completes a full term and consents to being quoted.",
     author: "Student story coming soon",
-    context: "First Dishayaan cohort in progress",
+    context: "First DishaYaaN cohort in progress",
     placeholder: true,
   },
   {

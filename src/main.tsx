@@ -21,8 +21,12 @@ const Plans = lazy(() => import("./pages/Plans.tsx"));
 const Mentors = lazy(() => import("./pages/Mentors.tsx"));
 const MentorDetail = lazy(() => import("./pages/MentorDetail.tsx"));
 const Catalog = lazy(() => import("./pages/Catalog.tsx"));
+const ProgramDetail = lazy(() => import("./pages/ProgramDetail.tsx"));
 const PathFinder = lazy(() => import("./pages/PathFinder.tsx"));
 const Partners = lazy(() => import("./pages/Partners.tsx"));
+const Book = lazy(() => import("./pages/Book.tsx"));
+const Community = lazy(() => import("./pages/Community.tsx"));
+const Admin = lazy(() => import("./pages/Admin.tsx"));
 const AuthPage = lazy(() => import("./pages/Auth.tsx"));
 const Dashboard = lazy(() => import("./pages/Dashboard.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
@@ -31,8 +35,8 @@ const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 function RouteLoading() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-paper">
-      <div className="border-2 border-ink bg-white px-5 py-3 text-sm font-bold uppercase tracking-[0.2em]">
-        Loading Dishayaan…
+      <div className="border-2 border-ink bg-card px-5 py-3 font-mono text-sm font-bold uppercase tracking-[0.2em]">
+        Loading DishaYaaN
       </div>
     </div>
   );
@@ -76,7 +80,7 @@ class RootErrorBoundary extends React.Component<
     if (this.state.hasError) {
       return (
         <div className="flex min-h-screen items-center justify-center bg-paper p-6 text-ink">
-          <div className="max-w-lg border-2 border-ink bg-white p-6 text-center">
+          <div className="max-w-lg border-2 border-ink bg-card p-6 text-center">
             <p className="text-sm font-bold uppercase tracking-wider">
               Preview runtime error
             </p>
@@ -139,8 +143,12 @@ createRoot(document.getElementById("root")!).render(
                 <Route path="/mentors" element={<Mentors />} />
                 <Route path="/mentor/:slug" element={<MentorDetail />} />
                 <Route path="/catalog" element={<Catalog />} />
+                <Route path="/program/:slug" element={<ProgramDetail />} />
                 <Route path="/pathfinder" element={<PathFinder />} />
                 <Route path="/partners" element={<Partners />} />
+                <Route path="/book" element={<Book />} />
+                <Route path="/community" element={<Community />} />
+                <Route path="/admin" element={<Admin />} />
                 <Route
                   path="/dashboard"
                   element={

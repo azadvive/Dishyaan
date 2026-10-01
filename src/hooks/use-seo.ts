@@ -7,7 +7,7 @@ interface SeoInput {
   keywords?: string[];
 }
 
-const SITE = "Dishayaan";
+const SITE = "DishaYaaN";
 
 function upsertMeta(selector: string, attrs: Record<string, string>) {
   let el = document.head.querySelector<HTMLMetaElement>(selector);
@@ -32,7 +32,9 @@ function upsertLink(rel: string, href: string) {
 export function useSeo({ title, description, path, keywords }: SeoInput) {
   useEffect(() => {
     const fullTitle =
-      path === "/" ? `${SITE} — Your Future Is Bigger Than Your Syllabus` : `${title} | ${SITE}`;
+      path === "/"
+        ? `${SITE} — Your Future Is Bigger Than Your Syllabus`
+        : `${title} | ${SITE}`;
     document.title = fullTitle;
 
     upsertMeta('meta[name="description"]', {

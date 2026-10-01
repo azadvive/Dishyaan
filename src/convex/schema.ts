@@ -16,7 +16,7 @@ export const roleValidator = v.union(
 );
 export type Role = Infer<typeof roleValidator>;
 
-// Dishayaan domain validators
+// DishaYaaN domain validators
 export const leadRoleValidator = v.union(
   v.literal("student"),
   v.literal("parent"),
@@ -30,6 +30,14 @@ export const leadStatusValidator = v.union(
   v.literal("closed"),
 );
 export type LeadStatusValue = Infer<typeof leadStatusValidator>;
+
+export const bookingStatusValidator = v.union(
+  v.literal("requested"),
+  v.literal("confirmed"),
+  v.literal("completed"),
+  v.literal("cancelled"),
+);
+export type BookingStatusValue = Infer<typeof bookingStatusValidator>;
 
 const schema = defineSchema(
   {
@@ -47,7 +55,7 @@ const schema = defineSchema(
       role: v.optional(roleValidator), // role of the user. do not remove
     }).index("email", ["email"]), // index for the email. do not remove or modify
 
-    // ── Dishayaan tables ────────────────────────────────────────────────
+    // ── DishaYaaN tables ────────────────────────────────────────────────
 
     /** Enquiries captured by the "Tell us what you need" demand-discovery form. */
     leads: defineTable({
@@ -165,7 +173,7 @@ const schema = defineSchema(
       trackIds: v.array(v.string()),
     }).index("by_session", ["sessionId"]),
 
-    /** Dishayaan AI conversation log + credit accounting per browser session. */
+    /** DishaYaaN AI conversation log + credit accounting per browser session. */
     aiConversations: defineTable({
       sessionId: v.string(),
       messages: v.array(
@@ -194,6 +202,63 @@ const schema = defineSchema(
         }),
       ),
     }).index("by_session", ["sessionId"]),
+
+    /** One-to-one session bookings against a domain or a specific mentor seat. */
+    bookings: defineTable({
+      reference: v.string(),
+      name: v.string(),
+      whatsapp: v.string(),
+      email: v.optional(v.string()),
+      bookerRole: leadRoleValidator,
+      studentClass: v.optional(v.string()),
+      domain: v.string(),
+      mentorSlug: v.optional(v.string()),
+      date: v.string(),
+      slot: v.string(),
+      mode: v.string(),
+      language: v.optional(v.string()),
+      goal: v.optional(v.string()),
+      note: v.optional(v.string()),
+      sessionId: v.string(),
+      userId: v.optional(v.id("users")),
+      status: v.union(
+        v.literal("requested"),
+        v.literal("confirmed"),
+        v.literal("completed"),
+        v.literal("cancelled"),
+      ),
+    })
+      .index("by_session", ["sessionId"])
+      .index("by_status", ["status"]),
+
+    /** Community posts. Students publish their own work; anyone can read. */
+    posts: defineTable({
+      authorName: v.string(),
+      sessionId: v.string(),
+      authorId: v.optional(v.id("users")),
+      kind: v.union(
+        v.literal("project"),
+        v.literal("note"),
+        v.literal("question"),
+      ),
+      title: v.string(),
+      body: v.string(),
+      tags: v.array(v.string()),
+      link: v.optional(v.string()),
+      fileId: v.optional(v.id("_storage")),
+      fileName: v.optional(v.string()),
+      contentType: v.optional(v.string()),
+      hidden: v.boolean(),
+    }).index("by_session", ["sessionId"]),
+
+    /** Comments on community posts. */
+    comments: defineTable({
+      postId: v.id("posts"),
+      authorName: v.string(),
+      sessionId: v.string(),
+      authorId: v.optional(v.id("users")),
+      body: v.string(),
+    }).index("by_post", ["postId"]),
   },
   {
     schemaValidation: false,

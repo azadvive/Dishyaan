@@ -90,7 +90,7 @@ export function AIAssistant() {
           {
             role: "assistant",
             content:
-              "I could not reach the Dishayaan service just now. You can still explore the catalogue or ask a mentor directly — a human conversation is always the better final step.",
+              "I could not reach the DishaYaaN service just now. You can still explore the catalogue or ask a mentor directly — a human conversation is always the better final step.",
           },
         ]);
       } finally {
@@ -110,16 +110,16 @@ export function AIAssistant() {
           <motion.button
             type="button"
             onClick={() => setIsOpen(true)}
-            aria-label="Open Dishayaan AI assistant"
+            aria-label="Open DishaYaaN AI assistant"
             initial={reduce ? undefined : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={reduce ? undefined : { opacity: 0, y: 12 }}
-            className="fixed bottom-20 right-4 z-40 flex items-center gap-2 border-2 border-ink bg-neo-cyan px-4 py-3 text-sm font-bold text-ink shadow-neo transition-transform hover:-translate-x-0.5 hover:-translate-y-0.5 sm:bottom-6 sm:right-6"
+            className="fixed bottom-20 right-4 z-40 flex items-center gap-2 border-2 border-ink bg-neo-cyan px-4 py-3 font-mono text-sm font-bold text-deep shadow-neo transition-transform hover:-translate-x-0.5 hover:-translate-y-0.5 sm:bottom-6 sm:right-6"
           >
             <Sparkles className="size-4" />
             <span className="hidden sm:inline">ASK DISHAAYAAN AI</span>
             <span className="sm:hidden">ASK AI</span>
-            <span className="border-2 border-ink bg-white px-1.5 py-0.5 text-[10px] font-bold">
+            <span className="border-2 border-ink bg-invert px-1.5 py-0.5 font-mono text-[10px] font-bold text-deep">
               {credits}
             </span>
           </motion.button>
@@ -131,36 +131,36 @@ export function AIAssistant() {
         {isOpen ? (
           <motion.div
             role="dialog"
-            aria-label="Dishayaan AI"
+            aria-label="DishaYaaN AI"
             initial={reduce ? undefined : { opacity: 0, y: 20, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={reduce ? undefined : { opacity: 0, y: 20, scale: 0.98 }}
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed bottom-20 right-3 z-50 flex w-[min(94vw,400px)] flex-col border-2 border-ink bg-white shadow-neo-lg sm:bottom-6 sm:right-6"
+            className="fixed bottom-20 right-3 z-50 flex w-[min(94vw,400px)] flex-col border-2 border-ink bg-card shadow-neo-lg sm:bottom-6 sm:right-6"
             style={{ maxHeight: "min(78vh, 640px)" }}
           >
-            <header className="flex items-start justify-between gap-3 border-b-2 border-ink bg-ink px-4 py-3 text-white">
+            <header className="flex items-start justify-between gap-3 border-b-2 border-ink bg-panel-2 px-4 py-3 text-ink">
               <div>
                 <p className="flex items-center gap-2 text-sm font-bold">
                   <Bot className="size-4 text-neo-cyan" />
-                  Dishayaan AI
-                  <span className="border border-white/40 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider">
+                  DishaYaaN AI
+                  <span className="border border-ink/40 px-1.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider">
                     {mode === "live" ? "Live" : mode === "guided" ? "Guided" : "Ready"}
                   </span>
                 </p>
-                <p className="mt-1 text-xs text-white/70">
+                <p className="mt-1 text-xs text-ink/60">
                   Your first guide to what comes next.
                 </p>
               </div>
               <div className="flex items-center gap-2">
-                <span className="whitespace-nowrap border-2 border-white/60 px-2 py-1 text-[10px] font-bold">
+                <span className="whitespace-nowrap border-2 border-ink/60 px-2 py-1 font-mono text-[10px] font-bold">
                   {credits} free left
                 </span>
                 <button
                   type="button"
                   onClick={() => setIsOpen(false)}
-                  aria-label="Close Dishayaan AI"
-                  className="border-2 border-white/60 p-1 hover:bg-white/10"
+                  aria-label="Close DishaYaaN AI"
+                  className="border-2 border-ink/60 p-1 hover:bg-ink/10"
                 >
                   <X className="size-3.5" />
                 </button>
@@ -174,7 +174,7 @@ export function AIAssistant() {
               {messages.length === 0 ? (
                 <div className="space-y-3">
                   <p className="font-bold">
-                    Hi! I'm Dishayaan AI. What would you like to explore?
+                    Hi! I'm DishaYaaN AI. What would you like to explore?
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {AI_STARTERS.map((starter) => (
@@ -182,7 +182,7 @@ export function AIAssistant() {
                         key={starter}
                         type="button"
                         onClick={() => void send(starter)}
-                        className="border-2 border-ink bg-paper px-2.5 py-1.5 text-left text-xs font-semibold transition-colors hover:bg-neo-yellow"
+                        className="border-2 border-ink bg-paper px-2.5 py-1.5 text-left text-xs font-semibold transition-colors hover:bg-neo-yellow hover:text-deep"
                       >
                         {starter}
                       </button>
@@ -216,7 +216,7 @@ export function AIAssistant() {
                           key={chip}
                           type="button"
                           onClick={() => void send(chip)}
-                          className="border-2 border-ink bg-white px-2.5 py-1 text-xs font-semibold hover:bg-neo-cyan/60"
+                          className="border-2 border-ink bg-card px-2.5 py-1 text-xs font-semibold hover:bg-neo-cyan"
                         >
                           {chip}
                         </button>
@@ -263,7 +263,7 @@ export function AIAssistant() {
                       value={input}
                       onChange={(e) => setInput(e.target.value)}
                       placeholder="Ask about a domain, exam or plan…"
-                      aria-label="Message Dishayaan AI"
+                      aria-label="Message DishaYaaN AI"
                       className="border-2 border-ink"
                     />
                     <Button

@@ -318,12 +318,12 @@ export default function PathFinder() {
               title="Not sure where to start? Find out where your interests point."
               lead="Eleven questions about what you actually enjoy — not a test, and definitely not a prediction of your future. It tells you which areas are worth trying next, and gives a mentor something concrete to work with."
             />
-            <div className="border-2 border-ink bg-neo-yellow p-5">
+            <div className="border-2 border-ink bg-neo-yellow p-5 text-deep">
               <p className="flex items-start gap-2 text-sm font-bold">
                 <Info className="mt-0.5 size-4 shrink-0" />
                 This is an exploration tool.
               </p>
-              <p className="mt-2 text-sm leading-relaxed text-ink/80">
+              <p className="mt-2 text-sm leading-relaxed text-deep/80">
                 No result here decides your career, your stream or your worth. Treat it
                 as a starting conversation, then take it to a mentor who will tell you
                 what it does and does not mean.
@@ -343,7 +343,7 @@ export default function PathFinder() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={reduce ? undefined : { opacity: 0, x: -24 }}
                 transition={{ duration: 0.22 }}
-                className="mx-auto max-w-3xl border-2 border-ink bg-white p-6 sm:p-8"
+                className="mx-auto max-w-3xl border-2 border-ink bg-card p-6 sm:p-8"
               >
                 <div className="flex items-center justify-between gap-4">
                   <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground">
@@ -407,8 +407,8 @@ export default function PathFinder() {
                         className={cn(
                           "flex items-center justify-between gap-4 border-2 border-ink px-4 py-3 text-left text-sm font-semibold transition-colors",
                           answers[current.id] === i
-                            ? "bg-neo-yellow"
-                            : "bg-white hover:bg-paper",
+                            ? "bg-neo-yellow text-deep"
+                            : "bg-card hover:bg-paper",
                         )}
                       >
                         <span>{option.label}</span>
@@ -443,7 +443,7 @@ export default function PathFinder() {
                 transition={{ duration: 0.3 }}
                 className="grid gap-6 lg:grid-cols-[1.1fr_1fr]"
               >
-                <div className="border-2 border-ink bg-white p-6">
+                <div className="border-2 border-ink bg-card p-6">
                   <Eyebrow tone="ink">Your exploration profile</Eyebrow>
                   <h2 className="mt-4 text-2xl font-bold">
                     Where your interests point today
@@ -472,7 +472,7 @@ export default function PathFinder() {
                 </div>
 
                 <div className="space-y-6">
-                  <div className="border-2 border-ink bg-white p-6">
+                  <div className="border-2 border-ink bg-card p-6">
                     <Eyebrow tone="blue">Areas you may want to explore</Eyebrow>
                     <div className="mt-4 grid gap-3">
                       {suggestedTracks.map((track) =>
@@ -495,8 +495,8 @@ export default function PathFinder() {
                     </p>
                   </div>
 
-                  <div className="border-2 border-ink bg-neo-blue p-6 text-white">
-                    <p className="text-sm font-bold">
+                  <div className="border-2 border-ink bg-neo-blue p-6 text-white shadow-neo-blue">
+                    <p className="font-mono text-sm font-bold uppercase tracking-wider">
                       Want a real second opinion?
                     </p>
                     <p className="mt-2 text-xs leading-relaxed text-white/85">

@@ -15,18 +15,18 @@ function BrandMark({ compact }: { compact?: boolean }) {
     <Link
       to="/"
       className="flex items-center gap-2.5"
-      aria-label="Dishayaan home"
+      aria-label="DishaYaaN home"
     >
-      <span className="flex size-8 items-center justify-center border-2 border-ink bg-neo-yellow text-sm font-black">
+      <span className="flex size-8 items-center justify-center border-2 border-ink bg-neo-yellow font-mono text-sm font-black text-deep">
         D
       </span>
       <span
         className={cn(
-          "font-display font-bold uppercase tracking-[0.14em] transition-all",
-          compact ? "text-sm" : "text-base",
+          "font-display font-bold tracking-tight transition-all",
+          compact ? "text-base" : "text-lg",
         )}
       >
-        Dishayaan
+        Disha<span className="text-neo-cyan">YaaN</span>
       </span>
     </Link>
   );
@@ -51,7 +51,7 @@ export function SiteNav() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b-2 border-ink bg-white/90 backdrop-blur-md transition-all duration-200",
+        "sticky top-0 z-50 border-b-2 border-ink bg-deep/90 backdrop-blur-md transition-all duration-200",
         scrolled && "shadow-[0_3px_0_0_rgba(15,23,42,1)]",
       )}
     >
@@ -76,8 +76,8 @@ export function SiteNav() {
                 cn(
                   "border-2 px-3 py-1.5 text-sm font-semibold transition-colors",
                   isActive
-                    ? "border-ink bg-ink text-white"
-                    : "border-transparent text-ink hover:border-ink hover:bg-neo-yellow",
+                  ? "border-ink bg-invert text-deep"
+                  : "border-transparent text-ink hover:border-ink hover:bg-neo-yellow hover:text-deep",
                 )
               }
             >
@@ -97,7 +97,7 @@ export function SiteNav() {
             }}
           >
             <Sparkles className="size-4" />
-            Ask Dishayaan AI
+            Ask DishaYaaN AI
           </Button>
           <MentorConnectButton size="sm" variant="neo-blue" source="nav">
             Talk to a Mentor
@@ -124,7 +124,7 @@ export function SiteNav() {
           <Button
             variant="neo"
             size="icon-sm"
-            aria-label="Ask Dishayaan AI"
+            aria-label="Ask DishaYaaN AI"
             onClick={() => {
               openAIAssistant();
               track("hero_cta_click", { cta: "mobile_nav_ai" });
@@ -164,8 +164,8 @@ export function SiteNav() {
                       cn(
                         "border-2 px-3 py-2.5 text-sm font-bold",
                         isActive
-                          ? "border-ink bg-ink text-white"
-                          : "border-ink bg-white",
+                          ? "border-ink bg-invert text-deep"
+                          : "border-ink bg-card",
                       )
                     }
                   >
@@ -182,7 +182,7 @@ export function SiteNav() {
                     <Link
                       key={link.to}
                       to={link.to}
-                      className="border-2 border-ink bg-white px-3 py-2 text-sm font-semibold"
+                      className="border-2 border-ink bg-card px-3 py-2 font-mono text-sm font-semibold"
                     >
                       {link.label}
                     </Link>
@@ -193,7 +193,7 @@ export function SiteNav() {
                         ? "/dashboard"
                         : "/auth?returnTo=%2Fdashboard"
                     }
-                    className="border-2 border-ink bg-white px-3 py-2 text-sm font-semibold"
+                    className="border-2 border-ink bg-card px-3 py-2 font-mono text-sm font-semibold"
                   >
                     {isAuthenticated ? "My dashboard" : "Login"}
                   </Link>
@@ -231,7 +231,7 @@ export function SiteNav() {
             openAIAssistant();
             track("hero_cta_click", { cta: "mobile_sticky_ai" });
           }}
-          className="flex items-center justify-center gap-2 bg-white py-3.5 text-sm font-bold"
+          className="flex items-center justify-center gap-2 bg-card py-3.5 font-mono text-sm font-bold"
         >
           <Sparkles className="size-4" /> ASK AI
         </button>
