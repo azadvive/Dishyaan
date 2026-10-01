@@ -1,0 +1,239 @@
+/* Dishayaan type system — premium tech display + readable body, with
+   graceful fallbacks if webfonts are unavailable. */
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap");
+
+/* DO NOT CHANGE */
+@import "tailwindcss";
+@import "tw-animate-css";
+@custom-variant dark (&:is(.dark *));
+
+/* DO NOT CHANGE */
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* ── NEOBRUTALISM MINIMALISM EXTENSIONS ───────────────────────────────
+   Square corners everywhere, flat brand blocks, black ink borders. */
+
+@theme {
+  --radius-none: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
+
+  --color-ink: #0f172a;
+  --color-midnight: #07111f;
+  --color-paper: #f8fafc;
+  --color-bone: #ffffff;
+
+  --color-neo-blue: #2563eb;
+  --color-neo-violet: #7c3aed;
+  --color-neo-cyan: #06b6d4;
+  --color-neo-green: #16a34a;
+  --color-neo-yellow: #facc15;
+  --color-neo-orange: #fb923c;
+  --color-neo-pink: #ec4899;
+  --color-neo-red: #dc2626;
+
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    sans-serif;
+
+  --animate-tape: tape 30s linear infinite;
+  --animate-caret: caret 1s steps(2, start) infinite;
+}
+
+@keyframes tape {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Hard, offset shadows are the signature of the theme. */
+@utility shadow-neo-sm {
+  box-shadow: 3px 3px 0 0 var(--color-ink);
+}
+@utility shadow-neo {
+  box-shadow: 5px 5px 0 0 var(--color-ink);
+}
+@utility shadow-neo-lg {
+  box-shadow: 9px 9px 0 0 var(--color-ink);
+}
+@utility shadow-neo-color {
+  box-shadow: 6px 6px 0 0 var(--color-ink);
+}
+
+@utility neo-border {
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--color-ink);
+}
+
+@utility neo-grid {
+  background-image:
+    linear-gradient(to right, rgba(15, 23, 42, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* CHANGE VALUES FOR THEME */
+:root {
+  --radius: 0px;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #0f172a;
+  --primary-foreground: #ffffff;
+  --secondary: #eef2f7;
+  --secondary-foreground: #0f172a;
+  --muted: #eef2f7;
+  --muted-foreground: #64748b;
+  --accent: #dbeafe;
+  --accent-foreground: #0f172a;
+  --destructive: #dc2626;
+  --border: #0f172a;
+  --input: #0f172a;
+  --ring: #2563eb;
+  --chart-1: #2563eb;
+  --chart-2: #06b6d4;
+  --chart-3: #7c3aed;
+  --chart-4: #16a34a;
+  --chart-5: #fb923c;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #0f172a;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #eef2f7;
+  --sidebar-accent-foreground: #0f172a;
+  --sidebar-border: #0f172a;
+  --sidebar-ring: #2563eb;
+}
+
+.dark {
+  --background: #07111f;
+  --foreground: #f8fafc;
+  --card: #0f172a;
+  --card-foreground: #f8fafc;
+  --popover: #0f172a;
+  --popover-foreground: #f8fafc;
+  --primary: #f8fafc;
+  --primary-foreground: #0f172a;
+  --secondary: #16203a;
+  --secondary-foreground: #f8fafc;
+  --muted: #16203a;
+  --muted-foreground: #94a3b8;
+  --accent: #1e293b;
+  --accent-foreground: #f8fafc;
+  --destructive: #ef4444;
+  --border: #f8fafc;
+  --input: #f8fafc;
+  --ring: #60a5fa;
+  --chart-1: #60a5fa;
+  --chart-2: #22d3ee;
+  --chart-3: #a78bfa;
+  --chart-4: #4ade80;
+  --chart-5: #fb923c;
+  --sidebar: #0f172a;
+  --sidebar-foreground: #f8fafc;
+  --sidebar-primary: #f8fafc;
+  --sidebar-primary-foreground: #0f172a;
+  --sidebar-accent: #16203a;
+  --sidebar-accent-foreground: #f8fafc;
+  --sidebar-border: #f8fafc;
+  --sidebar-ring: #60a5fa;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  button:not([disabled]),
+  [role="button"]:not([disabled]) {
+    cursor: pointer;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-neo-blue);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: var(--color-neo-yellow);
+    color: var(--color-ink);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
