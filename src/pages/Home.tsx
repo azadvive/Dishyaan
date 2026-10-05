@@ -16,6 +16,7 @@ import {
   VoicesSection,
 } from "@/components/home/SectionsB";
 import { EnquiryForm } from "@/components/forms/Forms";
+import AppleCardsCarouselDemo from "@/components/ui/apple-cards-carousel";
 import { openAIAssistant } from "@/components/ai/AIAssistant";
 import { Button } from "@/components/ui/button";
 import { useSeo } from "@/hooks/use-seo";
@@ -52,6 +53,7 @@ export default function Home() {
       <AudienceSection audience={audience} onSelect={setAudience} />
       <TracksSection audience={audience} />
       <CatalogueSection audience={audience} />
+      <FieldExplorerSection />
       <ProjectsSection />
       <MentorPreviewSection />
       <JourneySection />
@@ -63,6 +65,16 @@ export default function Home() {
       <FinalCtaSection />
       <AISection />
     </>
+  );
+}
+
+function FieldExplorerSection() {
+  return (
+    <Section tone="ink" id="fields">
+      <Container>
+        <AppleCardsCarouselDemo />
+      </Container>
+    </Section>
   );
 }
 
