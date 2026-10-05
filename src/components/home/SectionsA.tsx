@@ -11,6 +11,7 @@ import { MentorConnectButton } from "@/components/mentors/mentor-connect";
 import { ProgramCard, TrackCard, TrackIcon, accentBg } from "@/components/cards";
 import { EXAM_PROGRAMS, EXPLORE_TRACKS, PROGRAMS } from "@/data/catalog";
 import { track } from "@/lib/analytics";
+import { useI18n } from "@/i18n";
 import { cn } from "@/lib/utils";
 import type { ExploreTrack } from "@/types";
 import { ArrowRight, GraduationCap, Users } from "lucide-react";
@@ -26,13 +27,15 @@ export function AudienceSection({
   audience: Audience;
   onSelect: (a: Audience) => void;
 }) {
+  const { t } = useI18n();
+
   return (
     <Section tone="paper" id="audience">
       <Container>
         <SectionHeader
-          eyebrow="Start here"
-          title="Who are you exploring DishaYaaN for?"
-          lead="The answer changes what we show you first — a student needs possibilities, a parent needs visibility."
+          eyebrow={t("home.audience.eyebrow")}
+          title={t("home.audience.title")}
+          lead={t("home.audience.lead")}
         />
 
         <div className="mt-10 grid gap-5 lg:grid-cols-2">
@@ -150,21 +153,22 @@ export function AudienceSection({
 
 export function TracksSection({ audience }: { audience: Audience }) {
   const [selected, setSelected] = useState<ExploreTrack>(EXPLORE_TRACKS[0]);
+  const { t } = useI18n();
 
   return (
     <Section tone="white" id="tracks">
       <Container>
         <SectionHeader
-          eyebrow="Future exploration"
+          eyebrow={t("home.tracks.eyebrow")}
           eyebrowTone="blue"
           title={
             <>
-              Don't choose your future too early.
+              {t("home.tracks.title1")}
               <br />
-              Explore it first.
+              {t("home.tracks.title2")}
             </>
           }
-          lead="Ten ecosystems, each with real skills, real projects and a mentor who works in it. Pick one to see what it actually contains."
+          lead={t("home.tracks.lead")}
         />
 
         <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_1fr]">
@@ -293,15 +297,16 @@ export function CatalogueSection({ audience }: { audience: Audience }) {
   const future = PROGRAMS.filter((p) => p.kind === "future");
   const goal = PROGRAMS.filter((p) => p.kind === "goal");
   const direction = PROGRAMS.filter((p) => p.kind === "direction");
+  const { t } = useI18n();
 
   return (
     <Section tone="paper" id="catalogue">
       <Container>
         <SectionHeader
-          eyebrow="Course & exam catalogue"
+          eyebrow={t("home.catalog.eyebrow")}
           eyebrowTone="green"
-          title="Three layers. One clear path."
-          lead="Most students are handed a random list of courses. DishaYaaN is organised so you always know which layer you are standing in."
+          title={t("home.catalog.title")}
+          lead={t("home.catalog.lead")}
         />
 
         <Tabs defaultValue="future" className="mt-10">

@@ -1,6 +1,8 @@
 import { Container } from "@/components/common/primitives";
+import { LanguageMenu } from "@/components/layout/LanguageMenu";
 import { MentorConnectButton } from "@/components/mentors/mentor-connect";
 import { openAIAssistant } from "@/components/ai/AIAssistant";
+import { useI18n, type TranslationKey } from "@/i18n";
 import {
   Instagram,
   Linkedin,
@@ -9,63 +11,68 @@ import {
 } from "lucide-react";
 import { Link } from "react-router";
 
-const COLUMNS: Array<{ title: string; links: Array<{ label: string; to: string }> }> = [
+const COLUMNS: Array<{
+  titleKey: TranslationKey;
+  links: Array<{ labelKey: TranslationKey; to: string }>;
+}> = [
   {
-    title: "Explore",
+    titleKey: "footer.colExplore",
     links: [
-      { label: "Programmes", to: "/catalog" },
-      { label: "Mentors", to: "/mentors" },
-      { label: "Plans & pricing", to: "/plans" },
-      { label: "About Us", to: "/about" },
+      { labelKey: "footer.linkProgrammes", to: "/catalog" },
+      { labelKey: "footer.linkMentors", to: "/mentors" },
+      { labelKey: "footer.linkPlans", to: "/plans" },
+      { labelKey: "footer.linkAbout", to: "/about" },
     ],
   },
   {
-    title: "Students",
+    titleKey: "footer.colStudents",
     links: [
-      { label: "Path Finder", to: "/pathfinder" },
-      { label: "Course & exam catalogue", to: "/catalog" },
-      { label: "Ways to ask a mentor", to: "/mentors" },
-      { label: "My dashboard", to: "/dashboard" },
+      { labelKey: "footer.linkPathFinder", to: "/pathfinder" },
+      { labelKey: "footer.linkCatalog", to: "/catalog" },
+      { labelKey: "footer.linkAskMentor", to: "/mentors" },
+      { labelKey: "footer.linkDashboard", to: "/dashboard" },
     ],
   },
   {
-    title: "Parents",
+    titleKey: "footer.colParents",
     links: [
-      { label: "Parent guide", to: "/plans" },
-      { label: "Progress visibility", to: "/about" },
-      { label: "Talk to a mentor", to: "/mentors" },
-      { label: "Fees & payment", to: "/plans" },
+      { labelKey: "footer.linkParentGuide", to: "/plans" },
+      { labelKey: "footer.linkProgress", to: "/about" },
+      { labelKey: "footer.linkTalkMentor", to: "/mentors" },
+      { labelKey: "footer.linkFees", to: "/plans" },
     ],
   },
   {
-    title: "Institutions",
+    titleKey: "footer.colInstitutions",
     links: [
-      { label: "Schools", to: "/partners" },
-      { label: "Colleges", to: "/partners" },
-      { label: "Coaching centres", to: "/partners" },
-      { label: "Partner with us", to: "/partners" },
+      { labelKey: "footer.linkSchools", to: "/partners" },
+      { labelKey: "footer.linkColleges", to: "/partners" },
+      { labelKey: "footer.linkCoaching", to: "/partners" },
+      { labelKey: "footer.linkPartner", to: "/partners" },
     ],
   },
   {
-    title: "Company",
+    titleKey: "footer.colCompany",
     links: [
-      { label: "About DishaYaaN", to: "/about" },
-      { label: "Requirement form", to: "/#demand" },
-      { label: "Contact", to: "/partners" },
-      { label: "Careers", to: "/about" },
+      { labelKey: "footer.linkAboutBrand", to: "/about" },
+      { labelKey: "footer.linkRequirement", to: "/#demand" },
+      { labelKey: "footer.linkContact", to: "/partners" },
+      { labelKey: "footer.linkCareers", to: "/about" },
     ],
   },
   {
-    title: "Legal",
+    titleKey: "footer.colLegal",
     links: [
-      { label: "Privacy", to: "/about" },
-      { label: "Terms", to: "/about" },
-      { label: "Refund policy", to: "/plans" },
+      { labelKey: "footer.linkPrivacy", to: "/about" },
+      { labelKey: "footer.linkTerms", to: "/about" },
+      { labelKey: "footer.linkRefund", to: "/plans" },
     ],
   },
 ];
 
 export function SiteFooter() {
+  const { t } = useI18n();
+
   return (
     <footer className="border-t-2 border-ink bg-deep pb-24 text-ink lg:pb-0">
       <Container className="py-14">
@@ -76,25 +83,24 @@ export function SiteFooter() {
                 D
               </span>
               <span className="font-display text-lg font-bold tracking-tight">
-                Disha<span className="text-neo-cyan">Yaan</span>
+                Disha<span className="text-neo-cyan">YaaN</span>
               </span>
             </div>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-ink/70">
-              Your future is bigger than your syllabus. DishaYaaN helps students
-              of Class 6–12 explore emerging technology, prepare for real goals and
-              learn from mentors who have walked the path.
+              {t("footer.intro")}
             </p>
-            <div className="mt-6 flex flex-wrap gap-2">
+            <div className="mt-6 flex flex-wrap items-center gap-2">
               <MentorConnectButton variant="neo-cyan" size="sm" source="footer">
-                Book a free session
+                {t("footer.bookFree")}
               </MentorConnectButton>
               <button
                 type="button"
                 onClick={openAIAssistant}
                 className="border-2 border-ink px-4 py-2 font-mono text-sm font-bold text-ink transition-colors hover:bg-invert hover:text-deep"
               >
-                Ask DishaYaaN AI
+                {t("nav.askAi")}
               </button>
+              <LanguageMenu align="left" />
             </div>
             <div className="mt-6 flex gap-3">
               {[
@@ -117,26 +123,26 @@ export function SiteFooter() {
 
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
             {COLUMNS.map((column) => (
-              <div key={column.title}>
+              <div key={column.titleKey}>
                 <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-neo-cyan">
-                  {column.title}
+                  {t(column.titleKey)}
                 </p>
                 <ul className="mt-4 space-y-2.5">
                   {column.links.map((link) => (
-                    <li key={`${column.title}-${link.label}`}>
+                    <li key={`${column.titleKey}-${link.labelKey}`}>
                       {link.to.startsWith("/#") ? (
                         <a
                           href={link.to}
                           className="text-sm text-ink/70 hover:text-neo-cyan hover:underline"
                         >
-                          {link.label}
+                          {t(link.labelKey)}
                         </a>
                       ) : (
                         <Link
                           to={link.to}
                           className="text-sm text-ink/70 hover:text-neo-cyan hover:underline"
                         >
-                          {link.label}
+                          {t(link.labelKey)}
                         </Link>
                       )}
                     </li>
@@ -148,14 +154,8 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-12 flex flex-col gap-3 border-t-2 border-ink/20 pt-6 font-mono text-xs text-ink/55 sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            © {new Date().getFullYear()} DishaYaaN. Built for students, parents and
-            mentors.
-          </p>
-          <p>
-            Mentor profiles, testimonials and student stories publish only after
-            verification and consent.
-          </p>
+          <p>{t("footer.rights", { year: new Date().getFullYear() })}</p>
+          <p>{t("footer.verification")}</p>
         </div>
       </Container>
     </footer>

@@ -1,14 +1,33 @@
 import { Button } from "@/components/ui/button";
+import { LanguageMenu } from "@/components/layout/LanguageMenu";
 import { MentorConnectButton } from "@/components/mentors/mentor-connect";
 import { openAIAssistant } from "@/components/ai/AIAssistant";
 import { NAV_LINKS, SECONDARY_LINKS } from "@/data/site";
 import { useAuth } from "@/hooks/use-auth";
+import { useI18n, type TranslationKey } from "@/i18n";
 import { cn } from "@/lib/utils";
 import { track } from "@/lib/analytics";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Menu, Sparkles, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router";
+
+/** Labels are looked up by route so data/site.ts stays the single source of
+ *  truth for link order and destinations. */
+const NAV_LABEL_KEYS: Record<string, TranslationKey> = {
+  "/": "nav.home",
+  "/catalog": "nav.catalog",
+  "/mentors": "nav.mentors",
+  "/community": "nav.community",
+  "/plans": "nav.plans",
+};
+
+const SECONDARY_LABEL_KEYS: Record<string, TranslationKey> = {
+  "/book": "nav.bookSession",
+  "/pathfinder": "nav.pathfinder",
+  "/about": "nav.about",
+  "/partners": "nav.partners",
+};
 
 function BrandMark({ compact }: { compact?: boolean }) {
   return (
@@ -38,6 +57,16 @@ export function SiteNav() {
   const { isAuthenticated, user, signOut } = useAuth();
   const location = useLocation();
   const reduce = useReducedMotion();
+  const { t } = useI18n();
+
+  const label = (
+    keys: Record<string, TranslationKey>,
+    to: string,
+    fallback: string,
+  ) => {
+    const key = keys[to];
+    return key ? t(key) : fallback;
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -76,12 +105,12 @@ export function SiteNav() {
                 cn(
                   "border-2 px-3 py-1.5 text-sm font-semibold transition-colors",
                   isActive
-                  ? "border-ink bg-invert text-deep"
-                  : "border-transparent text-ink hover:border-ink hover:bg-neo-yellow hover:text-deep",
+                    ? "border-ink bg-invert text-deep"
+                    : "border-transparent text-ink hover:border-ink hover:bg-neo-yellow hover:text-deep",
                 )
               }
             >
-              {link.label}
+              {label(NAV_LABEL_KEYS, link.to, link.label)}
             </NavLink>
           ))}
         </nav>
@@ -97,11 +126,12 @@ export function SiteNav() {
             }}
           >
             <Sparkles className="size-4" />
-            Ask DishaYaaN AI
+            {t("nav.askAi")}
           </Button>
           <MentorConnectButton size="sm" variant="neo-blue" source="nav">
-            Talk to a Mentor
+            {t("nav.talkToMentor")}
           </MentorConnectButton>
+          <LanguageMenu />
           {isAuthenticated ? (
             <Button
               variant="ghost"
@@ -111,20 +141,21 @@ export function SiteNav() {
                 await signOut();
               }}
             >
-              {user?.name ? user.name.split(" ")[0] : "Account"}
+              {user?.name ? user.name.split(" ")[0] : t("nav.account")}
             </Button>
           ) : (
             <Button asChild variant="ghost" size="sm" className="font-semibold">
-              <Link to="/auth?returnTo=%2Fdashboard">Login</Link>
+              <Link to="/auth?returnTo=%2Fdashboard">{t("nav.login")}</Link>
             </Button>
           )}
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
+          <LanguageMenu />
           <Button
             variant="neo"
             size="icon-sm"
-            aria-label="Ask DishaYaaN AI"
+            aria-label={t("nav.askAi")}
             onClick={() => {
               openAIAssistant();
               track("hero_cta_click", { cta: "mobile_nav_ai" });
@@ -135,7 +166,7 @@ export function SiteNav() {
           <Button
             variant="neo"
             size="icon-sm"
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-label={mobileOpen ? t("nav.closeMenu") : t("nav.openMenu")}
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((v) => !v)}
           >
@@ -169,13 +200,13 @@ export function SiteNav() {
                       )
                     }
                   >
-                    {link.label}
+                    {label(NAV_LABEL_KEYS, link.to, link.label)}
                   </NavLink>
                 ))}
               </nav>
               <div className="mt-4 border-t-2 border-dashed border-ink/30 pt-4">
                 <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground">
-                  More
+                  {t("nav.more")}
                 </p>
                 <div className="grid gap-2">
                   {SECONDARY_LINKS.map((link) => (
@@ -184,7 +215,7 @@ export function SiteNav() {
                       to={link.to}
                       className="border-2 border-ink bg-card px-3 py-2 font-mono text-sm font-semibold"
                     >
-                      {link.label}
+                      {label(SECONDARY_LABEL_KEYS, link.to, link.label)}
                     </Link>
                   ))}
                   <Link
@@ -195,7 +226,7 @@ export function SiteNav() {
                     }
                     className="border-2 border-ink bg-card px-3 py-2 font-mono text-sm font-semibold"
                   >
-                    {isAuthenticated ? "My dashboard" : "Login"}
+                    {isAuthenticated ? t("nav.dashboard") : t("nav.login")}
                   </Link>
                 </div>
               </div>
@@ -208,14 +239,14 @@ export function SiteNav() {
                     openAIAssistant();
                   }}
                 >
-                  Ask AI
+                  {t("nav.askAiShort")}
                 </Button>
                 <MentorConnectButton
                   variant="neo-blue"
                   source="mobile_menu"
                   className="font-bold"
                 >
-                  Mentor
+                  {t("nav.talkToMentor")}
                 </MentorConnectButton>
               </div>
             </div>
@@ -233,14 +264,14 @@ export function SiteNav() {
           }}
           className="flex items-center justify-center gap-2 bg-card py-3.5 font-mono text-sm font-bold"
         >
-          <Sparkles className="size-4" /> ASK AI
+          <Sparkles className="size-4" /> {t("nav.askAiShort")}
         </button>
         <MentorConnectButton
           source="mobile_sticky"
           variant="neo-blue"
           className="h-auto w-full border-0 font-bold"
         >
-          CONNECT WITH MENTOR
+          {t("nav.connectMentor")}
         </MentorConnectButton>
       </div>
     </header>

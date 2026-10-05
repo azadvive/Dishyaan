@@ -19,6 +19,7 @@ import { EnquiryForm } from "@/components/forms/Forms";
 import { openAIAssistant } from "@/components/ai/AIAssistant";
 import { Button } from "@/components/ui/button";
 import { useSeo } from "@/hooks/use-seo";
+import { useI18n } from "@/i18n";
 import { useState } from "react";
 import { Sparkles } from "lucide-react";
 
@@ -66,16 +67,18 @@ export default function Home() {
 }
 
 function DemandSection() {
+  const { t } = useI18n();
+
   return (
     <Section tone="white" id="demand">
       <Container>
         <div className="grid gap-10 lg:grid-cols-[1fr_1.5fr]">
           <div className="lg:sticky lg:top-28 lg:self-start">
             <SectionHeader
-              eyebrow="Tell us what you need"
+              eyebrow={t("home.demand.eyebrow")}
               eyebrowTone="blue"
-              title="We are building DishaYaaN around students and parents — not assumptions."
-              lead="Every answer here goes into what we design next: which programmes exist, what earns trust, and what parents actually want to see."
+              title={t("home.demand.title")}
+              lead={t("home.demand.lead")}
             />
             <Button
               variant="neo"
@@ -103,19 +106,19 @@ function DemandSection() {
 }
 
 function AISection() {
+  const { t } = useI18n();
+
   return (
     <Section tone="paper" id="ai">
       <Container>
         <div className="grid gap-8 border-2 border-ink bg-card p-6 shadow-neo-cyan lg:grid-cols-[1.3fr_1fr] lg:p-10">
           <div>
-            <Eyebrow tone="cyan">DishaYaaN AI</Eyebrow>
+            <Eyebrow tone="cyan">{t("home.ai.eyebrow")}</Eyebrow>
             <h2 className="mt-5 text-3xl font-bold leading-[1.05] sm:text-4xl">
-              Your first guide to what comes next.
+              {t("home.ai.title")}
             </h2>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
-              Ten free questions to explore domains, plans and pathways. DishaYaaN AI
-              asks about your class and interests so its answers are useful — and
-              every conversation ends with the option to speak to a human.
+              {t("home.ai.lead")}
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button

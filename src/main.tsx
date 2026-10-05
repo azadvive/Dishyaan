@@ -1,4 +1,6 @@
 import '@vly-ai/integrations';
+import { I18nProvider } from "@/i18n";
+import { installQuietResizeObserver } from "@/lib/quiet-resize-observer";
 import { Toaster } from "@/components/ui/sonner";
 import { RequireAuth } from "@/components/RequireAuth";
 import { VlyToolbar } from "../vly-toolbar-readonly.tsx";
@@ -100,6 +102,10 @@ class RootErrorBoundary extends React.Component<
   }
 }
 
+// Must run before React mounts: keeps third-party resize observers from
+// triggering Chromium's "ResizeObserver loop" notification.
+installQuietResizeObserver();
+
 const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL as string);
 
 function RouteSyncer() {
@@ -132,7 +138,8 @@ createRoot(document.getElementById("root")!).render(
         <VlyToolbar />
       </ToolbarErrorBoundary>
       <ConvexAuthProvider client={convex}>
-        <BrowserRouter>
+        <I18nProvider>
+          <BrowserRouter>
           <RouteSyncer />
           <Suspense fallback={<RouteLoading />}>
             <Routes>
@@ -166,10 +173,11 @@ createRoot(document.getElementById("root")!).render(
                 path="/auth"
                 element={<AuthPage redirectAfterAuth="/dashboard" />}
               />
-            </Routes>
-          </Suspense>
-        </BrowserRouter>
-        <Toaster />
+              </Routes>
+            </Suspense>
+          </BrowserRouter>
+          <Toaster />
+        </I18nProvider>
       </ConvexAuthProvider>
     </RootErrorBoundary>
   </StrictMode>,

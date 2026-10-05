@@ -18,6 +18,7 @@ import { MentorConnectButton } from "@/components/mentors/mentor-connect";
 import { MentorCard, accentBg } from "@/components/cards";
 import { MENTORS } from "@/data/mentors";
 import { JOURNEY_STEPS, PARTNER_TYPES, STUDENT_PROJECTS, TESTIMONIALS, FAQS } from "@/data/site";
+import { useI18n } from "@/i18n";
 import { cn } from "@/lib/utils";
 import { ArrowRight, Building2, GraduationCap, HeartHandshake, School } from "lucide-react";
 import type { ComponentType } from "react";
@@ -31,14 +32,16 @@ const PARTNER_ICONS: Record<string, ComponentType<{ className?: string }>> = {
 };
 
 export function MentorPreviewSection() {
+  const { t } = useI18n();
+
   return (
     <Section tone="white" id="mentors">
       <Container>
         <SectionHeader
-          eyebrow="Mentorship"
+          eyebrow={t("home.mentors.eyebrow")}
           eyebrowTone="violet"
-          title="Learn from people who've walked the path."
-          lead="Mentors are matched by domain, language and schedule. Every seat below lists exactly what it covers — and publishes a 2-minute introduction once the mentor completes verification."
+          title={t("home.mentors.title")}
+          lead={t("home.mentors.lead")}
         />
 
         <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -60,7 +63,7 @@ export function MentorPreviewSection() {
             context="Wants to be matched with a mentor."
             className="font-bold"
           >
-            Connect with a mentor
+            {t("nav.connectMentor")}
           </MentorConnectButton>
         </div>
 
@@ -75,14 +78,16 @@ export function MentorPreviewSection() {
 }
 
 export function ProjectsSection() {
+  const { t } = useI18n();
+
   return (
     <Section tone="ink" id="projects">
       <Container>
         <SectionHeader
-          eyebrow="Project-based learning"
+          eyebrow={t("home.projects.eyebrow")}
           eyebrowTone="cyan"
-          title="Don't just learn. Build."
-          lead="Every track ends in something that exists. Here is the shape of a DishaYaaN project: a problem, a build, a mentor, and a lesson you keep."
+          title={t("home.projects.title")}
+          lead={t("home.projects.lead")}
           titleClassName="text-ink"
         />
 
@@ -148,13 +153,15 @@ export function ProjectsSection() {
 }
 
 export function JourneySection() {
+  const { t } = useI18n();
+
   return (
     <Section tone="paper" id="how">
       <Container>
         <SectionHeader
-          eyebrow="How DishaYaaN works"
-          title="Six steps, in this order, every time."
-          lead="No student is dropped into content. The sequence is the product."
+          eyebrow={t("home.journey.eyebrow")}
+          title={t("home.journey.title")}
+          lead={t("home.journey.lead")}
         />
 
         <ol className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -194,16 +201,18 @@ const PROGRESS_ROWS = [
 ];
 
 export function ParentSection() {
+  const { t } = useI18n();
+
   return (
     <Section tone="white" id="parents">
       <Container>
         <div className="grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:items-center">
           <div>
             <SectionHeader
-              eyebrow="Parent experience"
+              eyebrow={t("home.parents.eyebrow")}
               eyebrowTone="green"
-              title="Parents shouldn't have to guess what their child is learning."
-              lead="You see the same picture your child does: what was attended, what is being built, what the mentor observed, and what comes next."
+              title={t("home.parents.title")}
+              lead={t("home.parents.lead")}
             />
             <ul className="mt-6 space-y-3 text-sm">
               {[
@@ -289,14 +298,16 @@ export function ParentSection() {
 }
 
 export function PartnerSection() {
+  const { t } = useI18n();
+
   return (
     <Section tone="paper" id="partners">
       <Container>
         <SectionHeader
-          eyebrow="Institution collaboration"
+          eyebrow={t("home.partners.eyebrow")}
           eyebrowTone="cyan"
-          title="Schools, colleges and coaching centres — let's build the layer you don't have."
-          lead="DishaYaaN runs alongside your institution: we bring the mentors, labs and future-readiness pathways, you keep your academic strength."
+          title={t("home.partners.title")}
+          lead={t("home.partners.lead")}
         />
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -355,13 +366,15 @@ export function PartnerSection() {
 }
 
 export function VoicesSection() {
+  const { t } = useI18n();
+
   return (
     <Section tone="white">
       <Container>
         <SectionHeader
-          eyebrow="Social proof"
-          title="We would rather show nothing than show fake proof."
-          lead="DishaYaaN's first cohort is in progress. These slots fill with real, consented voices as soon as we have them."
+          eyebrow={t("home.voices.eyebrow")}
+          title={t("home.voices.title")}
+          lead={t("home.voices.lead")}
         />
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {TESTIMONIALS.map((t) => (
@@ -385,14 +398,16 @@ export function VoicesSection() {
 }
 
 export function FaqSection() {
+  const { t } = useI18n();
+
   return (
     <Section tone="paper" id="faq">
       <Container>
         <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr]">
           <SectionHeader
-            eyebrow="Questions"
-            title="Straight answers."
-            lead="If your question is not here, ask DishaYaaN AI or a mentor directly."
+            eyebrow={t("home.faq.eyebrow")}
+            title={t("home.faq.title")}
+            lead={t("home.faq.lead")}
           />
           <Accordion type="single" collapsible className="border-2 border-ink bg-card">
             {FAQS.map((faq, i) => (
@@ -417,6 +432,8 @@ export function FaqSection() {
 }
 
 export function FinalCtaSection() {
+  const { t } = useI18n();
+
   return (
     <>
       <Tape
@@ -440,14 +457,12 @@ export function FinalCtaSection() {
         <Container>
           <div className="grid gap-8 lg:grid-cols-[1.3fr_1fr] lg:items-center">
             <div>
-              <Eyebrow tone="cyan">Your next step</Eyebrow>
+              <Eyebrow tone="cyan">{t("home.final.eyebrow")}</Eyebrow>
               <h2 className="mt-5 text-3xl font-bold leading-[1.05] text-ink sm:text-4xl lg:text-5xl">
-                Your next step can start here.
+                {t("home.final.title")}
               </h2>
               <p className="mt-4 max-w-xl text-base leading-relaxed text-ink/70">
-                Two minutes to tell us what you need. Or skip the form and have a free
-                conversation with a mentor who works in the field you are curious
-                about.
+                {t("home.final.lead")}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <MentorConnectButton
@@ -457,29 +472,29 @@ export function FinalCtaSection() {
                   context="Arrived at the final call to action."
                   className="font-bold"
                 >
-                  Connect with a mentor
+                  {t("home.final.connect")}
                 </MentorConnectButton>
                 <Button asChild variant="neo-yellow" size="lg" className="font-bold">
                   <Link to="/plans">
-                    Compare plans
+                    {t("home.final.compare")}
                     <ArrowRight className="size-4" />
                   </Link>
                 </Button>
                 <Button asChild variant="neo" size="lg" className="font-bold">
-                  <Link to="/pathfinder">Run the Path Finder</Link>
+                  <Link to="/pathfinder">{t("home.final.pathfinder")}</Link>
                 </Button>
               </div>
             </div>
             <div className="border-2 border-ink bg-panel p-6">
               <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-neo-cyan">
-                What happens after you reach out
+                {t("home.final.aside")}
               </p>
               <ol className="mt-4 space-y-4 text-sm text-ink/75">
                 {[
-                  "We read what you sent — a person, not an autoresponder.",
-                  "A mentor in your domain messages you on WhatsApp within a day.",
-                  "You get a free 20-minute conversation before any payment.",
-                  "If DishaYaaN is not the right fit, we will say so.",
+                  t("home.final.step1"),
+                  t("home.final.step2"),
+                  t("home.final.step3"),
+                  t("home.final.step4"),
                 ].map((line, i) => (
                   <li key={line} className="flex gap-3">
                     <span className="flex size-6 shrink-0 items-center justify-center border-2 border-neo-cyan text-[11px] font-bold text-neo-cyan">

@@ -3,6 +3,7 @@ import { Container, Eyebrow, staggerChild, staggerParent } from "@/components/co
 import { MentorConnectButton } from "@/components/mentors/mentor-connect";
 import { openAIAssistant } from "@/components/ai/AIAssistant";
 import { NETWORK_NODES } from "@/components/3d/FutureNetwork";
+import { useI18n, type TranslationKey } from "@/i18n";
 import { track } from "@/lib/analytics";
 import { motion, useReducedMotion } from "framer-motion";
 import { Suspense, lazy, useState } from "react";
@@ -15,15 +16,16 @@ const FutureNetwork = lazy(() =>
   })),
 );
 
-const TRUST_LINE = [
-  "Guidance for students",
-  "Visibility for parents",
-  "Perspective from mentors",
+const TRUST_LINE: TranslationKey[] = [
+  "hero.trustStudents",
+  "hero.trustParents",
+  "hero.trustMentors",
 ];
 
 export function HeroSection() {
   const reduce = useReducedMotion();
   const [activeNode, setActiveNode] = useState<string | null>(null);
+  const { t } = useI18n();
 
   return (
     <section className="relative overflow-hidden border-b-2 border-ink bg-deep">
@@ -37,34 +39,30 @@ export function HeroSection() {
         >
           <div>
             <motion.div variants={reduce ? undefined : staggerChild}>
-              <Eyebrow tone="violet">
-                Mentorship × Technology × Career × Exams
-              </Eyebrow>
+              <Eyebrow tone="violet">{t("hero.eyebrow")}</Eyebrow>
             </motion.div>
 
             <motion.h1
               variants={reduce ? undefined : staggerChild}
               className="mt-6 text-[2.15rem] font-bold leading-[1.02] sm:text-5xl lg:text-[3.6rem]"
             >
-              Your Future Is
+              {t("hero.titleTop")}
               <br />
               <span className="relative inline-block">
                 <span
                   aria-hidden
                   className="absolute bottom-1 left-0 h-3 w-full bg-neo-yellow"
                 />
-                <span className="relative">Bigger Than</span>
+                <span className="relative">{t("hero.titleHighlight")}</span>
               </span>{" "}
-              Your Syllabus.
+              {t("hero.titleBottom")}
             </motion.h1>
 
             <motion.p
               variants={reduce ? undefined : staggerChild}
               className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
             >
-              DishaYaaN is a mentorship programme for students of Class 6–12:
-              one-to-one counselling, emerging technology, real projects and honest
-              guidance from mentors who have walked the path.
+              {t("hero.lead")}
             </motion.p>
 
             <motion.div
@@ -76,7 +74,7 @@ export function HeroSection() {
                   to="/pathfinder"
                   onClick={() => track("hero_cta_click", { cta: "discover_path" })}
                 >
-                  Discover Your Path
+                  {t("hero.ctaDiscover")}
                   <ArrowRight className="size-4" />
                 </Link>
               </Button>
@@ -85,7 +83,7 @@ export function HeroSection() {
                   to="/mentors"
                   onClick={() => track("hero_cta_click", { cta: "meet_mentors" })}
                 >
-                  Meet Our Mentors
+                  {t("hero.ctaMentors")}
                 </Link>
               </Button>
               <Button
@@ -98,7 +96,7 @@ export function HeroSection() {
                 }}
               >
                 <Sparkles className="size-4" />
-                Ask DishaYaaN AI
+                {t("nav.askAi")}
               </Button>
             </motion.div>
 
@@ -106,12 +104,12 @@ export function HeroSection() {
               variants={reduce ? undefined : staggerChild}
               className="mt-8 grid gap-2 border-t-2 border-dashed border-ink/30 pt-5 sm:grid-cols-3"
             >
-              {TRUST_LINE.map((item) => (
+              {TRUST_LINE.map((key) => (
                 <p
-                  key={item}
+                  key={key}
                   className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground"
                 >
-                  {item}
+                  {t(key)}
                 </p>
               ))}
             </motion.div>
@@ -126,14 +124,15 @@ export function HeroSection() {
                 onClick={() => track("hero_cta_click", { cta: "book_session" })}
                 className="border-2 border-ink px-3 py-1.5 font-mono text-xs font-bold uppercase tracking-wider transition-colors hover:bg-neo-cyan hover:text-deep"
               >
-                Book a one-to-one session →
+                {t("hero.bookOneToOne")}
               </Link>
             </motion.div>
 
             {activeNode ? (
               <p className="mt-4 text-xs font-semibold text-muted-foreground">
-                Exploring: <span className="text-ink">{activeNode}</span> — read the
-                details beside the network.
+                {t("hero.exploring")}{" "}
+                <span className="text-ink">{activeNode}</span>{" "}
+                {t("hero.exploringHint")}
               </p>
             ) : null}
           </div>
@@ -141,10 +140,10 @@ export function HeroSection() {
           <div className="relative">
             <div className="mb-4 flex items-center justify-between gap-3 font-mono">
               <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-neo-cyan">
-                Future path network — hover a node
+                {t("hero.networkLabel")}
               </p>
               <span className="border-2 border-ink bg-invert px-2 py-0.5 font-mono text-[10px] font-bold text-deep">
-                {NETWORK_NODES.length} paths
+                {NETWORK_NODES.length} {t("hero.pathsSuffix")}
               </span>
             </div>
             <div className="border-2 border-ink bg-paper p-2">
@@ -158,9 +157,7 @@ export function HeroSection() {
               </Suspense>
             </div>
             <p className="mt-3 font-mono text-xs leading-relaxed text-muted-foreground">
-              Every node is a real DishaYaaN track. Hover to see the skills and
-              projects inside it. On phones and low-power devices this renders as a
-              lighter 2D map so the page stays fast.
+              {t("hero.networkNote")}
             </p>
           </div>
         </motion.div>
@@ -170,12 +167,13 @@ export function HeroSection() {
 }
 
 function NetworkSkeleton() {
+  const { t } = useI18n();
   return (
     <div className="flex h-[300px] items-center justify-center border-2 border-dashed border-ink/30 sm:h-[420px] lg:h-[520px]">
       <div className="text-center">
         <div className="mx-auto size-16 animate-pulse border-2 border-ink bg-neo-cyan/40" />
         <p className="mt-3 text-xs font-bold uppercase tracking-wider text-muted-foreground">
-          Loading 3D network…
+          {t("hero.loading3d")}
         </p>
       </div>
     </div>
