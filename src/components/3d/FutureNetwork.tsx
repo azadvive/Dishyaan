@@ -248,7 +248,9 @@ function mountScene(
     powerPreference: "high-performance",
   });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.75));
-  renderer.setSize(container.clientWidth, container.clientHeight);
+  // updateStyle = false: the canvas keeps its 100% CSS size (set below), so the
+  // renderer can never resize the container it is observed by.
+  renderer.setSize(container.clientWidth, container.clientHeight, false);
   renderer.setClearColor(0x000000, 0);
   container.appendChild(renderer.domElement);
   renderer.domElement.style.width = "100%";
@@ -426,15 +428,30 @@ function mountScene(
   container.addEventListener("pointermove", onPointerMove, { passive: true });
   container.addEventListener("pointerleave", onPointerLeave);
 
-  const onResize = () => {
+  // ResizeObserver callbacks must never resize the observed element inside the
+  // same delivery cycle, or Chromium reports "ResizeObserver loop completed
+  // with undelivered notifications". Defer to the next frame and skip no-op
+  // sizes, so the observer can settle instead of looping.
+  let lastW = 0;
+  let lastH = 0;
+  let resizeFrame = 0;
+  const applySize = () => {
     const w = container.clientWidth;
     const h = Math.max(container.clientHeight, 1);
+    if (w === lastW && h === lastH) return;
+    lastW = w;
+    lastH = h;
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
-    renderer.setSize(w, h);
+    renderer.setSize(w, h, false);
+  };
+  const onResize = () => {
+    cancelAnimationFrame(resizeFrame);
+    resizeFrame = requestAnimationFrame(applySize);
   };
   const observer = new ResizeObserver(onResize);
   observer.observe(container);
+  applySize();
 
   const clock = new THREE.Clock();
 
@@ -478,6 +495,7 @@ function mountScene(
 
   return () => {
     cancelAnimationFrame(frame);
+    cancelAnimationFrame(resizeFrame);
     observer.disconnect();
     container.removeEventListener("pointermove", onPointerMove);
     container.removeEventListener("pointerleave", onPointerLeave);

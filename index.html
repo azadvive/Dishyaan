@@ -12,6 +12,32 @@
     content="DishaYaaN is a mentorship and future-readiness platform for students of Class 6-12: AI, machine learning, robotics, drone technology, computer science, stock market literacy, and JEE, NEET, NDA, CS and CMA preparation."
   />
   <title>DishaYaaN — Your Future Is Bigger Than Your Syllabus</title>
+  <script>
+    // Chromium emits "ResizeObserver loop completed with undelivered
+    // notifications." as a window error whenever a library observer
+    // (Radix/floating-ui, framer-motion) measures an element whose size
+    // changes in the same delivery cycle. The page keeps rendering, so the
+    // benign notification is filtered out of the runtime error channel.
+    // A classic script runs before any module script, so it wins the
+    // registration order against the injected error reporter.
+    window.addEventListener(
+      "error",
+      function (event) {
+        var message = typeof event.message === "string" ? event.message : "";
+        if (
+          message.indexOf(
+            "ResizeObserver loop completed with undelivered notifications"
+          ) === -1 &&
+          message.indexOf("ResizeObserver loop limit exceeded") === -1
+        ) {
+          return;
+        }
+        event.preventDefault();
+        event.stopImmediatePropagation();
+      },
+      true
+    );
+  </script>
 </head>
 
 
