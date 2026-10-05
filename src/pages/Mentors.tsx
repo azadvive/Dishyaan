@@ -78,7 +78,7 @@ export default function Mentors() {
 
   return (
     <>
-      <Section tone="white" className="border-b-2 border-ink py-12 sm:py-16">
+      <Section tone="white" className="border-b border-line py-12 sm:py-16">
         <Container>
           <SectionHeader
             eyebrow="Mentors"
@@ -86,16 +86,16 @@ export default function Mentors() {
             title="Find someone who understands your path."
             lead="Every entry below is a mentor seat in the DishaYaaN network: the domain it covers, what it helps with, and when it is available. Verified mentor profiles publish with a 2-minute introduction video."
           />
-          <div className="mt-8 grid gap-4 border-2 border-ink bg-paper p-5 lg:grid-cols-[1.3fr_repeat(4,1fr)]">
+          <div className="mt-8 grid gap-4 rounded-xl border border-line bg-paper p-5 lg:grid-cols-[1.3fr_repeat(4,1fr)]">
             <Input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search mentor, skill or goal…"
               aria-label="Search mentors"
-              className="border-2 border-ink bg-card"
+              className="rounded-xl border border-line bg-card"
             />
             <Select value={domain} onValueChange={setDomain}>
-              <SelectTrigger className="border-2 border-ink bg-card">
+              <SelectTrigger className="rounded-xl border border-line bg-card">
                 <SelectValue placeholder="Domain" />
               </SelectTrigger>
               <SelectContent>
@@ -107,7 +107,7 @@ export default function Mentors() {
               </SelectContent>
             </Select>
             <Select value={language} onValueChange={setLanguage}>
-              <SelectTrigger className="border-2 border-ink bg-card">
+              <SelectTrigger className="rounded-xl border border-line bg-card">
                 <SelectValue placeholder="Language" />
               </SelectTrigger>
               <SelectContent>
@@ -119,7 +119,7 @@ export default function Mentors() {
               </SelectContent>
             </Select>
             <Select value={availability} onValueChange={setAvailability}>
-              <SelectTrigger className="border-2 border-ink bg-card">
+              <SelectTrigger className="rounded-xl border border-line bg-card">
                 <SelectValue placeholder="Availability" />
               </SelectTrigger>
               <SelectContent>
@@ -139,7 +139,7 @@ export default function Mentors() {
               </SelectContent>
             </Select>
             <Select value={format} onValueChange={setFormat}>
-              <SelectTrigger className="border-2 border-ink bg-card">
+              <SelectTrigger className="rounded-xl border border-line bg-card">
                 <SelectValue placeholder="Format" />
               </SelectTrigger>
               <SelectContent>
@@ -176,7 +176,7 @@ export default function Mentors() {
               ))}
             </div>
           ) : (
-            <div className="border-2 border-dashed border-ink/40 bg-card p-10 text-center">
+            <div className="rounded-xl border border-dashed border-line/40 bg-card p-10 text-center">
               <p className="text-sm font-semibold">
                 No seat matches those filters yet.
               </p>
@@ -195,7 +195,7 @@ export default function Mentors() {
             </div>
           )}
 
-          <div className="mt-12 grid gap-6 border-2 border-ink bg-card p-6 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+          <div className="mt-12 grid gap-6 rounded-xl border border-line bg-card p-6 lg:grid-cols-[1.4fr_1fr] lg:items-center">
             <div>
               <h2 className="text-xl font-bold">
                 Are you a professional who wants to mentor?

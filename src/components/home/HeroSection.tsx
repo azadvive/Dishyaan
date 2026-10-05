@@ -28,7 +28,7 @@ export function HeroSection() {
   const { t } = useI18n();
 
   return (
-    <section className="relative overflow-hidden border-b-2 border-ink bg-deep">
+    <section className="relative overflow-hidden border-b border-line bg-deep">
       <div className="pointer-events-none absolute inset-0 neo-grid opacity-70" />
       <Container className="relative py-12 sm:py-16 lg:py-20">
         <motion.div
@@ -102,7 +102,7 @@ export function HeroSection() {
 
             <motion.div
               variants={reduce ? undefined : staggerChild}
-              className="mt-8 grid gap-2 border-t-2 border-dashed border-ink/30 pt-5 sm:grid-cols-3"
+              className="mt-8 grid gap-2 border-t border-dashed border-line/30 pt-5 sm:grid-cols-3"
             >
               {TRUST_LINE.map((key) => (
                 <p
@@ -122,7 +122,7 @@ export function HeroSection() {
               <Link
                 to="/book"
                 onClick={() => track("hero_cta_click", { cta: "book_session" })}
-                className="border-2 border-ink px-3 py-1.5 font-mono text-xs font-bold uppercase tracking-wider transition-colors hover:bg-neo-cyan hover:text-deep"
+                className="rounded-xl border border-line px-3 py-1.5 font-mono text-xs font-bold uppercase tracking-wider transition-colors hover:bg-neo-cyan hover:text-deep"
               >
                 {t("hero.bookOneToOne")}
               </Link>
@@ -139,14 +139,14 @@ export function HeroSection() {
 
           <div className="relative">
             <div className="mb-4 flex items-center justify-between gap-3 font-mono">
-              <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-neo-cyan">
+              <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-neo-blue">
                 {t("hero.networkLabel")}
               </p>
-              <span className="border-2 border-ink bg-invert px-2 py-0.5 font-mono text-[10px] font-bold text-deep">
+              <span className="rounded-xl border border-line bg-invert px-2 py-0.5 font-mono text-[10px] font-bold text-deep">
                 {NETWORK_NODES.length} {t("hero.pathsSuffix")}
               </span>
             </div>
-            <div className="border-2 border-ink bg-paper p-2">
+            <div className="rounded-xl border border-line bg-paper p-2">
               <Suspense fallback={<NetworkSkeleton />}>
                 <FutureNetwork
                   className="w-full"
@@ -169,9 +169,9 @@ export function HeroSection() {
 function NetworkSkeleton() {
   const { t } = useI18n();
   return (
-    <div className="flex h-[300px] items-center justify-center border-2 border-dashed border-ink/30 sm:h-[420px] lg:h-[520px]">
+    <div className="flex h-[300px] items-center justify-center rounded-xl border border-dashed border-line/30 sm:h-[420px] lg:h-[520px]">
       <div className="text-center">
-        <div className="mx-auto size-16 animate-pulse border-2 border-ink bg-neo-cyan/40" />
+        <div className="mx-auto size-16 animate-pulse rounded-xl border border-line bg-neo-cyan/40" />
         <p className="mt-3 text-xs font-bold uppercase tracking-wider text-muted-foreground">
           {t("hero.loading3d")}
         </p>

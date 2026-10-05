@@ -63,7 +63,7 @@ function Fields({ items }: { items: Array<[string, ReactNode]> }) {
   return (
     <dl className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
       {items.map(([label, value]) => (
-        <div key={label} className="border-2 border-ink bg-paper p-3">
+        <div key={label} className="rounded-xl border border-line bg-paper p-3">
           <dt className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
             {label}
           </dt>
@@ -100,7 +100,7 @@ function StatusPicker<T extends string>({
           aria-pressed={value === option}
           onClick={() => onChange(option)}
           className={cn(
-            "border-2 border-ink px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wider transition-colors disabled:opacity-60",
+            "rounded-xl border border-line px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wider transition-colors disabled:opacity-60",
             value === option
               ? "bg-neo-yellow text-deep"
               : "bg-card hover:bg-paper",
@@ -134,10 +134,10 @@ function RecordCard({
     green: "bg-neo-green text-deep",
   };
   return (
-    <article className="border-2 border-ink bg-card">
+    <article className="rounded-xl border border-line bg-card">
       <div
         className={cn(
-          "flex flex-wrap items-center justify-between gap-2 border-b-2 border-ink px-4 py-3",
+          "flex flex-wrap items-center justify-between gap-2 border-b border-line px-4 py-3",
           accents[accent],
         )}
       >
@@ -149,7 +149,7 @@ function RecordCard({
       <div className="space-y-4 p-4">
         {children}
         {footer ? (
-          <div className="border-t-2 border-dashed border-ink/25 pt-3">{footer}</div>
+          <div className="border-t border-dashed border-line/25 pt-3">{footer}</div>
         ) : null}
       </div>
     </article>
@@ -169,7 +169,7 @@ function Panel({
 }) {
   return (
     <div>
-      <div className="flex flex-wrap items-end justify-between gap-3 border-2 border-ink bg-panel-2 p-5 text-ink">
+      <div className="flex flex-wrap items-end justify-between gap-3 rounded-xl border border-line bg-panel-2 p-5 text-ink">
         <div>
           <h2 className="text-lg font-bold">{title}</h2>
           <p className="mt-1 max-w-2xl text-xs leading-relaxed text-ink/70">
@@ -187,7 +187,7 @@ function Panel({
 
 function Empty({ text }: { text: string }) {
   return (
-    <p className="border-2 border-dashed border-ink/40 bg-paper p-6 text-center text-sm text-muted-foreground">
+    <p className="rounded-xl border border-dashed border-line/40 bg-paper p-6 text-center text-sm text-muted-foreground">
       {text}
     </p>
   );
@@ -195,7 +195,7 @@ function Empty({ text }: { text: string }) {
 
 function Loading() {
   return (
-    <p className="flex items-center gap-2 border-2 border-ink bg-paper p-6 text-sm font-bold">
+    <p className="flex items-center gap-2 rounded-xl border border-line bg-paper p-6 text-sm font-bold">
       <Loader2 className="size-4 animate-spin" /> Reading the queue
     </p>
   );
@@ -248,7 +248,7 @@ function BookingsPanel() {
                   href={whatsappLink(row.whatsapp)}
                   target="_blank"
                   rel="noreferrer"
-                  className="font-bold text-neo-cyan hover:underline"
+                  className="font-bold text-neo-blue hover:underline"
                 >
                   {row.whatsapp}
                 </a>,
@@ -310,7 +310,7 @@ function LeadsPanel() {
                   href={whatsappLink(row.whatsapp)}
                   target="_blank"
                   rel="noreferrer"
-                  className="font-bold text-neo-cyan hover:underline"
+                  className="font-bold text-neo-blue hover:underline"
                 >
                   {row.whatsapp}
                 </a>,
@@ -385,7 +385,7 @@ function PartnersPanel() {
                   href={whatsappLink(row.whatsapp)}
                   target="_blank"
                   rel="noreferrer"
-                  className="font-bold text-neo-cyan hover:underline"
+                  className="font-bold text-neo-blue hover:underline"
                 >
                   {row.whatsapp}
                 </a>,
@@ -440,7 +440,7 @@ function MentorRequestsPanel() {
                   href={whatsappLink(row.whatsapp)}
                   target="_blank"
                   rel="noreferrer"
-                  className="font-bold text-neo-cyan hover:underline"
+                  className="font-bold text-neo-blue hover:underline"
                 >
                   {row.whatsapp}
                 </a>,
@@ -572,7 +572,7 @@ function CommunityPanel() {
         value={query}
         onChange={(event) => setQuery(event.target.value)}
         placeholder="Search titles, authors and tags"
-        className="border-2 border-ink"
+        className="rounded-xl border border-line"
         aria-label="Search posts for moderation"
       />
       {rows === undefined ? <Loading /> : null}
@@ -664,7 +664,7 @@ export default function Admin() {
   return (
     <Section tone="paper" className="min-h-screen py-10 sm:py-14">
       <Container>
-        <div className="flex flex-col gap-4 border-2 border-ink bg-card p-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-4 rounded-xl border border-line bg-card p-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <Eyebrow tone="violet">Operations console</Eyebrow>
             <h1 className="mt-3 text-2xl font-bold sm:text-3xl">
@@ -677,7 +677,7 @@ export default function Admin() {
             </p>
           </div>
           {whoami?.signedIn ? (
-            <div className="border-2 border-ink bg-paper p-4 text-xs">
+            <div className="rounded-xl border border-line bg-paper p-4 text-xs">
               <p className="font-mono font-bold uppercase tracking-[0.14em] text-muted-foreground">
                 Signed in as
               </p>
@@ -685,7 +685,7 @@ export default function Admin() {
               <p className="text-muted-foreground">{whoami.email ?? "No email on file"}</p>
               <p
                 className={cn(
-                  "mt-2 inline-flex items-center gap-1.5 border-2 border-ink px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider",
+                  "mt-2 inline-flex items-center gap-1.5 rounded-xl border border-line px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider",
                   isAdmin ? "bg-neo-green text-deep" : "bg-neo-orange text-deep",
                 )}
               >
@@ -704,13 +704,13 @@ export default function Admin() {
         </div>
 
         {isLoading || whoami === undefined ? (
-          <p className="mt-6 flex items-center gap-2 border-2 border-ink bg-paper p-6 text-sm font-bold">
+          <p className="mt-6 flex items-center gap-2 rounded-xl border border-line bg-paper p-6 text-sm font-bold">
             <Loader2 className="size-4 animate-spin" /> Checking your access
           </p>
         ) : null}
 
         {whoami && !whoami.signedIn ? (
-          <div className="mt-6 border-2 border-ink bg-panel-2 p-8 text-ink">
+          <div className="mt-6 rounded-xl border border-line bg-panel-2 p-8 text-ink">
             <Eyebrow tone="cyan">Sign in required</Eyebrow>
             <h2 className="mt-4 text-xl font-bold">
               This area is for DishaYaaN operators.
@@ -727,7 +727,7 @@ export default function Admin() {
 
         {whoami && whoami.signedIn && !whoami.isAdmin ? (
           <div className="mt-6 grid gap-5 lg:grid-cols-2">
-            <div className="border-2 border-ink bg-card p-6">
+            <div className="rounded-xl border border-line bg-card p-6">
               <h2 className="text-lg font-bold">Your account has no access yet.</h2>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 Operators are added in two ways: their email is listed in the
@@ -746,7 +746,7 @@ export default function Admin() {
               </div>
             </div>
 
-            <div className="border-2 border-ink bg-card p-6">
+            <div className="rounded-xl border border-line bg-card p-6">
               <Eyebrow tone="green">Founder bootstrap</Eyebrow>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
                 If this deployment has no operator at all yet, the first signed-in
@@ -773,7 +773,7 @@ export default function Admin() {
                 </Button>
               ) : null}
               {claimError ? (
-                <p className="mt-3 border-2 border-ink bg-destructive/10 p-3 text-xs font-medium text-destructive">
+                <p className="mt-3 rounded-xl border border-line bg-destructive/10 p-3 text-xs font-medium text-destructive">
                   {claimError}
                 </p>
               ) : null}
@@ -793,7 +793,7 @@ export default function Admin() {
                     aria-pressed={tab === item.id}
                     onClick={() => setTab(item.id)}
                     className={cn(
-                      "inline-flex items-center gap-2 border-2 border-ink px-3.5 py-2 font-mono text-[11px] font-bold uppercase tracking-wider transition-colors",
+                      "inline-flex items-center gap-2 rounded-xl border border-line px-3.5 py-2 font-mono text-[11px] font-bold uppercase tracking-wider transition-colors",
                       tab === item.id
                         ? "bg-neo-violet text-white"
                         : "bg-card hover:bg-paper",

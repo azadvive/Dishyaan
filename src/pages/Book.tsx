@@ -69,10 +69,10 @@ function Block({
   children: ReactNode;
 }) {
   return (
-    <fieldset className="border-2 border-ink bg-card">
+    <fieldset className="rounded-xl border border-line bg-card">
       <legend className="sr-only">{title}</legend>
-      <div className="flex items-center gap-3 border-b-2 border-ink bg-paper px-5 py-3">
-        <span className="flex size-7 items-center justify-center border-2 border-ink bg-neo-cyan font-mono text-xs font-bold text-deep">
+      <div className="flex items-center gap-3 border-b border-line bg-paper px-5 py-3">
+        <span className="flex size-7 items-center justify-center rounded-xl border border-line bg-neo-cyan font-mono text-xs font-bold text-deep">
           {step}
         </span>
         <span className="font-mono text-sm font-bold uppercase tracking-[0.12em]">
@@ -187,9 +187,9 @@ export default function Book() {
           <motion.div
             initial={reduce ? undefined : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mx-auto max-w-2xl border-2 border-ink bg-card p-8 text-center shadow-neo-cyan sm:p-10"
+            className="mx-auto max-w-2xl rounded-xl border border-line bg-card p-8 text-center shadow-neo-cyan sm:p-10"
           >
-            <CheckCircle2 className="mx-auto size-14 text-neo-green" />
+            <CheckCircle2 className="mx-auto size-14 text-emerald-700" />
             <h1 className="mt-5 text-2xl font-bold sm:text-3xl">
               Your slot is requested.
             </h1>
@@ -201,7 +201,7 @@ export default function Book() {
             <p className="mt-6 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground">
               Reference
             </p>
-            <p className="mt-1 font-display text-2xl font-bold tracking-tight text-neo-cyan">
+            <p className="mt-1 font-display text-2xl font-bold tracking-tight text-neo-blue">
               {reference}
             </p>
             <dl className="mt-7 grid gap-3 text-left sm:grid-cols-3">
@@ -213,7 +213,7 @@ export default function Book() {
                 ["Domain", domain || "To be decided on the call"],
                 ["Language", language || "Any"],
               ].map(([label, value]) => (
-                <div key={label} className="border-2 border-ink bg-paper p-3">
+                <div key={label} className="rounded-xl border border-line bg-paper p-3">
                   <dt className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
                     {label}
                   </dt>
@@ -254,7 +254,7 @@ export default function Book() {
 
   return (
     <>
-      <Section tone="paper" className="border-b-2 border-ink pb-12 pt-14 sm:pb-16">
+      <Section tone="paper" className="border-b border-line pb-12 pt-14 sm:pb-16">
         <Container>
           <SectionHeader
             eyebrow="One-to-one counselling"
@@ -271,7 +271,7 @@ export default function Book() {
             ].map((item) => (
               <span
                 key={item}
-                className="border-2 border-ink bg-card px-3 py-1.5 font-mono text-xs font-bold"
+                className="rounded-xl border border-line bg-card px-3 py-1.5 font-mono text-xs font-bold"
               >
                 {item}
               </span>
@@ -289,7 +289,7 @@ export default function Book() {
               className="space-y-6"
             >
               {programme || mentorHint ? (
-                <div className="border-2 border-ink bg-neo-yellow p-4 text-deep">
+                <div className="rounded-xl border border-line bg-neo-yellow p-4 text-deep">
                   <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em]">
                     You came from
                   </p>
@@ -314,7 +314,7 @@ export default function Book() {
                       aria-pressed={role === value}
                       onClick={() => setRole(value)}
                       className={cn(
-                        "border-2 border-ink p-4 text-left transition-colors",
+                        "rounded-xl border border-line p-4 text-left transition-colors",
                         role === value
                           ? "bg-neo-cyan text-deep"
                           : "bg-card hover:bg-paper",
@@ -337,7 +337,7 @@ export default function Book() {
                       value={name}
                       onChange={(event) => setName(event.target.value)}
                       placeholder="Full name"
-                      className="border-2 border-ink"
+                      className="rounded-xl border border-line"
                     />
                   </Field>
                   {role !== "student" ? (
@@ -346,13 +346,13 @@ export default function Book() {
                         value={bookerName}
                         onChange={(event) => setBookerName(event.target.value)}
                         placeholder="Who is booking this session?"
-                        className="border-2 border-ink"
+                        className="rounded-xl border border-line"
                       />
                     </Field>
                   ) : null}
                   <Field label="Class">
                     <Select value={studentClass} onValueChange={setStudentClass}>
-                      <SelectTrigger className="border-2 border-ink">
+                      <SelectTrigger className="rounded-xl border border-line">
                         <SelectValue placeholder="Select class" />
                       </SelectTrigger>
                       <SelectContent>
@@ -374,7 +374,7 @@ export default function Book() {
                       value={whatsapp}
                       onChange={(event) => setWhatsapp(event.target.value)}
                       placeholder="10-digit number"
-                      className="border-2 border-ink"
+                      className="rounded-xl border border-line"
                     />
                   </Field>
                   <Field label="Email (optional)">
@@ -383,7 +383,7 @@ export default function Book() {
                       value={email}
                       onChange={(event) => setEmail(event.target.value)}
                       placeholder="name@example.com"
-                      className="border-2 border-ink"
+                      className="rounded-xl border border-line"
                     />
                   </Field>
                 </div>
@@ -395,7 +395,7 @@ export default function Book() {
                   hint="Not sure? Pick the last option — deciding is part of the call."
                 >
                   <Select value={domain} onValueChange={setDomain}>
-                    <SelectTrigger className="border-2 border-ink">
+                    <SelectTrigger className="rounded-xl border border-line">
                       <SelectValue placeholder="Choose a domain" />
                     </SelectTrigger>
                     <SelectContent>
@@ -413,7 +413,7 @@ export default function Book() {
                   hint="Seats are matched by domain and language. Profiles publish as verification completes, so your match may differ from the seat you pick."
                 >
                   <Select value={mentorSlug} onValueChange={setMentorSlug}>
-                    <SelectTrigger className="border-2 border-ink">
+                    <SelectTrigger className="rounded-xl border border-line">
                       <SelectValue placeholder="Match me by domain" />
                     </SelectTrigger>
                     <SelectContent>
@@ -428,7 +428,7 @@ export default function Book() {
 
                 <Field label="Main goal">
                   <Select value={goal} onValueChange={setGoal}>
-                    <SelectTrigger className="border-2 border-ink">
+                    <SelectTrigger className="rounded-xl border border-line">
                       <SelectValue placeholder="Not decided yet" />
                     </SelectTrigger>
                     <SelectContent>
@@ -450,7 +450,7 @@ export default function Book() {
                     value={note}
                     onChange={(event) => setNote(event.target.value)}
                     placeholder="Example: I am in Class 10, I like robots but I do not know if I should pick science, and I need a study routine that survives school hours."
-                    className="border-2 border-ink"
+                    className="rounded-xl border border-line"
                   />
                 </Field>
               </Block>
@@ -467,12 +467,12 @@ export default function Book() {
                       min={todayIso()}
                       value={date}
                       onChange={(event) => setDate(event.target.value)}
-                      className="border-2 border-ink"
+                      className="rounded-xl border border-line"
                     />
                   </Field>
                   <Field label="Mode">
                     <Select value={mode} onValueChange={setMode}>
-                      <SelectTrigger className="border-2 border-ink">
+                      <SelectTrigger className="rounded-xl border border-line">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -496,7 +496,7 @@ export default function Book() {
 
                 <Field label="Language you are comfortable in">
                   <Select value={language} onValueChange={setLanguage}>
-                    <SelectTrigger className="border-2 border-ink">
+                    <SelectTrigger className="rounded-xl border border-line">
                       <SelectValue placeholder="Any language" />
                     </SelectTrigger>
                     <SelectContent>
@@ -511,7 +511,7 @@ export default function Book() {
               </Block>
 
               {matchingMentors.length > 0 && domain ? (
-                <p className="border-2 border-dashed border-ink/40 bg-paper p-4 text-xs leading-relaxed text-muted-foreground">
+                <p className="rounded-xl border border-dashed border-line/40 bg-paper p-4 text-xs leading-relaxed text-muted-foreground">
                   {matchingMentors.length} mentor seat
                   {matchingMentors.length === 1 ? "" : "s"} currently cover{" "}
                   <span className="font-bold text-ink">{domain}</span>. Every seat is
@@ -521,7 +521,7 @@ export default function Book() {
               ) : null}
 
               {error ? (
-                <p className="border-2 border-ink bg-destructive/10 p-3 text-sm font-medium text-destructive">
+                <p className="rounded-xl border border-line bg-destructive/10 p-3 text-sm font-medium text-destructive">
                   {error}
                 </p>
               ) : null}
@@ -550,7 +550,7 @@ export default function Book() {
             </form>
 
             <aside className="space-y-4 lg:sticky lg:top-28 lg:self-start">
-              <div className="border-2 border-ink bg-card p-6 shadow-neo-cyan">
+              <div className="rounded-xl border border-line bg-card p-6 shadow-neo-cyan">
                 <Eyebrow tone="cyan">What happens next</Eyebrow>
                 <ol className="mt-4 space-y-3">
                   {[
@@ -560,26 +560,26 @@ export default function Book() {
                     "After the session you leave with one written next step, and the choice to continue or stop.",
                   ].map((step, index) => (
                     <li key={step} className="flex gap-3 text-sm leading-snug">
-                      <span className="flex size-6 shrink-0 items-center justify-center border-2 border-ink bg-neo-cyan font-mono text-[11px] font-bold text-deep">
+                      <span className="flex size-6 shrink-0 items-center justify-center rounded-xl border border-line bg-neo-cyan font-mono text-[11px] font-bold text-deep">
                         {index + 1}
                       </span>
                       <span>{step}</span>
                     </li>
                   ))}
                 </ol>
-                <div className="mt-5 grid gap-2 border-t-2 border-dashed border-ink/25 pt-4 text-xs font-semibold text-muted-foreground">
+                <div className="mt-5 grid gap-2 border-t border-dashed border-line/25 pt-4 text-xs font-semibold text-muted-foreground">
                   <span className="inline-flex items-center gap-2">
-                    <ShieldCheck className="size-3.5 text-neo-green" /> No invented
+                    <ShieldCheck className="size-3.5 text-emerald-700" /> No invented
                     mentors, ranks or results
                   </span>
                   <span className="inline-flex items-center gap-2">
-                    <BadgeCheck className="size-3.5 text-neo-green" /> Your data is
+                    <BadgeCheck className="size-3.5 text-emerald-700" /> Your data is
                     used to match you, nothing else
                   </span>
                 </div>
               </div>
 
-              <div className="border-2 border-ink bg-panel-2 p-6 text-ink">
+              <div className="rounded-xl border border-line bg-panel-2 p-6 text-ink">
                 <Eyebrow tone="violet">Not ready to book?</Eyebrow>
                 <p className="mt-4 text-sm font-semibold">
                   Ask a question first, or run the Path Finder and bring the result
@@ -604,7 +604,7 @@ export default function Book() {
                 </div>
               </div>
 
-              <div className="border-2 border-dashed border-ink/40 bg-paper p-5">
+              <div className="rounded-xl border border-dashed border-line/40 bg-paper p-5">
                 <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-muted-foreground">
                   For institutions
                 </p>

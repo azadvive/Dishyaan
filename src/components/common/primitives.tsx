@@ -50,17 +50,17 @@ export function Eyebrow({
   tone?: "ink" | "blue" | "violet" | "green" | "cyan" | "white";
 }) {
   const tones: Record<string, string> = {
-    ink: "bg-invert text-deep",
+    ink: "bg-ink text-white",
     blue: "bg-neo-blue text-white",
     violet: "bg-neo-violet text-white",
     green: "bg-neo-green text-deep",
     cyan: "bg-neo-cyan text-deep",
-    white: "bg-invert text-deep",
+    white: "bg-ink text-white",
   };
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2 border-2 border-ink px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.18em]",
+        "inline-flex items-center gap-2 rounded-xl border border-line px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.18em]",
         tones[tone],
         className,
       )}
@@ -141,10 +141,10 @@ export function NeoPanel({
   return (
     <div
       className={cn(
-        "border-2 border-ink",
+        "rounded-xl border border-line",
         accent ? accents[accent] : "bg-panel text-ink",
         hover &&
-          "transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-neo",
+          "transition-all duration-200 hover:-translate-y-0.5 hover:shadow-neo",
         className,
       )}
     >
@@ -205,7 +205,7 @@ export function Tape({ items, tone = "ink" }: { items: string[]; tone?: "ink" | 
   };
   const row = [...items, ...items];
   return (
-    <div className={cn("overflow-hidden border-y-2 border-ink py-3", tones[tone])}>
+    <div className={cn("overflow-hidden border-y border-line py-3", tones[tone])}>
       <div className="flex w-max animate-tape items-center gap-8 pr-8">
         {row.map((item, i) => (
           <span

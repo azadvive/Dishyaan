@@ -174,7 +174,7 @@ export default function Plans() {
 
   return (
     <>
-      <Section tone="white" className="border-b-2 border-ink py-12 sm:py-16">
+      <Section tone="white" className="border-b border-line py-12 sm:py-16">
         <Container>
           <div className="grid gap-8 lg:grid-cols-[1.3fr_1fr] lg:items-end">
             <SectionHeader
@@ -183,9 +183,9 @@ export default function Plans() {
               title="Premium guidance, priced without games."
               lead="One fee covers the mentor time, the AI credits, the projects and the parent view. No hidden material charges. Cancel or switch whenever the plan stops fitting."
             />
-            <div className="border-2 border-ink bg-paper p-5">
+            <div className="rounded-xl border border-line bg-paper p-5">
               <p className="flex items-center gap-2 text-sm font-bold">
-                <ShieldCheck className="size-4 text-neo-green" /> Pay online in
+                <ShieldCheck className="size-4 text-emerald-700" /> Pay online in
                 seconds
               </p>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -208,7 +208,7 @@ export default function Plans() {
             {PLANS.map((plan) => (
               <PlanCard key={plan.id} plan={plan} onChoose={choosePlan} />
             ))}
-            <article className="flex h-full flex-col border-2 border-dashed border-ink/50 bg-card p-5">
+            <article className="flex h-full flex-col rounded-xl border border-dashed border-line/50 bg-card p-5">
               <Eyebrow tone="ink">Institutions</Eyebrow>
               <h3 className="mt-4 text-xl font-bold">
                 Custom quotation for schools, colleges and centres
@@ -230,8 +230,8 @@ export default function Plans() {
             </article>
           </div>
 
-          <div className="mt-12 border-2 border-ink bg-card">
-            <div className="border-b-2 border-ink bg-panel-2 px-5 py-3 text-ink">
+          <div className="mt-12 rounded-xl border border-line bg-card">
+            <div className="border-b border-line bg-panel-2 px-5 py-3 text-ink">
               <p className="font-mono text-sm font-bold uppercase tracking-[0.14em]">
                 What every plan includes
               </p>
@@ -261,7 +261,7 @@ export default function Plans() {
               title="No fine print traps."
               lead="If something here is unclear, ask a mentor or the AI before paying."
             />
-            <Accordion type="single" collapsible className="border-2 border-ink bg-card">
+            <Accordion type="single" collapsible className="rounded-xl border border-line bg-card">
               {[
                 {
                   q: "How is billing handled?",
@@ -283,7 +283,7 @@ export default function Plans() {
                 <AccordionItem
                   key={item.q}
                   value={`plan-faq-${i}`}
-                  className="border-b-2 border-ink px-5 last:border-b-0"
+                  className="border-b border-line px-5 last:border-b-0"
                 >
                   <AccordionTrigger className="text-left text-sm font-bold hover:no-underline">
                     {item.q}
@@ -332,8 +332,8 @@ export default function Plans() {
       </Section>
 
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-h-[92vh] overflow-y-auto border-2 border-ink p-0 sm:max-w-[520px]">
-          <div className="border-b-2 border-ink bg-neo-blue px-6 py-4 text-white">
+        <DialogContent className="max-h-[92vh] overflow-y-auto rounded-xl border border-line p-0 sm:max-w-[520px]">
+          <div className="border-b border-line bg-neo-blue px-6 py-4 text-white">
             <DialogHeader>
               <DialogTitle className="text-xl font-bold">
                 {step === "paid"
@@ -362,7 +362,7 @@ export default function Plans() {
                     required
                     value={studentName}
                     onChange={(e) => setStudentName(e.target.value)}
-                    className="border-2 border-ink"
+                    className="rounded-xl border border-line"
                   />
                 </div>
                 <div className="space-y-2">
@@ -373,7 +373,7 @@ export default function Plans() {
                     inputMode="tel"
                     value={whatsapp}
                     onChange={(e) => setWhatsapp(e.target.value)}
-                    className="border-2 border-ink"
+                    className="rounded-xl border border-line"
                   />
                 </div>
                 <div className="space-y-2">
@@ -383,11 +383,11 @@ export default function Plans() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="border-2 border-ink"
+                    className="rounded-xl border border-line"
                   />
                 </div>
 
-                <div className="border-2 border-dashed border-ink/40 bg-paper p-4 text-xs leading-relaxed text-muted-foreground">
+                <div className="rounded-xl border border-dashed border-line/40 bg-paper p-4 text-xs leading-relaxed text-muted-foreground">
                   Payments are created server-side and verified with a signature
                   check. Card details never touch DishaYaaN's servers.
                 </div>
@@ -413,7 +413,7 @@ export default function Plans() {
 
             {step === "manual" ? (
               <div className="space-y-4 text-center">
-                <CheckCircle2 className="mx-auto size-12 text-neo-green" />
+                <CheckCircle2 className="mx-auto size-12 text-emerald-700" />
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   Online card checkout is not live yet, so we recorded your request
                   against{" "}
@@ -441,7 +441,7 @@ export default function Plans() {
 
             {step === "paid" ? (
               <div className="space-y-4 text-center">
-                <CheckCircle2 className="mx-auto size-12 text-neo-green" />
+                <CheckCircle2 className="mx-auto size-12 text-emerald-700" />
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   Your {selected?.name} plan is active. Check WhatsApp and your email
                   for the receipt and the mentor-matching steps.
@@ -458,7 +458,7 @@ export default function Plans() {
 
             {step === "error" ? (
               <div className="space-y-4">
-                <p className="border-2 border-ink bg-destructive/10 p-3 text-sm font-medium text-destructive">
+                <p className="rounded-xl border border-line bg-destructive/10 p-3 text-sm font-medium text-destructive">
                   {error ?? "Something went wrong."}
                 </p>
                 <div className="flex flex-col gap-2">

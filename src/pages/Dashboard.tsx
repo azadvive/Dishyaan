@@ -74,7 +74,7 @@ export default function Dashboard() {
   return (
     <Section tone="paper" className="min-h-screen py-10 sm:py-14">
       <Container>
-        <div className="flex flex-col gap-4 border-2 border-ink bg-card p-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-4 rounded-xl border border-line bg-card p-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <Eyebrow tone="ink">Student workspace</Eyebrow>
             <h1 className="mt-3 text-2xl font-bold sm:text-3xl">
@@ -102,7 +102,7 @@ export default function Dashboard() {
         {whoami?.isAdmin ? (
           <Link
             to="/admin"
-            className="mt-4 flex flex-wrap items-center justify-between gap-3 border-2 border-ink bg-neo-violet px-5 py-4 text-white transition-transform hover:-translate-y-0.5"
+            className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-line bg-neo-violet px-5 py-4 text-white transition-transform hover:-translate-y-0.5"
           >
             <span className="inline-flex items-center gap-3 text-sm font-bold">
               <LayoutDashboard className="size-4" />
@@ -113,9 +113,9 @@ export default function Dashboard() {
         ) : null}
 
         <div className="mt-6 grid gap-5 lg:grid-cols-3">
-          <div className="border-2 border-ink bg-card p-6 lg:col-span-2">
+          <div className="rounded-xl border border-line bg-card p-6 lg:col-span-2">
             <div className="flex items-start gap-3">
-              <span className="flex size-10 items-center justify-center border-2 border-ink bg-neo-yellow text-deep">
+              <span className="flex size-10 items-center justify-center rounded-xl border border-line bg-neo-yellow text-deep">
                 <Target className="size-5" />
               </span>
               <div>
@@ -133,7 +133,7 @@ export default function Dashboard() {
                 ["Weekly time", "Not set yet"],
                 ["Proof of progress", "Not set yet"],
               ].map(([label, value]) => (
-                <div key={label} className="border-2 border-dashed border-ink/40 bg-paper p-4">
+                <div key={label} className="rounded-xl border border-dashed border-line/40 bg-paper p-4">
                   <p className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
                     {label}
                   </p>
@@ -160,7 +160,7 @@ export default function Dashboard() {
           </div>
 
           <div className="space-y-5">
-            <div className="border-2 border-ink bg-card p-6">
+            <div className="rounded-xl border border-line bg-card p-6">
               <Eyebrow tone="cyan">DishaYaaN AI</Eyebrow>
               <p className="mt-3 font-display text-3xl font-bold">
                 {aiAccount?.credits ?? 10}
@@ -177,11 +177,11 @@ export default function Dashboard() {
               </p>
             </div>
 
-            <div className="border-2 border-ink bg-card p-6">
+            <div className="rounded-xl border border-line bg-card p-6">
               <Eyebrow tone="green">Your next session</Eyebrow>
               {nextSession ? (
                 <>
-                  <p className="mt-3 font-mono text-xs font-bold text-neo-cyan">
+                  <p className="mt-3 font-mono text-xs font-bold text-neo-blue">
                     {nextSession.reference}
                   </p>
                   <p className="mt-1 text-sm font-bold">
@@ -193,7 +193,7 @@ export default function Dashboard() {
                   </p>
                   <span
                     className={cn(
-                      "mt-3 inline-block border-2 border-ink px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider",
+                      "mt-3 inline-block rounded-xl border border-line px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider",
                       BOOKING_ACCENT[nextSession.status] ?? "bg-neo-cyan text-deep",
                     )}
                   >
@@ -225,7 +225,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="mt-6 border-2 border-ink bg-card p-6">
+        <div className="mt-6 rounded-xl border border-line bg-card p-6">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
               <h2 className="text-lg font-bold">Your counselling sessions</h2>
@@ -240,12 +240,12 @@ export default function Dashboard() {
 
           <div className="mt-5 space-y-3">
             {bookings === undefined ? (
-              <p className="border-2 border-dashed border-ink/40 bg-paper p-5 text-sm text-muted-foreground">
+              <p className="rounded-xl border border-dashed border-line/40 bg-paper p-5 text-sm text-muted-foreground">
                 Loading your sessions…
               </p>
             ) : null}
             {bookings?.length === 0 ? (
-              <p className="border-2 border-dashed border-ink/40 bg-paper p-5 text-sm leading-relaxed text-muted-foreground">
+              <p className="rounded-xl border border-dashed border-line/40 bg-paper p-5 text-sm leading-relaxed text-muted-foreground">
                 No sessions yet. Pick a domain, a date and a time slot — the first
                 counselling session costs nothing and ends with one written next step.
               </p>
@@ -253,7 +253,7 @@ export default function Dashboard() {
             {bookings?.map((booking) => (
               <div
                 key={booking._id}
-                className="flex flex-wrap items-center justify-between gap-4 border-2 border-ink bg-paper p-4"
+                className="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-line bg-paper p-4"
               >
                 <div className="min-w-0">
                   <p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-muted-foreground">
@@ -270,7 +270,7 @@ export default function Dashboard() {
                 </div>
                 <span
                   className={cn(
-                    "border-2 border-ink px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wider",
+                    "rounded-xl border border-line px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wider",
                     BOOKING_ACCENT[booking.status] ?? "bg-neo-cyan text-deep",
                   )}
                 >
@@ -282,7 +282,7 @@ export default function Dashboard() {
         </div>
 
         <div className="mt-6 grid gap-5 lg:grid-cols-[1.4fr_1fr]">
-          <div className="border-2 border-ink bg-card p-6">
+          <div className="rounded-xl border border-line bg-card p-6">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <div>
                 <h2 className="text-lg font-bold">Work you have published</h2>
@@ -297,12 +297,12 @@ export default function Dashboard() {
 
             <div className="mt-5 space-y-3">
               {myPosts === undefined ? (
-                <p className="border-2 border-dashed border-ink/40 bg-paper p-5 text-sm text-muted-foreground">
+                <p className="rounded-xl border border-dashed border-line/40 bg-paper p-5 text-sm text-muted-foreground">
                   Loading your posts…
                 </p>
               ) : null}
               {myPosts?.length === 0 ? (
-                <p className="border-2 border-dashed border-ink/40 bg-paper p-5 text-sm leading-relaxed text-muted-foreground">
+                <p className="rounded-xl border border-dashed border-line/40 bg-paper p-5 text-sm leading-relaxed text-muted-foreground">
                   You have not published anything yet. A half-finished project with an
                   honest write-up teaches more than a perfect screenshot — publish that
                   one.
@@ -311,7 +311,7 @@ export default function Dashboard() {
               {myPosts?.slice(0, 5).map((post) => (
                 <div
                   key={post._id}
-                  className="flex flex-wrap items-center justify-between gap-3 border-2 border-ink bg-paper p-4"
+                  className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-line bg-paper p-4"
                 >
                   <div className="min-w-0">
                     <p className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
@@ -324,7 +324,7 @@ export default function Dashboard() {
                   </div>
                   <span
                     className={cn(
-                      "border-2 border-ink px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider",
+                      "rounded-xl border border-line px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider",
                       post.hidden ? "bg-neo-orange text-deep" : "bg-neo-green text-deep",
                     )}
                   >
@@ -335,11 +335,11 @@ export default function Dashboard() {
             </div>
           </div>
 
-          <div className="border-2 border-ink bg-card p-6">
+          <div className="rounded-xl border border-line bg-card p-6">
             <Eyebrow tone="violet">Your plan</Eyebrow>
             <div className="mt-4 grid gap-3">
               {PLANS.slice(0, 2).map((plan) => (
-                <div key={plan.id} className="border-2 border-ink bg-paper p-4">
+                <div key={plan.id} className="rounded-xl border border-line bg-paper p-4">
                   <p className="text-sm font-bold">{plan.name}</p>
                   <p className="mt-1 text-xs text-muted-foreground">
                     {inr(plan.priceInr)}
@@ -366,7 +366,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="mt-6 border-2 border-ink bg-card p-6">
+        <div className="mt-6 rounded-xl border border-line bg-card p-6">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
               <h2 className="text-lg font-bold">Suggested next areas</h2>
@@ -385,10 +385,10 @@ export default function Dashboard() {
 
           <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {tracks.map((track) => (
-              <div key={track.id} className="border-2 border-ink bg-paper">
+              <div key={track.id} className="rounded-xl border border-line bg-paper">
                 <div
                   className={cn(
-                    "flex items-center gap-3 border-b-2 border-ink p-4",
+                    "flex items-center gap-3 border-b border-line p-4",
                     accentBg[track.accent],
                   )}
                 >
@@ -403,7 +403,7 @@ export default function Dashboard() {
                     {track.projects.slice(0, 2).map((project) => (
                       <span
                         key={project}
-                        className="border border-ink/30 bg-card px-2 py-0.5 text-[11px] font-medium"
+                        className="rounded-xl border border-line/30 bg-card px-2 py-0.5 text-[11px] font-medium"
                       >
                         {project}
                       </span>
@@ -416,7 +416,7 @@ export default function Dashboard() {
         </div>
 
         <div className="mt-6 grid gap-5 lg:grid-cols-[1fr_1fr]">
-          <div className="border-2 border-ink bg-panel-2 p-6 text-ink">
+          <div className="rounded-xl border border-line bg-panel-2 p-6 text-ink">
             <Eyebrow tone="cyan">Explore next</Eyebrow>
             <h2 className="mt-4 text-lg font-bold">
               {EXPLORE_TRACKS.length} fields, one hour a week.
@@ -428,19 +428,19 @@ export default function Dashboard() {
             <div className="mt-5 space-y-2">
               <Link
                 to="/catalog"
-                className="flex items-center justify-between border-2 border-ink px-4 py-2.5 text-sm font-bold transition-colors hover:bg-neo-cyan hover:text-deep"
+                className="flex items-center justify-between rounded-xl border border-line px-4 py-2.5 text-sm font-bold transition-colors hover:bg-neo-cyan hover:text-deep"
               >
                 Course &amp; exam catalogue <Rocket className="size-4" />
               </Link>
               <Link
                 to="/mentors"
-                className="flex items-center justify-between border-2 border-ink px-4 py-2.5 text-sm font-bold transition-colors hover:bg-neo-cyan hover:text-deep"
+                className="flex items-center justify-between rounded-xl border border-line px-4 py-2.5 text-sm font-bold transition-colors hover:bg-neo-cyan hover:text-deep"
               >
                 Mentor seats <CircuitBoard className="size-4" />
               </Link>
               <Link
                 to="/community"
-                className="flex items-center justify-between border-2 border-ink px-4 py-2.5 text-sm font-bold transition-colors hover:bg-neo-cyan hover:text-deep"
+                className="flex items-center justify-between rounded-xl border border-line px-4 py-2.5 text-sm font-bold transition-colors hover:bg-neo-cyan hover:text-deep"
               >
                 Student community <Newspaper className="size-4" />
               </Link>
@@ -451,7 +451,7 @@ export default function Dashboard() {
             </p>
           </div>
 
-          <div className="border-2 border-dashed border-ink/40 bg-paper p-6">
+          <div className="rounded-xl border border-dashed border-line/40 bg-paper p-6">
             <SectionHeader
               eyebrow="Coming with the first cohort"
               title="Attendance, project log, mentor feedback and the parent view."

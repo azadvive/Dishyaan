@@ -100,7 +100,7 @@ function DemandSection() {
               <Sparkles className="size-4" />
               Ask DishaYaaN AI instead
             </Button>
-            <div className="mt-8 border-2 border-ink bg-paper p-5">
+            <div className="mt-8 rounded-xl border border-line bg-paper p-5">
               <Eyebrow tone="ink">Privacy</Eyebrow>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 We store what you submit so a real person can respond and so product
@@ -123,7 +123,7 @@ function AISection() {
   return (
     <Section tone="paper" id="ai">
       <Container>
-        <div className="grid gap-8 border-2 border-ink bg-card p-6 shadow-neo-cyan lg:grid-cols-[1.3fr_1fr] lg:p-10">
+        <div className="grid gap-8 rounded-xl border border-line bg-card p-6 shadow-neo-cyan lg:grid-cols-[1.3fr_1fr] lg:p-10">
           <div>
             <Eyebrow tone="cyan">{t("home.ai.eyebrow")}</Eyebrow>
             <h2 className="mt-5 text-3xl font-bold leading-[1.05] sm:text-4xl">
@@ -151,8 +151,8 @@ function AISection() {
               "Never invents prices, mentors or exam outcomes",
               "Always hands off to a human mentor",
             ].map((line) => (
-              <li key={line} className="flex gap-3 border-2 border-ink bg-paper p-3">
-                <span className="mt-0.5 size-3 shrink-0 border-2 border-ink bg-neo-cyan" />
+              <li key={line} className="flex gap-3 rounded-xl border border-line bg-paper p-3">
+                <span className="mt-0.5 size-3 shrink-0 rounded-xl border border-line bg-neo-cyan" />
                 <span className="leading-snug">{line}</span>
               </li>
             ))}

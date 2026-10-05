@@ -61,7 +61,7 @@ export default function ProgramDetail() {
     return (
       <Section tone="paper" className="py-24">
         <Container>
-          <div className="border-2 border-ink bg-card p-10 text-center">
+          <div className="rounded-xl border border-line bg-card p-10 text-center">
             <h1 className="text-2xl font-bold">
               That programme is not in the catalogue.
             </h1>
@@ -85,11 +85,11 @@ export default function ProgramDetail() {
 
   return (
     <>
-      <Section tone="white" className="border-b-2 border-ink py-10 sm:py-14">
+      <Section tone="white" className="border-b border-line py-10 sm:py-14">
         <Container>
           <Link
             to="/catalog"
-            className="font-mono text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground hover:text-neo-cyan"
+            className="font-mono text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground hover:text-neo-blue"
           >
             ← Course & exam catalogue
           </Link>
@@ -99,18 +99,18 @@ export default function ProgramDetail() {
               <div className="flex flex-wrap items-center gap-2">
                 <span
                   className={cn(
-                    "border-2 border-ink px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wider",
+                    "rounded-xl border border-line px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wider",
                     accentBg[program.accent],
                   )}
                 >
                   {KIND_LABEL[program.kind]}
                 </span>
                 {program.examCode ? (
-                  <span className="border-2 border-ink bg-invert px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-deep">
+                  <span className="rounded-xl border border-line bg-invert px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-deep">
                     {program.examCode}
                   </span>
                 ) : null}
-                <span className="border-2 border-ink bg-card px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wider">
+                <span className="rounded-xl border border-line bg-card px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wider">
                   {program.mode}
                 </span>
               </div>
@@ -130,7 +130,7 @@ export default function ProgramDetail() {
                 ].map(([Icon, label, value]) => {
                   const Component = Icon as typeof Clock;
                   return (
-                    <div key={String(label)} className="border-2 border-ink bg-paper p-4">
+                    <div key={String(label)} className="rounded-xl border border-line bg-paper p-4">
                       <dt className="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
                         <Component className="size-3.5" />
                         {label as string}
@@ -147,7 +147,7 @@ export default function ProgramDetail() {
                   <ul className="mt-4 space-y-2">
                     {program.outcomes.map((outcome) => (
                       <li key={outcome} className="flex gap-3 text-sm">
-                        <span className="mt-1.5 size-2.5 shrink-0 border-2 border-ink bg-neo-cyan" />
+                        <span className="mt-1.5 size-2.5 shrink-0 rounded-xl border border-line bg-neo-cyan" />
                         <span className="leading-snug">{outcome}</span>
                       </li>
                     ))}
@@ -159,7 +159,7 @@ export default function ProgramDetail() {
                     {program.skills.map((skill) => (
                       <li
                         key={skill}
-                        className="border-2 border-ink bg-card px-2.5 py-1 font-mono text-xs font-semibold"
+                        className="rounded-xl border border-line bg-card px-2.5 py-1 font-mono text-xs font-semibold"
                       >
                         {skill}
                       </li>
@@ -174,9 +174,9 @@ export default function ProgramDetail() {
                   {program.projects.map((project) => (
                     <li
                       key={project}
-                      className="flex items-center gap-2 border-2 border-ink bg-paper px-3 py-2 text-sm font-medium"
+                      className="flex items-center gap-2 rounded-xl border border-line bg-paper px-3 py-2 text-sm font-medium"
                     >
-                      <BookOpen className="size-4 shrink-0 text-neo-green" />
+                      <BookOpen className="size-4 shrink-0 text-emerald-700" />
                       {project}
                     </li>
                   ))}
@@ -184,7 +184,7 @@ export default function ProgramDetail() {
               </div>
 
               {exam ? (
-                <div className="mt-7 border-2 border-ink bg-paper p-5">
+                <div className="mt-7 rounded-xl border border-line bg-paper p-5">
                   <Eyebrow tone="ink">{exam.name} pathway</Eyebrow>
                   <dl className="mt-4 space-y-3 text-sm">
                     {[
@@ -203,7 +203,7 @@ export default function ProgramDetail() {
                       </div>
                     ))}
                   </dl>
-                  <p className="mt-4 border-t-2 border-dashed border-ink/25 pt-3 text-xs leading-relaxed text-muted-foreground">
+                  <p className="mt-4 border-t border-dashed border-line/25 pt-3 text-xs leading-relaxed text-muted-foreground">
                     We publish no rank claims, selection counts or success percentages
                     for any examination.
                   </p>
@@ -212,7 +212,7 @@ export default function ProgramDetail() {
             </div>
 
             <aside className="space-y-4 lg:sticky lg:top-28 lg:self-start">
-              <div className="border-2 border-ink bg-card p-5 shadow-neo-cyan">
+              <div className="rounded-xl border border-line bg-card p-5 shadow-neo-cyan">
                 <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-muted-foreground">
                   Fee
                 </p>
@@ -265,13 +265,13 @@ export default function ProgramDetail() {
                     Ask DishaYaaN AI
                   </Button>
                 </div>
-                <p className="mt-4 border-t-2 border-dashed border-ink/25 pt-3 text-[11px] leading-relaxed text-muted-foreground">
+                <p className="mt-4 border-t border-dashed border-line/25 pt-3 text-[11px] leading-relaxed text-muted-foreground">
                   Every fee is refundable within the first seven days.
                 </p>
               </div>
 
               {track ? (
-                <div className="border-2 border-ink bg-paper p-5">
+                <div className="rounded-xl border border-line bg-paper p-5">
                   <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-muted-foreground">
                     Part of
                   </p>
@@ -281,7 +281,7 @@ export default function ProgramDetail() {
                   </p>
                   <Link
                     to="/catalog"
-                    className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-neo-cyan hover:underline"
+                    className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-neo-blue hover:underline"
                   >
                     All {track.short} programmes <ArrowRight className="size-3" />
                   </Link>
@@ -334,7 +334,7 @@ export default function ProgramDetail() {
                 <Link
                   key={item.id}
                   to={`/program/${item.slug}`}
-                  className="border-2 border-ink bg-card p-5 transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-neo"
+                  className="rounded-xl border border-line bg-card p-5 transition-all hover:-translate-y-0.5 hover:shadow-neo"
                 >
                   <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-muted-foreground">
                     {KIND_LABEL[item.kind]}

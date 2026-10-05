@@ -74,16 +74,16 @@ export function SiteFooter() {
   const { t } = useI18n();
 
   return (
-    <footer className="border-t-2 border-ink bg-deep pb-24 text-ink lg:pb-0">
+    <footer className="border-t border-line bg-deep pb-24 text-ink lg:pb-0">
       <Container className="py-14">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_2fr]">
           <div>
             <div className="flex items-center gap-2.5">
-              <span className="flex size-9 items-center justify-center border-2 border-ink bg-neo-yellow font-mono text-base font-black text-deep">
+              <span className="flex size-9 items-center justify-center rounded-xl border border-line bg-neo-yellow font-mono text-base font-black text-deep">
                 D
               </span>
               <span className="font-display text-lg font-bold tracking-tight">
-                Disha<span className="text-neo-cyan">YaaN</span>
+                Disha<span className="text-neo-blue">YaaN</span>
               </span>
             </div>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-ink/70">
@@ -96,7 +96,7 @@ export function SiteFooter() {
               <button
                 type="button"
                 onClick={openAIAssistant}
-                className="border-2 border-ink px-4 py-2 font-mono text-sm font-bold text-ink transition-colors hover:bg-invert hover:text-deep"
+                className="rounded-xl border border-line px-4 py-2 font-mono text-sm font-bold text-ink transition-colors hover:bg-ink hover:text-white"
               >
                 {t("nav.askAi")}
               </button>
@@ -113,7 +113,7 @@ export function SiteFooter() {
                   key={label}
                   aria-label={`${label} (link published with the first cohort)`}
                   title={`${label} — link published soon`}
-                  className="flex size-9 items-center justify-center border-2 border-ink/50 text-ink/70"
+                  className="flex size-9 items-center justify-center rounded-xl border border-line/50 text-ink/70"
                 >
                   <Icon className="size-4" />
                 </span>
@@ -124,7 +124,7 @@ export function SiteFooter() {
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
             {COLUMNS.map((column) => (
               <div key={column.titleKey}>
-                <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-neo-cyan">
+                <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-neo-blue">
                   {t(column.titleKey)}
                 </p>
                 <ul className="mt-4 space-y-2.5">
@@ -133,14 +133,14 @@ export function SiteFooter() {
                       {link.to.startsWith("/#") ? (
                         <a
                           href={link.to}
-                          className="text-sm text-ink/70 hover:text-neo-cyan hover:underline"
+                          className="text-sm text-ink/70 hover:text-neo-blue hover:underline"
                         >
                           {t(link.labelKey)}
                         </a>
                       ) : (
                         <Link
                           to={link.to}
-                          className="text-sm text-ink/70 hover:text-neo-cyan hover:underline"
+                          className="text-sm text-ink/70 hover:text-neo-blue hover:underline"
                         >
                           {t(link.labelKey)}
                         </Link>
@@ -153,7 +153,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t-2 border-ink/20 pt-6 font-mono text-xs text-ink/55 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-line/20 pt-6 font-mono text-xs text-ink/55 sm:flex-row sm:items-center sm:justify-between">
           <p>{t("footer.rights", { year: new Date().getFullYear() })}</p>
           <p>{t("footer.verification")}</p>
         </div>

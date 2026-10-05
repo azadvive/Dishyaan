@@ -61,7 +61,7 @@ export default function Catalog() {
 
   return (
     <>
-      <Section tone="white" className="border-b-2 border-ink py-12 sm:py-16">
+      <Section tone="white" className="border-b border-line py-12 sm:py-16">
         <Container>
           <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-end">
             <SectionHeader
@@ -70,7 +70,7 @@ export default function Catalog() {
               title="Everything DishaYaaN runs, in one place."
               lead="Organised in three layers so you always know whether you are exploring, preparing for a goal, or working out what to aim at."
             />
-            <div className="border-2 border-ink bg-paper p-5">
+            <div className="rounded-xl border border-line bg-paper p-5">
               <p className="font-mono text-sm font-bold">Built for Class 6–12.</p>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 Exploration tracks start at Class 6, technology labs from Class 7–8,
@@ -97,7 +97,7 @@ export default function Catalog() {
 
       <Section tone="paper" className="py-12 sm:py-16">
         <Container>
-          <div className="flex flex-col gap-4 border-2 border-ink bg-card p-5 lg:flex-row lg:items-end lg:justify-between">
+          <div className="flex flex-col gap-4 rounded-xl border border-line bg-card p-5 lg:flex-row lg:items-end lg:justify-between">
             <div className="flex flex-wrap gap-2">
               {(
                 [
@@ -113,8 +113,8 @@ export default function Catalog() {
                   onClick={() => setLayer(value)}
                   aria-pressed={layer === value}
                   className={cn(
-                    "border-2 border-ink px-3 py-2 font-mono text-sm font-bold transition-colors",
-                    layer === value ? "bg-invert text-deep" : "bg-card hover:bg-paper",
+                    "rounded-xl border border-line px-3 py-2 font-mono text-sm font-bold transition-colors",
+                    layer === value ? "bg-ink text-white" : "bg-card hover:bg-paper",
                   )}
                 >
                   {label}
@@ -127,10 +127,10 @@ export default function Catalog() {
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search programmes, skills…"
                 aria-label="Search programmes"
-                className="border-2 border-ink"
+                className="rounded-xl border border-line"
               />
               <Select value={classFilter} onValueChange={setClassFilter}>
-                <SelectTrigger className="border-2 border-ink">
+                <SelectTrigger className="rounded-xl border border-line">
                   <SelectValue placeholder="Any class" />
                 </SelectTrigger>
                 <SelectContent>
@@ -151,7 +151,7 @@ export default function Catalog() {
           </div>
 
           {programs.length === 0 ? (
-            <p className="mt-6 border-2 border-dashed border-ink/40 bg-card p-8 text-center text-sm text-muted-foreground">
+            <p className="mt-6 rounded-xl border border-dashed border-line/40 bg-card p-8 text-center text-sm text-muted-foreground">
               Nothing matches that filter yet. Clear the search or ask a mentor what
               fits — we will tell you honestly if we do not run it.
             </p>
@@ -171,9 +171,9 @@ export default function Catalog() {
                 {EXAM_PROGRAMS.map((exam) => (
                   <article
                     key={exam.code}
-                    className="flex h-full flex-col border-2 border-ink bg-card"
+                    className="flex h-full flex-col rounded-xl border border-line bg-card"
                   >
-                    <div className={cn("border-b-2 border-ink px-5 py-3", accentBg[exam.accent])}>
+                    <div className={cn("border-b border-line px-5 py-3", accentBg[exam.accent])}>
                       <h3 className="text-lg font-bold">{exam.name}</h3>
                     </div>
                     <dl className="flex-1 space-y-3 p-5 text-sm">
@@ -193,7 +193,7 @@ export default function Catalog() {
                         </div>
                       ))}
                     </dl>
-                    <div className="border-t-2 border-ink p-5">
+                    <div className="border-t border-line p-5">
                       <MentorConnectButton
                         variant="neo"
                         size="sm"
@@ -212,7 +212,7 @@ export default function Catalog() {
         </Container>
       </Section>
 
-      <Section tone="white" className="border-t-2 border-ink py-12 sm:py-16">
+      <Section tone="white" className="border-t border-line py-12 sm:py-16">
         <Container>
           <SectionHeader
             eyebrow="Exploration tracks"

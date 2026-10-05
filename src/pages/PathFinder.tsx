@@ -309,7 +309,7 @@ export default function PathFinder() {
 
   return (
     <>
-      <Section tone="white" className="border-b-2 border-ink py-12 sm:py-16">
+      <Section tone="white" className="border-b border-line py-12 sm:py-16">
         <Container>
           <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-end">
             <SectionHeader
@@ -318,7 +318,7 @@ export default function PathFinder() {
               title="Not sure where to start? Find out where your interests point."
               lead="Eleven questions about what you actually enjoy — not a test, and definitely not a prediction of your future. It tells you which areas are worth trying next, and gives a mentor something concrete to work with."
             />
-            <div className="border-2 border-ink bg-neo-yellow p-5 text-deep">
+            <div className="rounded-xl border border-line bg-neo-yellow p-5 text-deep">
               <p className="flex items-start gap-2 text-sm font-bold">
                 <Info className="mt-0.5 size-4 shrink-0" />
                 This is an exploration tool.
@@ -343,7 +343,7 @@ export default function PathFinder() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={reduce ? undefined : { opacity: 0, x: -24 }}
                 transition={{ duration: 0.22 }}
-                className="mx-auto max-w-3xl border-2 border-ink bg-card p-6 sm:p-8"
+                className="mx-auto max-w-3xl rounded-xl border border-line bg-card p-6 sm:p-8"
               >
                 <div className="flex items-center justify-between gap-4">
                   <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground">
@@ -373,7 +373,7 @@ export default function PathFinder() {
                         setAnswers((prev) => ({ ...prev, class: 1 }));
                       }}
                     >
-                      <SelectTrigger className="border-2 border-ink">
+                      <SelectTrigger className="rounded-xl border border-line">
                         <SelectValue placeholder="Select your class" />
                       </SelectTrigger>
                       <SelectContent>
@@ -405,7 +405,7 @@ export default function PathFinder() {
                         type="button"
                         onClick={() => handleChoose(i)}
                         className={cn(
-                          "flex items-center justify-between gap-4 border-2 border-ink px-4 py-3 text-left text-sm font-semibold transition-colors",
+                          "flex items-center justify-between gap-4 rounded-xl border border-line px-4 py-3 text-left text-sm font-semibold transition-colors",
                           answers[current.id] === i
                             ? "bg-neo-yellow text-deep"
                             : "bg-card hover:bg-paper",
@@ -418,7 +418,7 @@ export default function PathFinder() {
                   </div>
                 )}
 
-                <div className="mt-6 flex items-center justify-between gap-3 border-t-2 border-dashed border-ink/25 pt-4">
+                <div className="mt-6 flex items-center justify-between gap-3 border-t border-dashed border-line/25 pt-4">
                   <Button
                     variant="ghost"
                     className="font-bold"
@@ -443,7 +443,7 @@ export default function PathFinder() {
                 transition={{ duration: 0.3 }}
                 className="grid gap-6 lg:grid-cols-[1.1fr_1fr]"
               >
-                <div className="border-2 border-ink bg-card p-6">
+                <div className="rounded-xl border border-line bg-card p-6">
                   <Eyebrow tone="ink">Your exploration profile</Eyebrow>
                   <h2 className="mt-4 text-2xl font-bold">
                     Where your interests point today
@@ -472,7 +472,7 @@ export default function PathFinder() {
                 </div>
 
                 <div className="space-y-6">
-                  <div className="border-2 border-ink bg-card p-6">
+                  <div className="rounded-xl border border-line bg-card p-6">
                     <Eyebrow tone="blue">Areas you may want to explore</Eyebrow>
                     <div className="mt-4 grid gap-3">
                       {suggestedTracks.map((track) =>
@@ -480,7 +480,7 @@ export default function PathFinder() {
                           <Link
                             key={track.id}
                             to="/catalog"
-                            className="flex items-center gap-3 border-2 border-ink bg-paper px-4 py-3 transition-colors hover:bg-neo-yellow"
+                            className="flex items-center gap-3 rounded-xl border border-line bg-paper px-4 py-3 transition-colors hover:bg-neo-yellow"
                           >
                             <TrackIcon icon={track.icon} className="size-5" />
                             <span className="text-sm font-bold">{track.short}</span>
@@ -495,7 +495,7 @@ export default function PathFinder() {
                     </p>
                   </div>
 
-                  <div className="border-2 border-ink bg-neo-blue p-6 text-white shadow-neo-blue">
+                  <div className="rounded-xl border border-line bg-neo-blue p-6 text-white shadow-neo-blue">
                     <p className="font-mono text-sm font-bold uppercase tracking-wider">
                       Want a real second opinion?
                     </p>

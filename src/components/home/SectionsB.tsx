@@ -67,7 +67,7 @@ export function MentorPreviewSection() {
           </MentorConnectButton>
         </div>
 
-        <p className="mt-5 max-w-3xl border-2 border-dashed border-ink/30 bg-paper p-4 text-xs leading-relaxed text-muted-foreground">
+        <p className="mt-5 max-w-3xl rounded-xl border border-dashed border-line/30 bg-paper p-4 text-xs leading-relaxed text-muted-foreground">
           We publish no invented names, colleges, employers, ratings or years of
           experience. Until a mentor clears verification you see the seat, its
           coverage and its availability — nothing more.
@@ -94,12 +94,12 @@ export function ProjectsSection() {
         <div className="mt-10 grid gap-5 md:grid-cols-2">
           {STUDENT_PROJECTS.map((project, i) => (
             <Reveal key={project.id} delay={i * 0.05}>
-              <article className="flex h-full flex-col border-2 border-ink bg-panel">
-                <div className="flex items-start justify-between gap-3 border-b-2 border-ink p-5">
+              <article className="flex h-full flex-col rounded-xl border border-line bg-panel">
+                <div className="flex items-start justify-between gap-3 border-b border-line p-5">
                   <h3 className="text-lg font-bold text-ink">{project.title}</h3>
                   <span
                     className={cn(
-                      "border-2 border-ink px-2 py-0.5 font-mono text-[10px] font-bold whitespace-nowrap",
+                      "rounded-xl border border-line px-2 py-0.5 font-mono text-[10px] font-bold whitespace-nowrap",
                       accentBg[project.accent],
                     )}
                   >
@@ -107,7 +107,7 @@ export function ProjectsSection() {
                   </span>
                 </div>
                 <div className="flex-1 space-y-4 p-5 text-sm text-ink/70">
-                  <p className="inline-block border border-neo-yellow px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-neo-yellow">
+                  <p className="inline-block border border-amber-300 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-700">
                     Illustrative example — not a real student claim
                   </p>
                   <div>
@@ -126,13 +126,13 @@ export function ProjectsSection() {
                     {project.stack.map((s) => (
                       <span
                         key={s}
-                        className="border border-ink/40 px-2 py-0.5 font-mono text-[11px] font-medium text-ink/80"
+                        className="rounded-xl border border-line/40 px-2 py-0.5 font-mono text-[11px] font-medium text-ink/80"
                       >
                         {s}
                       </span>
                     ))}
                   </div>
-                  <div className="border-t border-ink/20 pt-3">
+                  <div className="border-t border-line/20 pt-3">
                     <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-ink/45">
                       Mentor
                     </p>
@@ -167,7 +167,7 @@ export function JourneySection() {
         <ol className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {JOURNEY_STEPS.map((step, i) => (
             <Reveal key={step.id} delay={i * 0.05}>
-              <li className="flex h-full flex-col border-2 border-ink bg-card p-5">
+              <li className="flex h-full flex-col rounded-xl border border-line bg-card p-5">
                 <div className="flex items-center justify-between">
                   <span className="font-display text-3xl font-bold text-ink/30">
                     {step.id}
@@ -175,7 +175,7 @@ export function JourneySection() {
                   {i < JOURNEY_STEPS.length - 1 ? (
                     <ArrowRight className="size-5 text-muted-foreground" />
                   ) : (
-                    <span className="border-2 border-ink bg-neo-green px-2 py-0.5 font-mono text-[10px] font-bold uppercase text-deep">
+                    <span className="rounded-xl border border-line bg-neo-green px-2 py-0.5 font-mono text-[10px] font-bold uppercase text-deep">
                       Grow
                     </span>
                   )}
@@ -222,7 +222,7 @@ export function ParentSection() {
                 "Next recommended step, written in plain language",
               ].map((item) => (
                 <li key={item} className="flex gap-3">
-                  <span className="mt-1 size-3 shrink-0 border-2 border-ink bg-neo-green" />
+                  <span className="mt-1 size-3 shrink-0 rounded-xl border border-line bg-neo-green" />
                   <span className="leading-snug">{item}</span>
                 </li>
               ))}
@@ -243,12 +243,12 @@ export function ParentSection() {
           </div>
 
           <Reveal>
-            <div className="border-2 border-ink bg-card shadow-neo">
-              <div className="flex items-center justify-between gap-2 border-b-2 border-ink bg-paper px-5 py-3">
+            <div className="rounded-xl border border-line bg-card shadow-neo">
+              <div className="flex items-center justify-between gap-2 border-b border-line bg-paper px-5 py-3">
                 <p className="text-sm font-bold uppercase tracking-[0.12em]">
                   Parent dashboard preview
                 </p>
-                <span className="border-2 border-ink bg-neo-yellow px-2 py-0.5 text-[10px] font-bold">
+                <span className="rounded-xl border border-line bg-neo-yellow px-2 py-0.5 text-[10px] font-bold">
                   Prototype
                 </span>
               </div>
@@ -265,8 +265,8 @@ export function ParentSection() {
                     </p>
                   </div>
                 ))}
-                <div className="grid gap-3 border-t-2 border-dashed border-ink/25 pt-4 sm:grid-cols-2">
-                  <div className="border-2 border-ink bg-paper p-3">
+                <div className="grid gap-3 border-t border-dashed border-line/25 pt-4 sm:grid-cols-2">
+                  <div className="rounded-xl border border-line bg-paper p-3">
                     <p className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
                       Mentor note
                     </p>
@@ -275,7 +275,7 @@ export function ParentSection() {
                       next.
                     </p>
                   </div>
-                  <div className="border-2 border-ink bg-neo-yellow p-3 text-deep">
+                  <div className="rounded-xl border border-line bg-neo-yellow p-3 text-deep">
                     <p className="text-[11px] font-bold uppercase tracking-wider">
                       Next recommended step
                     </p>
@@ -315,8 +315,8 @@ export function PartnerSection() {
             const Icon = PARTNER_ICONS[partner.icon] ?? Building2;
             return (
               <Reveal key={partner.id}>
-                <article className="flex h-full flex-col border-2 border-ink bg-card">
-                  <div className={cn("border-b-2 border-ink p-4", accentBg[partner.accent])}>
+                <article className="flex h-full flex-col rounded-xl border border-line bg-card">
+                  <div className={cn("border-b border-line p-4", accentBg[partner.accent])}>
                     <Icon className="size-6" />
                     <h3 className="mt-3 text-base font-bold">{partner.name}</h3>
                   </div>
@@ -332,7 +332,7 @@ export function PartnerSection() {
           })}
         </div>
 
-        <div className="mt-8 border-2 border-ink bg-card p-6">
+        <div className="mt-8 rounded-xl border border-line bg-card p-6">
           <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr] lg:items-center">
             <div>
               <Eyebrow tone="ink">Requirement first</Eyebrow>
@@ -380,12 +380,12 @@ export function VoicesSection() {
           {TESTIMONIALS.map((t) => (
             <figure
               key={t.author}
-              className="flex h-full flex-col border-2 border-dashed border-ink/40 bg-paper p-5"
+              className="flex h-full flex-col rounded-xl border border-dashed border-line/40 bg-paper p-5"
             >
               <blockquote className="flex-1 text-sm italic leading-relaxed text-muted-foreground">
                 "{t.quote}"
               </blockquote>
-              <figcaption className="mt-4 border-t-2 border-dashed border-ink/25 pt-3">
+              <figcaption className="mt-4 border-t border-dashed border-line/25 pt-3">
                 <p className="text-sm font-bold">{t.author}</p>
                 <p className="text-xs text-muted-foreground">{t.context}</p>
               </figcaption>
@@ -409,12 +409,12 @@ export function FaqSection() {
             title={t("home.faq.title")}
             lead={t("home.faq.lead")}
           />
-          <Accordion type="single" collapsible className="border-2 border-ink bg-card">
+          <Accordion type="single" collapsible className="rounded-xl border border-line bg-card">
             {FAQS.map((faq, i) => (
               <AccordionItem
                 key={faq.q}
                 value={`faq-${i}`}
-                className="border-b-2 border-ink px-5 last:border-b-0"
+                className="border-b border-line px-5 last:border-b-0"
               >
                 <AccordionTrigger className="text-left text-sm font-bold hover:no-underline">
                   {faq.q}
@@ -485,8 +485,8 @@ export function FinalCtaSection() {
                 </Button>
               </div>
             </div>
-            <div className="border-2 border-ink bg-panel p-6">
-              <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-neo-cyan">
+            <div className="rounded-xl border border-line bg-panel p-6">
+              <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-neo-blue">
                 {t("home.final.aside")}
               </p>
               <ol className="mt-4 space-y-4 text-sm text-ink/75">
@@ -497,7 +497,7 @@ export function FinalCtaSection() {
                   t("home.final.step4"),
                 ].map((line, i) => (
                   <li key={line} className="flex gap-3">
-                    <span className="flex size-6 shrink-0 items-center justify-center border-2 border-neo-cyan text-[11px] font-bold text-neo-cyan">
+                    <span className="flex size-6 shrink-0 items-center justify-center border border-neo-blue/40 text-[11px] font-bold text-neo-blue">
                       {i + 1}
                     </span>
                     <span className="leading-snug">{line}</span>

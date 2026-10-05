@@ -44,7 +44,7 @@ export default function MentorDetail() {
     return (
       <Section tone="paper" className="py-24">
         <Container>
-          <div className="border-2 border-ink bg-card p-10 text-center">
+          <div className="rounded-xl border border-line bg-card p-10 text-center">
             <h1 className="text-2xl font-bold">That mentor seat does not exist.</h1>
             <p className="mx-auto mt-3 max-w-md text-sm text-muted-foreground">
               Mentor seats are added and retired as the network changes. Browse the
@@ -63,7 +63,7 @@ export default function MentorDetail() {
 
   return (
     <>
-      <Section tone="white" className="border-b-2 border-ink py-10 sm:py-14">
+      <Section tone="white" className="border-b border-line py-10 sm:py-14">
         <Container>
           <Link
             to="/mentors"
@@ -77,7 +77,7 @@ export default function MentorDetail() {
               <div className="flex items-center gap-3">
                 <span
                   className={cn(
-                    "flex size-14 items-center justify-center border-2 border-ink text-xl font-black",
+                    "flex size-14 items-center justify-center rounded-xl border border-line text-xl font-black",
                     domain ? accentBg[domain.accent] : "bg-neo-violet text-white",
                   )}
                 >
@@ -94,10 +94,10 @@ export default function MentorDetail() {
               </div>
 
               <p className="mt-6 flex flex-wrap items-center gap-3 text-xs font-semibold">
-                <span className="inline-flex items-center gap-1.5 border-2 border-ink bg-paper px-2 py-1">
+                <span className="inline-flex items-center gap-1.5 rounded-xl border border-line bg-paper px-2 py-1">
                   {mentor.status === "verified" ? (
                     <>
-                      <ShieldCheck className="size-3.5 text-neo-green" /> Verified
+                      <ShieldCheck className="size-3.5 text-emerald-700" /> Verified
                     </>
                   ) : (
                     <>
@@ -105,10 +105,10 @@ export default function MentorDetail() {
                     </>
                   )}
                 </span>
-                <span className="inline-flex items-center gap-1.5 border-2 border-ink bg-paper px-2 py-1">
+                <span className="inline-flex items-center gap-1.5 rounded-xl border border-line bg-paper px-2 py-1">
                   <Languages className="size-3.5" /> {mentor.languages.join(", ")}
                 </span>
-                <span className="inline-flex items-center gap-1.5 border-2 border-ink bg-paper px-2 py-1">
+                <span className="inline-flex items-center gap-1.5 rounded-xl border border-line bg-paper px-2 py-1">
                   <Users className="size-3.5" /> {mentor.format}
                 </span>
               </p>
@@ -124,7 +124,7 @@ export default function MentorDetail() {
                     {mentor.expertise.map((e) => (
                       <li
                         key={e}
-                        className="border-2 border-ink bg-card px-2.5 py-1 text-xs font-semibold"
+                        className="rounded-xl border border-line bg-card px-2.5 py-1 text-xs font-semibold"
                       >
                         {e}
                       </li>
@@ -136,7 +136,7 @@ export default function MentorDetail() {
                   <ul className="mt-3 space-y-2">
                     {mentor.helpsWith.map((h) => (
                       <li key={h} className="flex gap-2 text-sm">
-                        <span className="mt-1.5 size-2.5 shrink-0 border-2 border-ink bg-neo-violet" />
+                        <span className="mt-1.5 size-2.5 shrink-0 rounded-xl border border-line bg-neo-violet" />
                         <span className="leading-snug">{h}</span>
                       </li>
                     ))}
@@ -150,7 +150,7 @@ export default function MentorDetail() {
                   {domain?.skills.map((skill) => (
                     <p
                       key={skill}
-                      className="border-2 border-ink bg-paper px-3 py-2 text-sm font-medium"
+                      className="rounded-xl border border-line bg-paper px-3 py-2 text-sm font-medium"
                     >
                       {skill}
                     </p>
@@ -160,8 +160,8 @@ export default function MentorDetail() {
             </div>
 
             <aside className="space-y-4 lg:sticky lg:top-28 lg:self-start">
-              <div className="flex h-52 flex-col items-center justify-center gap-3 border-2 border-dashed border-ink/40 bg-paper">
-                <span className="flex size-14 items-center justify-center border-2 border-ink bg-card">
+              <div className="flex h-52 flex-col items-center justify-center gap-3 rounded-xl border border-dashed border-line/40 bg-paper">
+                <span className="flex size-14 items-center justify-center rounded-xl border border-line bg-card">
                   <Play className="size-6" />
                 </span>
                 <p className="max-w-[220px] text-center text-xs font-semibold leading-snug text-muted-foreground">
@@ -180,7 +180,7 @@ export default function MentorDetail() {
                 </Button>
               </div>
 
-              <div className="border-2 border-ink bg-card p-5">
+              <div className="rounded-xl border border-line bg-card p-5">
                 <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-muted-foreground">
                   Institution
                 </p>
@@ -193,7 +193,7 @@ export default function MentorDetail() {
                 <p className="mt-1 text-sm font-semibold">{mentor.availability}</p>
               </div>
 
-              <div className="border-2 border-ink bg-neo-yellow p-5 text-deep">
+              <div className="rounded-xl border border-line bg-neo-yellow p-5 text-deep">
                 <p className="text-sm font-bold">
                   Booking opens with the first cohort.
                 </p>
@@ -212,7 +212,7 @@ export default function MentorDetail() {
                 </MentorConnectButton>
               </div>
 
-              <div className="border-2 border-dashed border-ink/40 bg-paper p-5">
+              <div className="rounded-xl border border-dashed border-line/40 bg-paper p-5">
                 <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-muted-foreground">
                   Student reviews
                 </p>
@@ -238,7 +238,7 @@ export default function MentorDetail() {
               <Link
                 key={other.id}
                 to={`/mentor/${other.slug}`}
-                className="border-2 border-ink bg-card p-5 transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-neo"
+                className="rounded-xl border border-line bg-card p-5 transition-all hover:-translate-y-0.5 hover:shadow-neo"
               >
                 <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-muted-foreground">
                   {other.code}

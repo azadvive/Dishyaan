@@ -43,7 +43,7 @@ export function LanguageMenu({
         aria-expanded={open}
         aria-label={`${t("lang.label")}: ${current.name}`}
         onClick={() => setOpen((value) => !value)}
-        className="flex items-center gap-1.5 border-2 border-ink px-2.5 py-1.5 text-sm font-semibold text-ink transition-colors hover:bg-neo-cyan hover:text-deep"
+        className="flex items-center gap-1.5 rounded-xl border border-line px-2.5 py-1.5 text-sm font-semibold text-ink transition-colors hover:bg-neo-cyan hover:text-deep"
       >
         <Globe className="size-4" aria-hidden />
         <span className="font-mono text-xs font-bold">{current.native}</span>
@@ -54,7 +54,7 @@ export function LanguageMenu({
           role="listbox"
           aria-label={t("lang.label")}
           className={cn(
-            "absolute z-50 mt-2 w-56 border-2 border-ink bg-panel p-1 shadow-neo",
+            "absolute z-50 mt-2 w-56 rounded-xl border border-line bg-panel p-1 shadow-neo",
             align === "right" ? "right-0" : "left-0",
           )}
         >
@@ -73,7 +73,7 @@ export function LanguageMenu({
                   className={cn(
                     "flex w-full items-center justify-between gap-3 px-3 py-2 text-left transition-colors",
                     selected
-                      ? "bg-invert text-deep"
+                      ? "bg-ink text-white"
                       : "text-ink hover:bg-neo-yellow hover:text-deep",
                   )}
                 >

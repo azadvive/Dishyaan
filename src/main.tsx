@@ -37,7 +37,7 @@ const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 function RouteLoading() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-paper">
-      <div className="border-2 border-ink bg-card px-5 py-3 font-mono text-sm font-bold uppercase tracking-[0.2em]">
+      <div className="rounded-xl border border-line bg-card px-5 py-3 font-mono text-sm font-bold uppercase tracking-[0.2em]">
         Loading DishaYaaN
       </div>
     </div>
@@ -82,7 +82,7 @@ class RootErrorBoundary extends React.Component<
     if (this.state.hasError) {
       return (
         <div className="flex min-h-screen items-center justify-center bg-paper p-6 text-ink">
-          <div className="max-w-lg border-2 border-ink bg-card p-6 text-center">
+          <div className="max-w-lg rounded-xl border border-line bg-card p-6 text-center">
             <p className="text-sm font-bold uppercase tracking-wider">
               Preview runtime error
             </p>
@@ -90,7 +90,7 @@ class RootErrorBoundary extends React.Component<
               {this.state.message}
             </p>
             {this.state.stack ? (
-              <pre className="mt-3 max-h-40 overflow-auto border-2 border-ink/40 p-2 text-left text-[10px] leading-4 text-muted-foreground">
+              <pre className="mt-3 max-h-40 overflow-auto rounded-xl border border-line/40 p-2 text-left text-[10px] leading-4 text-muted-foreground">
                 {this.state.stack}
               </pre>
             ) : null}

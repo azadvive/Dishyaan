@@ -248,7 +248,7 @@ export default function Community() {
 
   return (
     <>
-      <Section tone="paper" className="border-b-2 border-ink pb-12 pt-14">
+      <Section tone="paper" className="border-b border-line pb-12 pt-14">
         <Container>
           <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:items-end">
             <SectionHeader
@@ -257,7 +257,7 @@ export default function Community() {
               title="Show the work. Ask the awkward question."
               lead="This is where students publish their own projects, upload build logs and ask questions that do not fit in a classroom. Mentors read it and answer here, in public, so the next student finds it too."
             />
-            <div className="border-2 border-ink bg-panel-2 p-5 text-ink">
+            <div className="rounded-xl border border-line bg-panel-2 p-5 text-ink">
               <Eyebrow tone="cyan">House rules</Eyebrow>
               <ul className="mt-4 space-y-2 text-xs leading-relaxed text-ink/80">
                 <li>Publish only your own work — credit anyone who helped.</li>
@@ -274,14 +274,14 @@ export default function Community() {
         <Container>
           <div className="grid gap-8 lg:grid-cols-[1.6fr_1fr]">
             <div>
-              <div className="flex flex-col gap-3 border-2 border-ink bg-paper p-4 sm:flex-row sm:items-center">
+              <div className="flex flex-col gap-3 rounded-xl border border-line bg-paper p-4 sm:flex-row sm:items-center">
                 <div className="relative flex-1">
                   <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
                   <Input
                     value={query}
                     onChange={(event) => setQuery(event.target.value)}
                     placeholder="Search posts, tags or authors"
-                    className="border-2 border-ink pl-9"
+                    className="rounded-xl border border-line pl-9"
                     aria-label="Search community posts"
                   />
                 </div>
@@ -295,7 +295,7 @@ export default function Community() {
                       aria-pressed={kindFilter === value}
                       onClick={() => setKindFilter(value)}
                       className={cn(
-                        "border-2 border-ink px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-wider transition-colors",
+                        "rounded-xl border border-line px-3 py-1.5 font-mono text-[11px] font-bold uppercase tracking-wider transition-colors",
                         kindFilter === value
                           ? "bg-neo-yellow text-deep"
                           : "bg-card hover:bg-paper",
@@ -315,7 +315,7 @@ export default function Community() {
 
               <div className="mt-4 space-y-5">
                 {visible.length === 0 ? (
-                  <div className="border-2 border-dashed border-ink/40 bg-paper p-8 text-center">
+                  <div className="rounded-xl border border-dashed border-line/40 bg-paper p-8 text-center">
                     <Users className="mx-auto size-8 text-muted-foreground" />
                     <p className="mt-3 text-sm font-bold">
                       {posts && posts.length > 0
@@ -336,8 +336,8 @@ export default function Community() {
                   const isMine = mineIds.has(post._id);
                   return (
                     <Reveal key={post._id}>
-                      <article className="border-2 border-ink bg-card">
-                        <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-ink bg-paper px-4 py-3">
+                      <article className="rounded-xl border border-line bg-card">
+                        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line bg-paper px-4 py-3">
                           <span className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-wider">
                             <Icon className="size-3.5 text-neo-violet" />
                             {meta.label}
@@ -360,7 +360,7 @@ export default function Community() {
                               {post.tags.map((tag) => (
                                 <li
                                   key={tag}
-                                  className="border border-ink/30 bg-paper px-2 py-0.5 font-mono text-[11px] font-medium"
+                                  className="rounded-xl border border-line/30 bg-paper px-2 py-0.5 font-mono text-[11px] font-medium"
                                 >
                                   #{tag}
                                 </li>
@@ -374,7 +374,7 @@ export default function Community() {
                                 href={post.fileUrl}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="inline-flex items-center gap-2 border-2 border-ink bg-paper px-3 py-1.5 text-xs font-bold transition-colors hover:bg-neo-cyan hover:text-deep"
+                                className="inline-flex items-center gap-2 rounded-xl border border-line bg-paper px-3 py-1.5 text-xs font-bold transition-colors hover:bg-neo-cyan hover:text-deep"
                               >
                                 <Paperclip className="size-3.5" />
                                 {post.fileName ?? "Attachment"}
@@ -385,7 +385,7 @@ export default function Community() {
                                 href={post.link}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="inline-flex items-center gap-2 border-2 border-ink bg-paper px-3 py-1.5 text-xs font-bold transition-colors hover:bg-neo-cyan hover:text-deep"
+                                className="inline-flex items-center gap-2 rounded-xl border border-line bg-paper px-3 py-1.5 text-xs font-bold transition-colors hover:bg-neo-cyan hover:text-deep"
                               >
                                 <Link2 className="size-3.5" />
                                 Open the project
@@ -394,7 +394,7 @@ export default function Community() {
                           </div>
                         </div>
 
-                        <div className="border-t-2 border-ink bg-paper p-4">
+                        <div className="border-t border-line bg-paper p-4">
                           <p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-muted-foreground">
                             {postComments.length === 0
                               ? "No comments yet"
@@ -406,7 +406,7 @@ export default function Community() {
                               {postComments.slice(-3).map((comment) => (
                                 <li
                                   key={comment._id}
-                                  className="border-l-2 border-neo-violet pl-3"
+                                  className="border-l border-neo-violet pl-3"
                                 >
                                   <p className="font-mono text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
                                     {comment.authorName}
@@ -430,7 +430,7 @@ export default function Community() {
                                   }))
                                 }
                                 placeholder="Add something useful — a question, a fix, a next step"
-                                className="border-2 border-ink"
+                                className="rounded-xl border border-line"
                                 aria-label={`Comment on ${post.title}`}
                               />
                               <Button
@@ -446,7 +446,7 @@ export default function Community() {
                             <p className="mt-3 text-xs text-muted-foreground">
                               <Link
                                 to={`/auth?returnTo=/community`}
-                                className="font-bold text-neo-cyan hover:underline"
+                                className="font-bold text-neo-blue hover:underline"
                               >
                                 Sign in
                               </Link>{" "}
@@ -455,9 +455,9 @@ export default function Community() {
                           )}
 
                           {isMine ? (
-                            <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t-2 border-dashed border-ink/25 pt-3">
+                            <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-dashed border-line/25 pt-3">
                               <span className="inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-                                <ShieldCheck className="size-3.5 text-neo-green" />
+                                <ShieldCheck className="size-3.5 text-emerald-700" />
                                 Published by you
                               </span>
                               <Button
@@ -484,9 +484,9 @@ export default function Community() {
               {isAuthenticated ? (
                 <form
                   onSubmit={handlePublish}
-                  className="border-2 border-ink bg-card shadow-neo-violet"
+                  className="rounded-xl border border-line bg-card shadow-neo-violet"
                 >
-                  <div className="flex items-center gap-3 border-b-2 border-ink bg-neo-violet px-5 py-3 text-white">
+                  <div className="flex items-center gap-3 border-b border-line bg-neo-violet px-5 py-3 text-white">
                     <Upload className="size-4" />
                     <span className="font-mono text-sm font-bold uppercase tracking-[0.12em]">
                       Publish your work
@@ -506,7 +506,7 @@ export default function Community() {
                             aria-pressed={kind === item.id}
                             onClick={() => setKind(item.id)}
                             className={cn(
-                              "border-2 border-ink px-2 py-2 font-mono text-[11px] font-bold uppercase tracking-wider transition-colors",
+                              "rounded-xl border border-line px-2 py-2 font-mono text-[11px] font-bold uppercase tracking-wider transition-colors",
                               kind === item.id
                                 ? "bg-neo-yellow text-deep"
                                 : "bg-paper hover:bg-card",
@@ -530,7 +530,7 @@ export default function Community() {
                         value={displayName}
                         onChange={(event) => setDisplayName(event.target.value)}
                         placeholder="How should we credit you?"
-                        className="border-2 border-ink"
+                        className="rounded-xl border border-line"
                       />
                     </div>
 
@@ -547,7 +547,7 @@ export default function Community() {
                         value={title}
                         onChange={(event) => setTitle(event.target.value)}
                         placeholder="Line-following rover that survives a tiled floor"
-                        className="border-2 border-ink"
+                        className="rounded-xl border border-line"
                       />
                     </div>
 
@@ -565,7 +565,7 @@ export default function Community() {
                         value={body}
                         onChange={(event) => setBody(event.target.value)}
                         placeholder="What you tried, what broke, what you would tell the next student. Plain honesty beats polish."
-                        className="border-2 border-ink"
+                        className="rounded-xl border border-line"
                       />
                     </div>
 
@@ -581,7 +581,7 @@ export default function Community() {
                         value={tags}
                         onChange={(event) => setTags(event.target.value)}
                         placeholder="Arduino, sensors, Class 9"
-                        className="border-2 border-ink"
+                        className="rounded-xl border border-line"
                       />
                       <p className="text-[11px] leading-snug text-muted-foreground">
                         Separate up to six tags with commas.
@@ -600,7 +600,7 @@ export default function Community() {
                         value={link}
                         onChange={(event) => setLink(event.target.value)}
                         placeholder="https://github.com/…"
-                        className="border-2 border-ink"
+                        className="rounded-xl border border-line"
                       />
                     </div>
 
@@ -613,7 +613,7 @@ export default function Community() {
                       </Label>
                       <label
                         htmlFor="post-file"
-                        className="flex cursor-pointer items-center gap-3 border-2 border-dashed border-ink/40 bg-paper px-3 py-3 text-xs font-semibold hover:bg-card"
+                        className="flex cursor-pointer items-center gap-3 rounded-xl border border-dashed border-line/40 bg-paper px-3 py-3 text-xs font-semibold hover:bg-card"
                       >
                         <FileUp className="size-4 shrink-0 text-neo-violet" />
                         <span className="min-w-0 truncate">
@@ -632,13 +632,13 @@ export default function Community() {
                     </div>
 
                     {error ? (
-                      <p className="border-2 border-ink bg-destructive/10 p-3 text-xs font-medium text-destructive">
+                      <p className="rounded-xl border border-line bg-destructive/10 p-3 text-xs font-medium text-destructive">
                         {error}
                       </p>
                     ) : null}
 
                     {status === "sent" ? (
-                      <p className="border-2 border-ink bg-neo-green p-3 text-xs font-bold text-deep">
+                      <p className="rounded-xl border border-line bg-neo-green p-3 text-xs font-bold text-deep">
                         Published. It is live in the feed above.
                       </p>
                     ) : null}
@@ -664,7 +664,7 @@ export default function Community() {
                   </div>
                 </form>
               ) : (
-                <div className="border-2 border-ink bg-panel-2 p-6 text-ink">
+                <div className="rounded-xl border border-line bg-panel-2 p-6 text-ink">
                   <Eyebrow tone="violet">Sign in to publish</Eyebrow>
                   <p className="mt-4 text-sm font-semibold">
                     Posting, uploading files and commenting need an account. Reading
@@ -681,7 +681,7 @@ export default function Community() {
                 </div>
               )}
 
-              <div className="border-2 border-ink bg-card p-5">
+              <div className="rounded-xl border border-line bg-card p-5">
                 <Eyebrow tone="cyan">Where to start</Eyebrow>
                 <ul className="mt-4 space-y-2 text-xs leading-relaxed text-muted-foreground">
                   <li>

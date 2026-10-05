@@ -222,8 +222,8 @@ function MentorConnectDialog({
 
   return (
     <Dialog open={state.isOpen} onOpenChange={(o) => !o && close()}>
-      <DialogContent className="max-h-[92vh] overflow-y-auto border-2 border-ink p-0 sm:max-w-[560px]">
-        <div className="border-b-2 border-ink bg-neo-yellow px-6 py-4 text-deep">
+      <DialogContent className="max-h-[92vh] overflow-y-auto rounded-xl border border-line p-0 sm:max-w-[560px]">
+        <div className="border-b border-line bg-neo-yellow px-6 py-4 text-deep">
           <DialogHeader>
             <DialogTitle className="text-xl font-bold">
               {status === "sent"
@@ -246,7 +246,7 @@ function MentorConnectDialog({
             animate={{ opacity: 1, y: 0 }}
             className="flex flex-col items-center gap-4 px-6 py-10 text-center"
           >
-            <CheckCircle2 className="size-12 text-neo-green" />
+            <CheckCircle2 className="size-12 text-emerald-700" />
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
               We have your context: {state.context ? "your exploration results, " : ""}
               your class, interests and preferred slot. The mentor will message
@@ -259,7 +259,7 @@ function MentorConnectDialog({
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4 px-6 py-6">
             {state.context ? (
-              <div className="border-2 border-ink bg-paper p-3 text-xs leading-relaxed text-muted-foreground">
+              <div className="rounded-xl border border-line bg-paper p-3 text-xs leading-relaxed text-muted-foreground">
                 <span className="font-bold text-ink">Context passed on:</span>{" "}
                 {state.context}
               </div>
@@ -274,7 +274,7 @@ function MentorConnectDialog({
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Student or parent name"
-                  className="border-2 border-ink"
+                  className="rounded-xl border border-line"
                 />
               </div>
               <div className="space-y-2">
@@ -286,7 +286,7 @@ function MentorConnectDialog({
                   value={whatsapp}
                   onChange={(e) => setWhatsapp(e.target.value)}
                   placeholder="10-digit number"
-                  className="border-2 border-ink"
+                  className="rounded-xl border border-line"
                 />
               </div>
             </div>
@@ -295,7 +295,7 @@ function MentorConnectDialog({
               <div className="space-y-2">
                 <Label>Class</Label>
                 <Select value={classValue} onValueChange={setClassValue}>
-                  <SelectTrigger className="border-2 border-ink">
+                  <SelectTrigger className="rounded-xl border border-line">
                     <SelectValue placeholder="Select class" />
                   </SelectTrigger>
                   <SelectContent>
@@ -310,7 +310,7 @@ function MentorConnectDialog({
               <div className="space-y-2">
                 <Label>Domain you want</Label>
                 <Select value={domain} onValueChange={setDomain}>
-                  <SelectTrigger className="border-2 border-ink">
+                  <SelectTrigger className="rounded-xl border border-line">
                     <SelectValue placeholder="Not sure yet" />
                   </SelectTrigger>
                   <SelectContent>
@@ -328,7 +328,7 @@ function MentorConnectDialog({
               <div className="space-y-2">
                 <Label>Language</Label>
                 <Select value={language} onValueChange={setLanguage}>
-                  <SelectTrigger className="border-2 border-ink">
+                  <SelectTrigger className="rounded-xl border border-line">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -345,7 +345,7 @@ function MentorConnectDialog({
               <div className="space-y-2">
                 <Label>Preferred slot</Label>
                 <Select value={availability} onValueChange={setAvailability}>
-                  <SelectTrigger className="border-2 border-ink">
+                  <SelectTrigger className="rounded-xl border border-line">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -372,12 +372,12 @@ function MentorConnectDialog({
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
                 placeholder="Optional. Example: I am in Class 9 and want to start robotics but have no kit yet."
-                className="border-2 border-ink"
+                className="rounded-xl border border-line"
               />
             </div>
 
             {error ? (
-              <p className="border-2 border-ink bg-destructive/10 p-3 text-sm font-medium text-destructive">
+              <p className="rounded-xl border border-line bg-destructive/10 p-3 text-sm font-medium text-destructive">
                 {error}
               </p>
             ) : null}

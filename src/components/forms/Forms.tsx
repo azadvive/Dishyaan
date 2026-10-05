@@ -115,7 +115,7 @@ function ChipGroup({
             aria-pressed={isOn}
             onClick={() => onToggle(option)}
             className={cn(
-              "border-2 border-ink px-3 py-2 text-left font-mono text-xs font-semibold transition-colors",
+              "rounded-xl border border-line px-3 py-2 text-left font-mono text-xs font-semibold transition-colors",
               isOn ? "bg-neo-yellow text-deep" : "bg-card hover:bg-paper",
             )}
           >
@@ -143,10 +143,10 @@ function FormSection({
   children: ReactNode;
 }) {
   return (
-    <fieldset className="border-2 border-ink bg-card">
+    <fieldset className="rounded-xl border border-line bg-card">
       <legend className="sr-only">{title}</legend>
-      <div className="flex items-center gap-3 border-b-2 border-ink bg-paper px-5 py-3">
-        <span className="flex size-7 items-center justify-center border-2 border-ink bg-neo-blue font-mono text-xs font-bold text-white">
+      <div className="flex items-center gap-3 border-b border-line bg-paper px-5 py-3">
+        <span className="flex size-7 items-center justify-center rounded-xl border border-line bg-neo-blue font-mono text-xs font-bold text-white">
           {step}
         </span>
         <span className="font-mono text-sm font-bold uppercase tracking-[0.12em]">
@@ -233,9 +233,9 @@ export function EnquiryForm({ source = "home" }: { source?: string }) {
       <motion.div
         initial={reduce ? undefined : { opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        className="border-2 border-ink bg-card p-8 text-center shadow-neo"
+        className="rounded-xl border border-line bg-card p-8 text-center shadow-neo"
       >
-        <CheckCircle2 className="mx-auto size-12 text-neo-green" />
+        <CheckCircle2 className="mx-auto size-12 text-emerald-700" />
         <h3 className="mt-4 text-xl font-bold">Thank you — this shapes what we build.</h3>
         <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
           We read every requirement ourselves. Expect a WhatsApp message within one
@@ -277,7 +277,7 @@ export function EnquiryForm({ source = "home" }: { source?: string }) {
               }}
               aria-pressed={role === value}
               className={cn(
-                "border-2 border-ink p-4 text-left transition-colors",
+                "rounded-xl border border-line p-4 text-left transition-colors",
                 role === value ? "bg-neo-yellow text-deep" : "bg-card hover:bg-paper",
               )}
             >
@@ -300,12 +300,12 @@ export function EnquiryForm({ source = "home" }: { source?: string }) {
                 isStudent ? setName(e.target.value) : setStudentName(e.target.value)
               }
               placeholder="Full name"
-              className="border-2 border-ink"
+              className="rounded-xl border border-line"
             />
           </Field>
           <Field label="Class">
             <Select value={studentClass} onValueChange={setStudentClass}>
-              <SelectTrigger className="border-2 border-ink">
+              <SelectTrigger className="rounded-xl border border-line">
                 <SelectValue placeholder="Select class" />
               </SelectTrigger>
               <SelectContent>
@@ -319,7 +319,7 @@ export function EnquiryForm({ source = "home" }: { source?: string }) {
           </Field>
           <Field label="Board">
             <Select value={board} onValueChange={setBoard}>
-              <SelectTrigger className="border-2 border-ink">
+              <SelectTrigger className="rounded-xl border border-line">
                 <SelectValue placeholder="Select board" />
               </SelectTrigger>
               <SelectContent>
@@ -333,7 +333,7 @@ export function EnquiryForm({ source = "home" }: { source?: string }) {
           </Field>
           <Field label="Preferred language">
             <Select value={language} onValueChange={setLanguage}>
-              <SelectTrigger className="border-2 border-ink">
+              <SelectTrigger className="rounded-xl border border-line">
                 <SelectValue placeholder="Any language" />
               </SelectTrigger>
               <SelectContent>
@@ -350,7 +350,7 @@ export function EnquiryForm({ source = "home" }: { source?: string }) {
               value={city}
               onChange={(e) => setCity(e.target.value)}
               placeholder="City"
-              className="border-2 border-ink"
+              className="rounded-xl border border-line"
             />
           </Field>
           <Field label="State">
@@ -358,7 +358,7 @@ export function EnquiryForm({ source = "home" }: { source?: string }) {
               value={state}
               onChange={(e) => setState(e.target.value)}
               placeholder="State"
-              className="border-2 border-ink"
+              className="rounded-xl border border-line"
             />
           </Field>
         </div>
@@ -367,7 +367,7 @@ export function EnquiryForm({ source = "home" }: { source?: string }) {
       <FormSection step="3" title="Current situation">
         <Field label="How clear are you about your future?">
           <Select value={clarity} onValueChange={setClarity}>
-            <SelectTrigger className="border-2 border-ink">
+            <SelectTrigger className="rounded-xl border border-line">
               <SelectValue placeholder="Pick the closest answer" />
             </SelectTrigger>
             <SelectContent>
@@ -409,7 +409,7 @@ export function EnquiryForm({ source = "home" }: { source?: string }) {
         <div className="grid gap-4 sm:grid-cols-2">
           <Field label="Main goal">
             <Select value={goal} onValueChange={setGoal}>
-              <SelectTrigger className="border-2 border-ink">
+              <SelectTrigger className="rounded-xl border border-line">
                 <SelectValue placeholder="Not decided yet" />
               </SelectTrigger>
               <SelectContent>
@@ -423,7 +423,7 @@ export function EnquiryForm({ source = "home" }: { source?: string }) {
           </Field>
           <Field label="Learning preference">
             <Select value={preference} onValueChange={setPreference}>
-              <SelectTrigger className="border-2 border-ink">
+              <SelectTrigger className="rounded-xl border border-line">
                 <SelectValue placeholder="Any format" />
               </SelectTrigger>
               <SelectContent>
@@ -443,7 +443,7 @@ export function EnquiryForm({ source = "home" }: { source?: string }) {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Example: a 6-week robotics lab for Class 8, or a parent orientation on career paths."
-              className="border-2 border-ink"
+              className="rounded-xl border border-line"
             />
           </Field>
         ) : null}
@@ -469,7 +469,7 @@ export function EnquiryForm({ source = "home" }: { source?: string }) {
               value={whatsapp}
               onChange={(e) => setWhatsapp(e.target.value)}
               placeholder="10-digit number"
-              className="border-2 border-ink"
+              className="rounded-xl border border-line"
             />
           </Field>
           <Field label="Email (optional)">
@@ -478,12 +478,12 @@ export function EnquiryForm({ source = "home" }: { source?: string }) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="name@example.com"
-              className="border-2 border-ink"
+              className="rounded-xl border border-line"
             />
           </Field>
           <Field label="Preferred call time">
             <Select value={preferredTime} onValueChange={setPreferredTime}>
-              <SelectTrigger className="border-2 border-ink">
+              <SelectTrigger className="rounded-xl border border-line">
                 <SelectValue placeholder="No preference" />
               </SelectTrigger>
               <SelectContent>
@@ -501,7 +501,7 @@ export function EnquiryForm({ source = "home" }: { source?: string }) {
               value={isStudent ? name : name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Who should we ask for?"
-              className="border-2 border-ink"
+              className="rounded-xl border border-line"
             />
           </Field>
         </div>
@@ -513,12 +513,12 @@ export function EnquiryForm({ source = "home" }: { source?: string }) {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Optional. Tell us the specific thing that would make DishaYaaN worth it for you."
-              className="border-2 border-ink"
+              className="rounded-xl border border-line"
             />
           </Field>
         ) : null}
 
-        <label className="flex gap-3 border-2 border-ink bg-paper p-3">
+        <label className="flex gap-3 rounded-xl border border-line bg-paper p-3">
           <Checkbox
             checked={consent}
             onCheckedChange={(v) => setConsent(v === true)}
@@ -534,7 +534,7 @@ export function EnquiryForm({ source = "home" }: { source?: string }) {
       </FormSection>
 
       {error ? (
-        <p className="border-2 border-ink bg-destructive/10 p-3 text-sm font-medium text-destructive">
+        <p className="rounded-xl border border-line bg-destructive/10 p-3 text-sm font-medium text-destructive">
           {error}
         </p>
       ) : null}
@@ -617,9 +617,9 @@ export function PartnerForm() {
       <motion.div
         initial={reduce ? undefined : { opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        className="border-2 border-ink bg-card p-8 text-center shadow-neo"
+        className="rounded-xl border border-line bg-card p-8 text-center shadow-neo"
       >
-        <CheckCircle2 className="mx-auto size-12 text-neo-green" />
+        <CheckCircle2 className="mx-auto size-12 text-emerald-700" />
         <h3 className="mt-4 text-xl font-bold">Requirement received.</h3>
         <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
           We will come back with a scoped proposal: what we deliver, who mentors it,
@@ -635,7 +635,7 @@ export function PartnerForm() {
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Institution type">
           <Select value={orgType} onValueChange={setOrgType}>
-            <SelectTrigger className="border-2 border-ink">
+            <SelectTrigger className="rounded-xl border border-line">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -653,7 +653,7 @@ export function PartnerForm() {
             value={orgName}
             onChange={(e) => setOrgName(e.target.value)}
             placeholder="School / college / centre name"
-            className="border-2 border-ink"
+            className="rounded-xl border border-line"
           />
         </Field>
         <Field label="Contact person">
@@ -662,7 +662,7 @@ export function PartnerForm() {
             value={contactName}
             onChange={(e) => setContactName(e.target.value)}
             placeholder="Full name"
-            className="border-2 border-ink"
+            className="rounded-xl border border-line"
           />
         </Field>
         <Field label="Your role">
@@ -670,7 +670,7 @@ export function PartnerForm() {
             value={contactRole}
             onChange={(e) => setContactRole(e.target.value)}
             placeholder="Principal, HOD, Director…"
-            className="border-2 border-ink"
+            className="rounded-xl border border-line"
           />
         </Field>
         <Field label="City">
@@ -678,12 +678,12 @@ export function PartnerForm() {
             value={city}
             onChange={(e) => setCity(e.target.value)}
             placeholder="City"
-            className="border-2 border-ink"
+            className="rounded-xl border border-line"
           />
         </Field>
         <Field label="Approximate student count">
           <Select value={studentCount} onValueChange={setStudentCount}>
-            <SelectTrigger className="border-2 border-ink">
+            <SelectTrigger className="rounded-xl border border-line">
               <SelectValue placeholder="Select a range" />
             </SelectTrigger>
             <SelectContent>
@@ -725,14 +725,14 @@ export function PartnerForm() {
           value={requirement}
           onChange={(e) => setRequirement(e.target.value)}
           placeholder="Example: 120 students of Class 8–9, two hours per week, robotics and AI exposure, most students do not have kits at home, we need a report for parents each term."
-          className="border-2 border-ink"
+          className="rounded-xl border border-line"
         />
       </Field>
 
       <div className="grid gap-4 sm:grid-cols-3">
         <Field label="Timeline">
           <Select value={timeline} onValueChange={setTimeline}>
-            <SelectTrigger className="border-2 border-ink">
+            <SelectTrigger className="rounded-xl border border-line">
               <SelectValue placeholder="Select" />
             </SelectTrigger>
             <SelectContent>
@@ -756,7 +756,7 @@ export function PartnerForm() {
             value={whatsapp}
             onChange={(e) => setWhatsapp(e.target.value)}
             placeholder="10-digit number"
-            className="border-2 border-ink"
+            className="rounded-xl border border-line"
           />
         </Field>
         <Field label="Email (optional)">
@@ -765,12 +765,12 @@ export function PartnerForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="name@institution.in"
-            className="border-2 border-ink"
+            className="rounded-xl border border-line"
           />
         </Field>
       </div>
 
-      <label className="flex gap-3 border-2 border-ink bg-paper p-3">
+      <label className="flex gap-3 rounded-xl border border-line bg-paper p-3">
         <Checkbox
           checked={consent}
           onCheckedChange={(v) => setConsent(v === true)}
@@ -783,7 +783,7 @@ export function PartnerForm() {
       </label>
 
       {error ? (
-        <p className="border-2 border-ink bg-destructive/10 p-3 text-sm font-medium text-destructive">
+        <p className="rounded-xl border border-line bg-destructive/10 p-3 text-sm font-medium text-destructive">
           {error}
         </p>
       ) : null}

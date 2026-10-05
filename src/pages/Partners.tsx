@@ -66,7 +66,7 @@ export default function Partners() {
 
   return (
     <>
-      <Section tone="white" className="border-b-2 border-ink py-14 sm:py-20">
+      <Section tone="white" className="border-b border-line py-14 sm:py-20">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr]">
             <SectionHeader
@@ -75,7 +75,7 @@ export default function Partners() {
               title="We build alongside institutions, not against them."
               lead="DishaYaaN is not trying to replace your faculty or your pedagogy. We add the layer that is hardest to staff internally: current technology exposure, industry mentors, project supervision and career guidance."
             />
-            <div className="border-2 border-ink bg-paper p-6">
+            <div className="rounded-xl border border-line bg-paper p-6">
               <Eyebrow tone="ink">What we need from you</Eyebrow>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
                 Not a signed contract — a requirement. Tell us the specific problem
@@ -83,7 +83,7 @@ export default function Partners() {
                 the mentor profile that fits, the reporting format and a cost. A pilot
                 comes before any annual commitment.
               </p>
-              <div className="mt-5 border-t-2 border-dashed border-ink/30 pt-4">
+              <div className="mt-5 border-t border-dashed border-line/30 pt-4">
                 <MentorConnectButton
                   variant="neo-dark"
                   source="partners_header"
@@ -109,10 +109,10 @@ export default function Partners() {
               const Icon = PARTNER_ICONS[partner.icon] ?? Building2;
               return (
                 <Reveal key={partner.id}>
-                  <article className="flex h-full flex-col border-2 border-ink bg-card">
+                  <article className="flex h-full flex-col rounded-xl border border-line bg-card">
                     <div
                       className={cn(
-                        "flex items-center gap-3 border-b-2 border-ink p-5",
+                        "flex items-center gap-3 border-b border-line p-5",
                         accentBg[partner.accent],
                       )}
                     >
@@ -142,7 +142,7 @@ export default function Partners() {
           />
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
             {DELIVERY_MODELS.map((model, i) => (
-              <div key={model.title} className="border-2 border-ink bg-paper p-6">
+              <div key={model.title} className="rounded-xl border border-line bg-paper p-6">
                 <span className="font-mono text-3xl font-bold text-ink/25">
                   0{i + 1}
                 </span>
@@ -166,7 +166,7 @@ export default function Partners() {
                 title="Tell us what your students need."
                 lead="This form exists for our improvement: the requirements we receive decide what DishaYaaN builds next. Nothing here is used for marketing."
               />
-              <div className="mt-8 border-2 border-ink bg-card p-5">
+              <div className="mt-8 rounded-xl border border-line bg-card p-5">
                 <p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-muted-foreground">
                   We will ask you
                 </p>
@@ -180,7 +180,7 @@ export default function Partners() {
                     </li>
                   ))}
                 </ol>
-                <p className="mt-4 border-t-2 border-dashed border-ink/30 pt-4 text-xs leading-relaxed text-muted-foreground">
+                <p className="mt-4 border-t border-dashed border-line/30 pt-4 text-xs leading-relaxed text-muted-foreground">
                   You do not need answers to all of these to submit. Send what you
                   know and we will ask the rest on a call.
                 </p>

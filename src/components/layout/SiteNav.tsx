@@ -36,7 +36,7 @@ function BrandMark({ compact }: { compact?: boolean }) {
       className="flex items-center gap-2.5"
       aria-label="DishaYaaN home"
     >
-      <span className="flex size-8 items-center justify-center border-2 border-ink bg-neo-yellow font-mono text-sm font-black text-deep">
+      <span className="flex size-8 items-center justify-center rounded-xl border border-line bg-neo-yellow font-mono text-sm font-black text-deep">
         D
       </span>
       <span
@@ -45,7 +45,7 @@ function BrandMark({ compact }: { compact?: boolean }) {
           compact ? "text-base" : "text-lg",
         )}
       >
-        Disha<span className="text-neo-cyan">YaaN</span>
+        Disha<span className="text-neo-blue">YaaN</span>
       </span>
     </Link>
   );
@@ -80,7 +80,7 @@ export function SiteNav() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b-2 border-ink bg-deep/90 backdrop-blur-md transition-all duration-200",
+        "sticky top-0 z-50 border-b border-line bg-deep/90 backdrop-blur-md transition-all duration-200",
         scrolled && "shadow-[0_3px_0_0_rgba(15,23,42,1)]",
       )}
     >
@@ -103,10 +103,10 @@ export function SiteNav() {
               end={link.to === "/"}
               className={({ isActive }) =>
                 cn(
-                  "border-2 px-3 py-1.5 text-sm font-semibold transition-colors",
+                  "border px-3 py-1.5 text-sm font-semibold transition-colors",
                   isActive
-                    ? "border-ink bg-invert text-deep"
-                    : "border-transparent text-ink hover:border-ink hover:bg-neo-yellow hover:text-deep",
+                    ? "border-line bg-ink text-white"
+                    : "border-transparent text-ink hover:border-line hover:bg-neo-yellow hover:text-deep",
                 )
               }
             >
@@ -182,7 +182,7 @@ export function SiteNav() {
             animate={{ height: "auto", opacity: 1 }}
             exit={reduce ? undefined : { height: 0, opacity: 0 }}
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden border-t-2 border-ink bg-paper lg:hidden"
+            className="overflow-hidden border-t border-line bg-paper lg:hidden"
           >
             <div className="mx-auto w-full max-w-[1200px] px-5 py-4 sm:px-8">
               <nav aria-label="Mobile" className="grid gap-2">
@@ -193,10 +193,10 @@ export function SiteNav() {
                     end={link.to === "/"}
                     className={({ isActive }) =>
                       cn(
-                        "border-2 px-3 py-2.5 text-sm font-bold",
+                        "border px-3 py-2.5 text-sm font-bold",
                         isActive
-                          ? "border-ink bg-invert text-deep"
-                          : "border-ink bg-card",
+                          ? "border-line bg-ink text-white"
+                          : "border-line bg-card",
                       )
                     }
                   >
@@ -204,7 +204,7 @@ export function SiteNav() {
                   </NavLink>
                 ))}
               </nav>
-              <div className="mt-4 border-t-2 border-dashed border-ink/30 pt-4">
+              <div className="mt-4 border-t border-dashed border-line/30 pt-4">
                 <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground">
                   {t("nav.more")}
                 </p>
@@ -213,7 +213,7 @@ export function SiteNav() {
                     <Link
                       key={link.to}
                       to={link.to}
-                      className="border-2 border-ink bg-card px-3 py-2 font-mono text-sm font-semibold"
+                      className="rounded-xl border border-line bg-card px-3 py-2 font-mono text-sm font-semibold"
                     >
                       {label(SECONDARY_LABEL_KEYS, link.to, link.label)}
                     </Link>
@@ -224,7 +224,7 @@ export function SiteNav() {
                         ? "/dashboard"
                         : "/auth?returnTo=%2Fdashboard"
                     }
-                    className="border-2 border-ink bg-card px-3 py-2 font-mono text-sm font-semibold"
+                    className="rounded-xl border border-line bg-card px-3 py-2 font-mono text-sm font-semibold"
                   >
                     {isAuthenticated ? t("nav.dashboard") : t("nav.login")}
                   </Link>
@@ -255,7 +255,7 @@ export function SiteNav() {
       </AnimatePresence>
 
       {/* Mobile sticky bottom CTA — designed for the phone, not shrunk desktop. */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 grid grid-cols-2 border-t-2 border-ink lg:hidden">
+      <div className="fixed bottom-0 left-0 right-0 z-40 grid grid-cols-2 border-t border-line lg:hidden">
         <button
           type="button"
           onClick={() => {

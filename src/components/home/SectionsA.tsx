@@ -42,7 +42,7 @@ export function AudienceSection({
           <Reveal>
             <div
               className={cn(
-                "flex h-full flex-col border-2 border-ink bg-card p-6 transition-all",
+                "flex h-full flex-col rounded-xl border border-line bg-card p-6 transition-all",
                 audience === "student" && "shadow-neo",
               )}
             >
@@ -51,7 +51,7 @@ export function AudienceSection({
                   <Users className="size-5" />
                   <h3 className="text-xl font-bold">Student</h3>
                 </span>
-                <span className="border-2 border-ink bg-neo-blue px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
+                <span className="rounded-xl border border-line bg-neo-blue px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
                   Class 6–12
                 </span>
               </div>
@@ -79,7 +79,7 @@ export function AudienceSection({
                   <Link to="/catalog">See the catalogue</Link>
                 </Button>
               </div>
-              <div className="mt-5 border-t-2 border-dashed border-ink/25 pt-4">
+              <div className="mt-5 border-t border-dashed border-line/25 pt-4">
                 <MentorConnectButton
                   source="audience_student"
                   variant="neo"
@@ -96,7 +96,7 @@ export function AudienceSection({
           <Reveal delay={0.08}>
             <div
               className={cn(
-                "flex h-full flex-col border-2 border-ink bg-card p-6 transition-all",
+                "flex h-full flex-col rounded-xl border border-line bg-card p-6 transition-all",
                 audience === "parent" && "shadow-neo",
               )}
             >
@@ -105,7 +105,7 @@ export function AudienceSection({
                   <GraduationCap className="size-5" />
                   <h3 className="text-xl font-bold">Parent</h3>
                 </span>
-                <span className="border-2 border-ink bg-neo-green px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
+                <span className="rounded-xl border border-line bg-neo-green px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
                   Progress visible
                 </span>
               </div>
@@ -132,7 +132,7 @@ export function AudienceSection({
                   <Link to="/plans">See plans & fees</Link>
                 </Button>
               </div>
-              <div className="mt-5 border-t-2 border-dashed border-ink/25 pt-4">
+              <div className="mt-5 border-t border-dashed border-line/25 pt-4">
                 <MentorConnectButton
                   source="audience_parent"
                   variant="neo"
@@ -184,7 +184,7 @@ export function TracksSection({ audience }: { audience: Audience }) {
                   }}
                   aria-pressed={selected.id === track.id}
                   className={cn(
-                    "flex items-center gap-3 border-2 border-ink px-3 py-3 text-left font-mono transition-colors",
+                    "flex items-center gap-3 rounded-xl border border-line px-3 py-3 text-left font-mono transition-colors",
                     selected.id === track.id
                       ? "bg-neo-yellow text-deep"
                       : "bg-paper hover:bg-card",
@@ -200,10 +200,10 @@ export function TracksSection({ audience }: { audience: Audience }) {
           </Reveal>
 
           <div className="order-1 lg:order-2">
-            <div className="border-2 border-ink bg-card shadow-neo-cyan">
+            <div className="rounded-xl border border-line bg-card shadow-neo-cyan">
               <div
                 className={cn(
-                  "flex items-center justify-between gap-3 border-b-2 border-ink p-5",
+                  "flex items-center justify-between gap-3 border-b border-line p-5",
                   accentBg[selected.accent],
                 )}
               >
@@ -245,7 +245,7 @@ export function TracksSection({ audience }: { audience: Audience }) {
                     </ul>
                   </div>
                 </div>
-                <div className="border-t-2 border-dashed border-ink/25 pt-4">
+                <div className="border-t border-dashed border-line/25 pt-4">
                   <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-muted-foreground">
                     Possible pathways
                   </p>
@@ -253,7 +253,7 @@ export function TracksSection({ audience }: { audience: Audience }) {
                     {selected.pathways.map((p) => (
                       <li
                         key={p}
-                        className="border border-ink/40 bg-paper px-2 py-0.5 text-xs font-medium"
+                        className="rounded-xl border border-line/40 bg-paper px-2 py-0.5 text-xs font-medium"
                       >
                         {p}
                       </li>
@@ -319,7 +319,7 @@ export function CatalogueSection({ audience }: { audience: Audience }) {
               <TabsTrigger
                 key={tab.value}
                 value={tab.value}
-                className="border-2 border-ink bg-card px-4 py-2.5 font-mono text-sm font-bold data-[state=active]:bg-invert data-[state=active]:text-deep"
+                className="rounded-xl border border-line bg-card px-4 py-2.5 font-mono text-sm font-bold data-[state=active]:bg-ink data-[state=active]:text-white"
               >
                 {tab.label}
                 <span className="ml-2 border border-current px-1.5 py-0.5 text-[10px]">
@@ -342,9 +342,9 @@ export function CatalogueSection({ audience }: { audience: Audience }) {
               {EXAM_PROGRAMS.map((exam) => (
                 <article
                   key={exam.code}
-                  className="flex h-full flex-col border-2 border-ink bg-card"
+                  className="flex h-full flex-col rounded-xl border border-line bg-card"
                 >
-                  <div className={cn("border-b-2 border-ink px-5 py-3", accentBg[exam.accent])}>
+                  <div className={cn("border-b border-line px-5 py-3", accentBg[exam.accent])}>
                     <h3 className="text-lg font-bold">{exam.name}</h3>
                   </div>
                   <dl className="flex-1 space-y-3 p-5 text-sm">
@@ -364,7 +364,7 @@ export function CatalogueSection({ audience }: { audience: Audience }) {
                       </div>
                     ))}
                   </dl>
-                  <div className="border-t-2 border-ink p-5">
+                  <div className="border-t border-line p-5">
                     <MentorConnectButton
                       variant="neo"
                       size="sm"
@@ -378,7 +378,7 @@ export function CatalogueSection({ audience }: { audience: Audience }) {
                 </article>
               ))}
             </div>
-            <p className="mt-5 border-2 border-dashed border-ink/30 bg-card p-4 text-xs leading-relaxed text-muted-foreground">
+            <p className="mt-5 rounded-xl border border-dashed border-line/30 bg-card p-4 text-xs leading-relaxed text-muted-foreground">
               We do not publish rank claims, selection counts or success
               percentages. When a cohort completes, real numbers with methodology
               will appear here — not before.
@@ -390,7 +390,7 @@ export function CatalogueSection({ audience }: { audience: Audience }) {
               {direction.map((program) => (
                 <ProgramCard key={program.id} program={program} />
               ))}
-              <article className="flex h-full flex-col justify-between border-2 border-ink bg-neo-yellow p-5 text-deep">
+              <article className="flex h-full flex-col justify-between rounded-xl border border-line bg-neo-yellow p-5 text-deep">
                 <div>
                   <Eyebrow tone="ink">Path Finder</Eyebrow>
                   <h3 className="mt-4 text-lg font-bold">

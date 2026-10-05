@@ -114,12 +114,12 @@ export function AIAssistant() {
             initial={reduce ? undefined : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={reduce ? undefined : { opacity: 0, y: 12 }}
-            className="fixed bottom-20 right-4 z-40 flex items-center gap-2 border-2 border-ink bg-neo-cyan px-4 py-3 font-mono text-sm font-bold text-deep shadow-neo transition-transform hover:-translate-x-0.5 hover:-translate-y-0.5 sm:bottom-6 sm:right-6"
+            className="fixed bottom-20 right-4 z-40 flex items-center gap-2 rounded-xl border border-line bg-neo-cyan px-4 py-3 font-mono text-sm font-bold text-deep shadow-neo transition-transform hover:-translate-y-0.5 sm:bottom-6 sm:right-6"
           >
             <Sparkles className="size-4" />
             <span className="hidden sm:inline">ASK DISHAAYAAN AI</span>
             <span className="sm:hidden">ASK AI</span>
-            <span className="border-2 border-ink bg-invert px-1.5 py-0.5 font-mono text-[10px] font-bold text-deep">
+            <span className="rounded-xl border border-line bg-invert px-1.5 py-0.5 font-mono text-[10px] font-bold text-deep">
               {credits}
             </span>
           </motion.button>
@@ -136,15 +136,15 @@ export function AIAssistant() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={reduce ? undefined : { opacity: 0, y: 20, scale: 0.98 }}
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed bottom-20 right-3 z-50 flex w-[min(94vw,400px)] flex-col border-2 border-ink bg-card shadow-neo-lg sm:bottom-6 sm:right-6"
+            className="fixed bottom-20 right-3 z-50 flex w-[min(94vw,400px)] flex-col rounded-xl border border-line bg-card shadow-neo-lg sm:bottom-6 sm:right-6"
             style={{ maxHeight: "min(78vh, 640px)" }}
           >
-            <header className="flex items-start justify-between gap-3 border-b-2 border-ink bg-panel-2 px-4 py-3 text-ink">
+            <header className="flex items-start justify-between gap-3 border-b border-line bg-panel-2 px-4 py-3 text-ink">
               <div>
                 <p className="flex items-center gap-2 text-sm font-bold">
-                  <Bot className="size-4 text-neo-cyan" />
+                  <Bot className="size-4 text-neo-blue" />
                   DishaYaaN AI
-                  <span className="border border-ink/40 px-1.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider">
+                  <span className="rounded-xl border border-line/40 px-1.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider">
                     {mode === "live" ? "Live" : mode === "guided" ? "Guided" : "Ready"}
                   </span>
                 </p>
@@ -153,14 +153,14 @@ export function AIAssistant() {
                 </p>
               </div>
               <div className="flex items-center gap-2">
-                <span className="whitespace-nowrap border-2 border-ink/60 px-2 py-1 font-mono text-[10px] font-bold">
+                <span className="whitespace-nowrap rounded-xl border border-line/60 px-2 py-1 font-mono text-[10px] font-bold">
                   {credits} free left
                 </span>
                 <button
                   type="button"
                   onClick={() => setIsOpen(false)}
                   aria-label="Close DishaYaaN AI"
-                  className="border-2 border-ink/60 p-1 hover:bg-ink/10"
+                  className="rounded-xl border border-line/60 p-1 hover:bg-ink/10"
                 >
                   <X className="size-3.5" />
                 </button>
@@ -182,7 +182,7 @@ export function AIAssistant() {
                         key={starter}
                         type="button"
                         onClick={() => void send(starter)}
-                        className="border-2 border-ink bg-paper px-2.5 py-1.5 text-left text-xs font-semibold transition-colors hover:bg-neo-yellow hover:text-deep"
+                        className="rounded-xl border border-line bg-paper px-2.5 py-1.5 text-left text-xs font-semibold transition-colors hover:bg-neo-yellow hover:text-deep"
                       >
                         {starter}
                       </button>
@@ -200,7 +200,7 @@ export function AIAssistant() {
                     <div
                       key={`${m.role}-${i}`}
                       className={cn(
-                        "border-2 border-ink p-3 leading-relaxed whitespace-pre-line",
+                        "rounded-xl border border-line p-3 leading-relaxed whitespace-pre-line",
                         m.role === "user"
                           ? "ml-6 bg-neo-blue text-white"
                           : "mr-2 bg-paper",
@@ -216,7 +216,7 @@ export function AIAssistant() {
                           key={chip}
                           type="button"
                           onClick={() => void send(chip)}
-                          className="border-2 border-ink bg-card px-2.5 py-1 text-xs font-semibold hover:bg-neo-cyan"
+                          className="rounded-xl border border-line bg-card px-2.5 py-1 text-xs font-semibold hover:bg-neo-cyan"
                         >
                           {chip}
                         </button>
@@ -234,7 +234,7 @@ export function AIAssistant() {
               ) : null}
             </div>
 
-            <div className="border-t-2 border-ink bg-paper px-4 py-3">
+            <div className="border-t border-line bg-paper px-4 py-3">
               {exhausted ? (
                 <div className="space-y-2">
                   <p className="text-xs font-semibold leading-relaxed">
@@ -264,7 +264,7 @@ export function AIAssistant() {
                       onChange={(e) => setInput(e.target.value)}
                       placeholder="Ask about a domain, exam or plan…"
                       aria-label="Message DishaYaaN AI"
-                      className="border-2 border-ink"
+                      className="rounded-xl border border-line"
                     />
                     <Button
                       type="submit"

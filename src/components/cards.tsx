@@ -41,11 +41,11 @@ export const accentBg: Record<Accent, string> = {
 export const accentText: Record<Accent, string> = {
   blue: "text-neo-blue",
   violet: "text-neo-violet",
-  cyan: "text-neo-cyan",
-  green: "text-neo-green",
-  orange: "text-neo-orange",
-  pink: "text-neo-pink",
-  yellow: "text-neo-yellow",
+  cyan: "text-neo-blue",
+  green: "text-emerald-700",
+  orange: "text-orange-700",
+  pink: "text-pink-700",
+  yellow: "text-amber-700",
 };
 
 export const accentBorder: Record<Accent, string> = {
@@ -90,13 +90,13 @@ export function TrackCard({
   onExplore?: (track: ExploreTrack) => void;
 }) {
   return (
-    <article className="group flex h-full flex-col border-2 border-ink bg-card">
-      <div className={cn("flex items-start justify-between gap-3 border-b-2 border-ink p-4", accentBg[track.accent])}>
+    <article className="group flex h-full flex-col rounded-xl border border-line bg-card">
+      <div className={cn("flex items-start justify-between gap-3 border-b border-line p-4", accentBg[track.accent])}>
         <div className="flex items-center gap-3">
           <TrackIcon icon={track.icon} className="size-6" />
           <h3 className="text-base font-bold leading-tight">{track.short}</h3>
         </div>
-        <span className="border-2 border-ink bg-invert px-2 py-0.5 font-mono text-[10px] font-bold text-deep">
+        <span className="rounded-xl border border-line bg-invert px-2 py-0.5 font-mono text-[10px] font-bold text-deep">
           {track.classRange}
         </span>
       </div>
@@ -115,7 +115,7 @@ export function TrackCard({
             {track.skills.slice(0, 4).map((skill) => (
               <li
                 key={skill}
-                className="border border-ink/30 bg-paper px-2 py-0.5 text-[11px] font-medium"
+                className="rounded-xl border border-line/30 bg-paper px-2 py-0.5 text-[11px] font-medium"
               >
                 {skill}
               </li>
@@ -126,7 +126,7 @@ export function TrackCard({
         <button
           type="button"
           onClick={() => onExplore?.(track)}
-          className="mt-2 flex items-center justify-between border-2 border-ink bg-paper px-3 py-2 font-mono text-sm font-bold transition-colors group-hover:bg-neo-yellow group-hover:text-deep"
+          className="mt-2 flex items-center justify-between rounded-xl border border-line bg-paper px-3 py-2 font-mono text-sm font-bold transition-colors group-hover:bg-neo-yellow group-hover:text-deep"
         >
           Explore this field
           <ArrowUpRight className="size-4" />
@@ -138,12 +138,12 @@ export function TrackCard({
 
 export function ProgramCard({ program }: { program: Program }) {
   return (
-    <article className="flex h-full flex-col border-2 border-ink bg-card">
-      <div className="flex items-center justify-between gap-2 border-b-2 border-ink bg-paper px-4 py-2.5">
+    <article className="flex h-full flex-col rounded-xl border border-line bg-card">
+      <div className="flex items-center justify-between gap-2 border-b border-line bg-paper px-4 py-2.5">
         <span className="text-[11px] font-bold uppercase tracking-[0.16em]">
           {program.examCode ?? "Explore"}
         </span>
-        <span className="border border-ink px-2 py-0.5 text-[10px] font-bold">
+        <span className="rounded-xl border border-line px-2 py-0.5 text-[10px] font-bold">
           {program.mode}
         </span>
       </div>
@@ -153,7 +153,7 @@ export function ProgramCard({ program }: { program: Program }) {
           {program.summary}
         </p>
 
-        <dl className="grid grid-cols-3 gap-2 border-y-2 border-dashed border-ink/25 py-3 text-[11px]">
+        <dl className="grid grid-cols-3 gap-2 border-y border-dashed border-line/25 py-3 text-[11px]">
           <div>
             <dt className="font-bold uppercase tracking-wider text-muted-foreground">
               Classes
@@ -183,7 +183,7 @@ export function ProgramCard({ program }: { program: Program }) {
           ))}
         </ul>
 
-        <div className="mt-auto flex items-center justify-between gap-2 border-t-2 border-ink pt-3">
+        <div className="mt-auto flex items-center justify-between gap-2 border-t border-line pt-3">
           <p className="text-sm font-bold">
             {program.priceInr === null ? (
               <>Fee confirmed on call</>
@@ -213,15 +213,15 @@ export function MentorCard({
   compact?: boolean;
 }) {
   return (
-    <article className="group flex h-full flex-col border-2 border-ink bg-card transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-neo">
-      <div className="flex items-start gap-3 border-b-2 border-ink p-4">
-        <span className="flex size-12 shrink-0 items-center justify-center border-2 border-ink bg-neo-violet text-lg font-black text-white">
+    <article className="group flex h-full flex-col rounded-xl border border-line bg-card transition-all duration-200 hover:-translate-y-0.5 hover:shadow-neo">
+      <div className="flex items-start gap-3 border-b border-line p-4">
+        <span className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-line bg-neo-violet text-lg font-black text-white">
           {mentor.role.slice(0, 1)}
         </span>
         <div className="min-w-0">
           <h3 className="text-sm font-bold leading-snug">{mentor.role}</h3>
           <p className="mt-1 flex flex-wrap items-center gap-1.5 text-[11px] font-semibold text-muted-foreground">
-            <span className="border border-ink/30 px-1.5 py-0.5">{mentor.code}</span>
+            <span className="rounded-xl border border-line/30 px-1.5 py-0.5">{mentor.code}</span>
             <span className="inline-flex items-center gap-1">
               {mentor.status === "verified" ? (
                 <>
@@ -238,7 +238,7 @@ export function MentorCard({
       </div>
 
       <div className="flex flex-1 flex-col gap-3 p-4">
-        <div className="relative flex h-28 items-center justify-center border-2 border-dashed border-ink/30 bg-paper">
+        <div className="relative flex h-28 items-center justify-center rounded-xl border border-dashed border-line/30 bg-paper">
           <span className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
             <Play className="size-4" />
             {mentor.videoUrl ? mentor.videoDuration : "2-min intro publishes on verification"}
@@ -263,7 +263,7 @@ export function MentorCard({
               {mentor.expertise.slice(0, 4).map((e) => (
                 <span
                   key={e}
-                  className="border border-ink/30 bg-paper px-2 py-0.5 text-[11px] font-medium"
+                  className="rounded-xl border border-line/30 bg-paper px-2 py-0.5 text-[11px] font-medium"
                 >
                   {e}
                 </span>
@@ -272,7 +272,7 @@ export function MentorCard({
           </>
         ) : null}
 
-        <div className="mt-auto grid gap-2 border-t-2 border-dashed border-ink/25 pt-3 text-[11px] font-semibold text-muted-foreground">
+        <div className="mt-auto grid gap-2 border-t border-dashed border-line/25 pt-3 text-[11px] font-semibold text-muted-foreground">
           <span className="inline-flex items-center gap-1.5">
             <Clock className="size-3" /> {mentor.availability}
           </span>
@@ -315,16 +315,16 @@ export function PlanCard({
   return (
     <article
       className={cn(
-        "relative flex h-full flex-col border-2 border-ink bg-card",
+        "relative flex h-full flex-col rounded-xl border border-line bg-card",
         plan.popular && "shadow-neo",
       )}
     >
       {plan.popular ? (
-        <span className="absolute -top-3 left-4 border-2 border-ink bg-neo-yellow px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-deep">
+        <span className="absolute -top-3 left-4 rounded-xl border border-line bg-neo-yellow px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-deep">
           Most chosen
         </span>
       ) : null}
-      <div className={cn("border-b-2 border-ink p-5", accentBg[plan.accent])}>
+      <div className={cn("border-b border-line p-5", accentBg[plan.accent])}>
         <h3 className="text-xl font-bold">{plan.name}</h3>
         <p className="mt-1 text-sm font-medium opacity-90">{plan.tagline}</p>
       </div>
@@ -349,13 +349,13 @@ export function PlanCard({
         <ul className="space-y-2">
           {plan.features.map((f) => (
             <li key={f} className="flex gap-2 text-sm leading-snug">
-              <BadgeCheck className="mt-0.5 size-4 shrink-0 text-neo-green" />
+              <BadgeCheck className="mt-0.5 size-4 shrink-0 text-emerald-700" />
               <span>{f}</span>
             </li>
           ))}
         </ul>
 
-        <dl className="grid grid-cols-2 gap-2 border-y-2 border-dashed border-ink/25 py-3 text-center text-[11px]">
+        <dl className="grid grid-cols-2 gap-2 border-y border-dashed border-line/25 py-3 text-center text-[11px]">
           <div>
             <dt className="font-bold uppercase tracking-wider text-muted-foreground">
               Mentor sessions
