@@ -8,7 +8,7 @@ import {
   SectionHeader,
 } from "@/components/common/primitives";
 import { MentorConnectButton } from "@/components/mentors/mentor-connect";
-import { ProgramCard, TrackCard, TrackIcon, accentBg } from "@/components/cards";
+import { ProgramCard, TrackIcon, accentBg } from "@/components/cards";
 import { EXAM_PROGRAMS, EXPLORE_TRACKS, PROGRAMS } from "@/data/catalog";
 import { track } from "@/lib/analytics";
 import { useI18n } from "@/i18n";
@@ -105,7 +105,7 @@ export function AudienceSection({
                   <GraduationCap className="size-5" />
                   <h3 className="text-xl font-bold">Parent</h3>
                 </span>
-                <span className="border-2 border-ink bg-neo-green px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
+                <span className="border-2 border-ink bg-neo-green px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-deep">
                   Progress visible
                 </span>
               </div>

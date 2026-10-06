@@ -110,13 +110,13 @@ function Auth({ redirectAfterAuth }: AuthProps = {}) {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="relative flex min-h-screen flex-col overflow-hidden bg-deep bg-[radial-gradient(ellipse_65%_55%_at_50%_8%,rgba(72,104,219,0.24),transparent),radial-gradient(ellipse_55%_50%_at_100%_100%,rgba(116,214,229,0.1),transparent)]">
 
       
       {/* Auth Content */}
-      <div className="flex-1 flex items-center justify-center">
-        <div className="flex items-center justify-center h-full flex-col">
-        <Card className="min-w-[350px] pb-0 border shadow-md">
+      <div className="flex flex-1 items-center justify-center px-4 py-12">
+        <div className="flex w-full max-w-md flex-col items-center justify-center">
+        <Card className="w-full overflow-hidden rounded-3xl border-ink/20 bg-panel/90 pb-0 shadow-neo-lg backdrop-blur-xl">
           {step === "signIn" ? (
             <>
               <CardHeader className="text-center">

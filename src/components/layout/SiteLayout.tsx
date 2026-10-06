@@ -19,7 +19,7 @@ export function SiteLayout() {
     <MentorConnectProvider>
       <div className="flex min-h-screen flex-col bg-paper">
         <SiteNav />
-        <main id="main" className="flex-1">
+        <main id="main" data-page={location.pathname.split("/")[1] || "home"} className="flex-1">
           <Outlet />
         </main>
         <SiteFooter />
