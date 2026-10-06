@@ -28,14 +28,15 @@ export function HeroSection() {
   const { t } = useI18n();
 
   return (
-    <section className="relative overflow-hidden border-b-2 border-ink bg-deep">
-      <div className="pointer-events-none absolute inset-0 neo-grid opacity-70" />
-      <Container className="relative py-12 sm:py-16 lg:py-20">
+    <section className="home-hero relative isolate overflow-hidden border-b border-ink/10 bg-deep">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_78%_42%,rgba(72,104,219,0.22),transparent),radial-gradient(ellipse_45%_55%_at_14%_92%,rgba(116,214,229,0.08),transparent)]" />
+      <div className="pointer-events-none absolute inset-0 neo-grid opacity-60 [mask-image:linear-gradient(90deg,transparent,black)]" />
+      <Container className="relative py-16 sm:py-22 lg:py-28">
         <motion.div
           variants={reduce ? undefined : staggerParent(0.05)}
           initial={reduce ? undefined : "hidden"}
           animate={reduce ? undefined : "show"}
-          className="grid items-center gap-12 lg:grid-cols-[1.05fr_1fr]"
+          className="grid items-center gap-12 lg:grid-cols-[1.08fr_1fr] lg:gap-16"
         >
           <div>
             <motion.div variants={reduce ? undefined : staggerChild}>
@@ -44,30 +45,26 @@ export function HeroSection() {
 
             <motion.h1
               variants={reduce ? undefined : staggerChild}
-              className="mt-6 text-[2.15rem] font-bold leading-[1.02] sm:text-5xl lg:text-[3.6rem]"
+              className="mt-8 max-w-[760px] text-[clamp(2.5rem,5.2vw,4.9rem)] font-semibold leading-[1.09] tracking-[-0.06em]"
             >
               {t("hero.titleTop")}
               <br />
               <span className="relative inline-block">
-                <span
-                  aria-hidden
-                  className="absolute bottom-1 left-0 h-3 w-full bg-neo-yellow"
-                />
-                <span className="relative">{t("hero.titleHighlight")}</span>
+                <span className="relative bg-gradient-to-r from-neo-cyan via-[#b6dbfb] to-[#a7afff] bg-clip-text text-transparent">{t("hero.titleHighlight")}</span>
               </span>{" "}
               {t("hero.titleBottom")}
             </motion.h1>
 
             <motion.p
               variants={reduce ? undefined : staggerChild}
-              className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
+              className="mt-7 max-w-xl text-base leading-[1.8] text-muted-foreground sm:text-lg"
             >
               {t("hero.lead")}
             </motion.p>
 
             <motion.div
               variants={reduce ? undefined : staggerChild}
-              className="mt-8 flex flex-wrap gap-3"
+              className="mt-9 flex flex-wrap gap-3"
             >
               <Button asChild variant="neo-blue" size="lg" className="font-bold">
                 <Link
@@ -102,7 +99,7 @@ export function HeroSection() {
 
             <motion.div
               variants={reduce ? undefined : staggerChild}
-              className="mt-8 grid gap-2 border-t-2 border-dashed border-ink/30 pt-5 sm:grid-cols-3"
+              className="mt-10 grid gap-3 border-t border-ink/15 pt-6 sm:grid-cols-3"
             >
               {TRUST_LINE.map((key) => (
                 <p
@@ -122,7 +119,7 @@ export function HeroSection() {
               <Link
                 to="/book"
                 onClick={() => track("hero_cta_click", { cta: "book_session" })}
-                className="border-2 border-ink px-3 py-1.5 font-mono text-xs font-bold uppercase tracking-wider transition-colors hover:bg-neo-cyan hover:text-deep"
+                className="rounded-lg border border-ink/25 px-3 py-2 font-sans text-xs font-bold uppercase tracking-wider transition-colors hover:border-neo-cyan hover:text-neo-cyan"
               >
                 {t("hero.bookOneToOne")}
               </Link>
@@ -137,16 +134,16 @@ export function HeroSection() {
             ) : null}
           </div>
 
-          <div className="relative">
+          <div className="relative min-w-0">
             <div className="mb-4 flex items-center justify-between gap-3 font-mono">
               <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-neo-cyan">
                 {t("hero.networkLabel")}
               </p>
-              <span className="border-2 border-ink bg-invert px-2 py-0.5 font-mono text-[10px] font-bold text-deep">
+              <span className="rounded-full border border-ink/20 bg-panel px-3 py-1 font-mono text-[10px] font-bold text-ink">
                 {NETWORK_NODES.length} {t("hero.pathsSuffix")}
               </span>
             </div>
-            <div className="border-2 border-ink bg-paper p-2">
+            <div className="rounded-[28px] border border-ink/15 bg-panel/60 p-2 shadow-[0_32px_100px_-28px_rgba(37,80,184,0.45)] backdrop-blur-sm">
               <Suspense fallback={<NetworkSkeleton />}>
                 <FutureNetwork
                   className="w-full"

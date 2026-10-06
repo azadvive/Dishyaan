@@ -5,10 +5,9 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-mono text-sm font-semibold tracking-tight transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl font-sans text-sm font-semibold tracking-tight transition-[transform,background-color,border-color,box-shadow] duration-200 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
   {
     variants: {
-      // Neobrutalism Minimalism: hard black borders, flat blocks, offset shadows.
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
         destructive:
@@ -20,19 +19,19 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
-        neo: "border-2 border-ink bg-panel text-ink shadow-neo-sm hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-neo active:translate-x-0 active:translate-y-0 active:shadow-none",
+        neo: "border border-ink/25 bg-panel text-ink shadow-neo-sm hover:-translate-y-0.5 hover:border-ink/50 hover:bg-panel-2 hover:shadow-neo active:translate-y-0 active:shadow-neo-sm",
         "neo-dark":
-          "border-2 border-ink bg-invert text-deep shadow-neo-sm hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-neo active:translate-x-0 active:translate-y-0 active:shadow-none",
+          "border border-invert/30 bg-invert text-deep shadow-neo-sm hover:-translate-y-0.5 hover:bg-white hover:shadow-neo active:translate-y-0 active:shadow-neo-sm",
         "neo-blue":
-          "border-2 border-ink bg-neo-blue text-white shadow-neo-sm hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-neo active:translate-x-0 active:translate-y-0 active:shadow-none",
+          "border border-neo-blue bg-neo-blue text-white shadow-neo-blue hover:-translate-y-0.5 hover:bg-[#5a79ed] hover:shadow-neo active:translate-y-0 active:shadow-neo-sm",
         "neo-violet":
-          "border-2 border-ink bg-neo-violet text-white shadow-neo-sm hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-neo active:translate-x-0 active:translate-y-0 active:shadow-none",
+          "border border-neo-violet bg-neo-violet text-white shadow-neo-violet hover:-translate-y-0.5 hover:bg-[#896bdb] hover:shadow-neo active:translate-y-0 active:shadow-neo-sm",
         "neo-cyan":
-          "border-2 border-ink bg-neo-cyan text-deep shadow-neo-sm hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-neo active:translate-x-0 active:translate-y-0 active:shadow-none",
+          "border border-neo-cyan bg-neo-cyan text-deep shadow-neo-cyan hover:-translate-y-0.5 hover:bg-[#a3e7f0] hover:shadow-neo active:translate-y-0 active:shadow-neo-sm",
         "neo-green":
-          "border-2 border-ink bg-neo-green text-deep shadow-neo-sm hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-neo active:translate-x-0 active:translate-y-0 active:shadow-none",
+          "border border-neo-green bg-neo-green text-deep shadow-neo-green hover:-translate-y-0.5 hover:bg-[#a1e6d0] hover:shadow-neo active:translate-y-0 active:shadow-neo-sm",
         "neo-yellow":
-          "border-2 border-ink bg-neo-yellow text-deep shadow-neo-sm hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-neo active:translate-x-0 active:translate-y-0 active:shadow-none",
+          "border border-neo-yellow bg-neo-yellow text-deep shadow-neo-yellow hover:-translate-y-0.5 hover:bg-[#f9e2b5] hover:shadow-neo active:translate-y-0 active:shadow-neo-sm",
       },
       size: {
         default: "h-10 px-4 py-2 has-[>svg]:px-3",

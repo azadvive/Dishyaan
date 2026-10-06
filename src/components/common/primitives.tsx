@@ -50,17 +50,17 @@ export function Eyebrow({
   tone?: "ink" | "blue" | "violet" | "green" | "cyan" | "white";
 }) {
   const tones: Record<string, string> = {
-    ink: "bg-invert text-deep",
-    blue: "bg-neo-blue text-white",
-    violet: "bg-neo-violet text-white",
-    green: "bg-neo-green text-deep",
-    cyan: "bg-neo-cyan text-deep",
-    white: "bg-invert text-deep",
+    ink: "border-ink/30 bg-invert/10 text-ink",
+    blue: "border-neo-blue/35 bg-neo-blue/15 text-[#a9baff]",
+    violet: "border-neo-violet/40 bg-neo-violet/15 text-[#c6b3ff]",
+    green: "border-neo-green/35 bg-neo-green/10 text-neo-green",
+    cyan: "border-neo-cyan/35 bg-neo-cyan/10 text-neo-cyan",
+    white: "border-ink/30 bg-invert/10 text-ink",
   };
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2 border-2 border-ink px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-[0.18em]",
+        "inline-flex items-center gap-2 rounded-full border px-3 py-1.5 font-sans text-[11px] font-bold uppercase tracking-[0.12em]",
         tones[tone],
         className,
       )}
@@ -98,7 +98,7 @@ export function SectionHeader({
       {eyebrow ? <Eyebrow tone={eyebrowTone}>{eyebrow}</Eyebrow> : null}
       <h2
         className={cn(
-          "max-w-4xl text-3xl font-bold leading-[1.05] sm:text-4xl lg:text-5xl",
+          "max-w-4xl text-3xl font-semibold leading-[1.13] sm:text-4xl lg:text-[3.25rem]",
           titleClassName,
         )}
       >
@@ -141,10 +141,10 @@ export function NeoPanel({
   return (
     <div
       className={cn(
-        "border-2 border-ink",
+        "rounded-2xl border border-ink/20",
         accent ? accents[accent] : "bg-panel text-ink",
         hover &&
-          "transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-neo",
+          "transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-ink/40 hover:shadow-neo",
         className,
       )}
     >
@@ -161,7 +161,7 @@ export function Container({
   className?: string;
 }) {
   return (
-    <div className={cn("mx-auto w-full max-w-[1200px] px-5 sm:px-8", className)}>
+    <div className={cn("mx-auto w-full max-w-[1248px] px-5 sm:px-8 lg:px-10", className)}>
       {children}
     </div>
   );
@@ -189,7 +189,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={cn("relative py-16 sm:py-20 lg:py-24", tones[tone], className)}
+      className={cn("relative py-18 sm:py-24 lg:py-28", tones[tone], className)}
     >
       {children}
     </section>
@@ -205,7 +205,7 @@ export function Tape({ items, tone = "ink" }: { items: string[]; tone?: "ink" | 
   };
   const row = [...items, ...items];
   return (
-    <div className={cn("overflow-hidden border-y-2 border-ink py-3", tones[tone])}>
+    <div className={cn("overflow-hidden border-y border-ink/20 py-3", tones[tone])}>
       <div className="flex w-max animate-tape items-center gap-8 pr-8">
         {row.map((item, i) => (
           <span

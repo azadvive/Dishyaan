@@ -74,15 +74,15 @@ export function SiteFooter() {
   const { t } = useI18n();
 
   return (
-    <footer className="border-t-2 border-ink bg-deep pb-24 text-ink lg:pb-0">
-      <Container className="py-14">
-        <div className="grid gap-12 lg:grid-cols-[1.2fr_2fr]">
+    <footer className="border-t border-ink/15 bg-deep pb-24 text-ink xl:pb-0">
+      <Container className="py-16 lg:py-20">
+        <div className="grid gap-12 lg:grid-cols-[1.1fr_2fr] lg:gap-20">
           <div>
             <div className="flex items-center gap-2.5">
-              <span className="flex size-9 items-center justify-center border-2 border-ink bg-neo-yellow font-mono text-base font-black text-deep">
+              <span className="flex size-10 items-center justify-center rounded-xl bg-neo-cyan font-display text-base font-extrabold text-deep">
                 D
               </span>
-              <span className="font-display text-lg font-bold tracking-tight">
+              <span className="font-display text-xl font-bold tracking-[-0.06em]">
                 Disha<span className="text-neo-cyan">YaaN</span>
               </span>
             </div>
@@ -96,7 +96,7 @@ export function SiteFooter() {
               <button
                 type="button"
                 onClick={openAIAssistant}
-                className="border-2 border-ink px-4 py-2 font-mono text-sm font-bold text-ink transition-colors hover:bg-invert hover:text-deep"
+                className="rounded-xl border border-ink/25 px-4 py-2 font-sans text-sm font-semibold text-ink transition-colors hover:border-neo-cyan hover:text-neo-cyan"
               >
                 {t("nav.askAi")}
               </button>
@@ -113,7 +113,7 @@ export function SiteFooter() {
                   key={label}
                   aria-label={`${label} (link published with the first cohort)`}
                   title={`${label} — link published soon`}
-                  className="flex size-9 items-center justify-center border-2 border-ink/50 text-ink/70"
+                  className="flex size-9 items-center justify-center rounded-lg border border-ink/20 bg-ink/5 text-ink/70"
                 >
                   <Icon className="size-4" />
                 </span>
@@ -124,7 +124,7 @@ export function SiteFooter() {
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
             {COLUMNS.map((column) => (
               <div key={column.titleKey}>
-                <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-neo-cyan">
+                <p className="font-sans text-[11px] font-bold uppercase tracking-[0.13em] text-neo-cyan">
                   {t(column.titleKey)}
                 </p>
                 <ul className="mt-4 space-y-2.5">
@@ -133,14 +133,14 @@ export function SiteFooter() {
                       {link.to.startsWith("/#") ? (
                         <a
                           href={link.to}
-                          className="text-sm text-ink/70 hover:text-neo-cyan hover:underline"
+                            className="text-sm text-ink/70 transition-colors hover:text-neo-cyan hover:underline"
                         >
                           {t(link.labelKey)}
                         </a>
                       ) : (
                         <Link
                           to={link.to}
-                          className="text-sm text-ink/70 hover:text-neo-cyan hover:underline"
+                          className="text-sm text-ink/70 transition-colors hover:text-neo-cyan hover:underline"
                         >
                           {t(link.labelKey)}
                         </Link>
@@ -153,7 +153,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t-2 border-ink/20 pt-6 font-mono text-xs text-ink/55 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 flex flex-col gap-3 border-t border-ink/15 pt-7 text-xs text-ink/60 sm:flex-row sm:items-center sm:justify-between">
           <p>{t("footer.rights", { year: new Date().getFullYear() })}</p>
           <p>{t("footer.verification")}</p>
         </div>

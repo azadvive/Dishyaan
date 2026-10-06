@@ -33,16 +33,16 @@ function BrandMark({ compact }: { compact?: boolean }) {
   return (
     <Link
       to="/"
-      className="flex items-center gap-2.5"
+      className="flex items-center gap-3"
       aria-label="DishaYaaN home"
     >
-      <span className="flex size-8 items-center justify-center border-2 border-ink bg-neo-yellow font-mono text-sm font-black text-deep">
+      <span className="flex size-9 items-center justify-center rounded-xl bg-neo-cyan font-display text-sm font-extrabold text-deep shadow-neo-cyan">
         D
       </span>
       <span
         className={cn(
-          "font-display font-bold tracking-tight transition-all",
-          compact ? "text-base" : "text-lg",
+          "font-display font-bold tracking-[-0.06em] transition-all",
+          compact ? "text-lg" : "text-xl",
         )}
       >
         Disha<span className="text-neo-cyan">YaaN</span>
@@ -75,26 +75,29 @@ export function SiteNav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => setMobileOpen(false), [location.pathname]);
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => setMobileOpen(false));
+    return () => cancelAnimationFrame(frame);
+  }, [location.pathname]);
 
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b-2 border-ink bg-deep/90 backdrop-blur-md transition-all duration-200",
-        scrolled && "shadow-[0_3px_0_0_rgba(15,23,42,1)]",
+        "sticky top-0 z-50 border-b border-ink/10 bg-deep/85 backdrop-blur-xl transition-all duration-200",
+        scrolled && "border-ink/20 shadow-[0_16px_40px_-28px_rgba(0,3,13,0.95)]",
       )}
     >
       <div
         className={cn(
-          "mx-auto flex w-full max-w-[1200px] items-center justify-between gap-4 px-5 transition-all duration-200 sm:px-8",
-          scrolled ? "py-2.5" : "py-3.5",
+          "mx-auto flex w-full max-w-[1248px] items-center justify-between gap-4 px-5 transition-all duration-200 sm:px-8 lg:px-10",
+          scrolled ? "py-2.5" : "py-4",
         )}
       >
         <BrandMark compact={scrolled} />
 
         <nav
           aria-label="Primary"
-          className="hidden items-center gap-1 lg:flex"
+          className="hidden items-center gap-1 xl:flex"
         >
           {NAV_LINKS.map((link) => (
             <NavLink
@@ -103,10 +106,10 @@ export function SiteNav() {
               end={link.to === "/"}
               className={({ isActive }) =>
                 cn(
-                  "border-2 px-3 py-1.5 text-sm font-semibold transition-colors",
+                  "rounded-lg px-3 py-2 text-sm font-semibold transition-colors",
                   isActive
-                    ? "border-ink bg-invert text-deep"
-                    : "border-transparent text-ink hover:border-ink hover:bg-neo-yellow hover:text-deep",
+                    ? "bg-ink/10 text-neo-cyan"
+                    : "text-ink/75 hover:bg-ink/5 hover:text-ink",
                 )
               }
             >
@@ -115,7 +118,7 @@ export function SiteNav() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-2 lg:flex">
+        <div className="hidden items-center gap-2 xl:flex">
           <Button
             variant="neo"
             size="sm"
@@ -150,7 +153,7 @@ export function SiteNav() {
           )}
         </div>
 
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="flex items-center gap-2 xl:hidden">
           <LanguageMenu />
           <Button
             variant="neo"
@@ -182,9 +185,9 @@ export function SiteNav() {
             animate={{ height: "auto", opacity: 1 }}
             exit={reduce ? undefined : { height: 0, opacity: 0 }}
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden border-t-2 border-ink bg-paper lg:hidden"
+            className="overflow-hidden border-t border-ink/20 bg-paper xl:hidden"
           >
-            <div className="mx-auto w-full max-w-[1200px] px-5 py-4 sm:px-8">
+            <div className="mx-auto w-full max-w-[1248px] px-5 py-4 sm:px-8">
               <nav aria-label="Mobile" className="grid gap-2">
                 {NAV_LINKS.map((link) => (
                   <NavLink
@@ -254,15 +257,14 @@ export function SiteNav() {
         ) : null}
       </AnimatePresence>
 
-      {/* Mobile sticky bottom CTA — designed for the phone, not shrunk desktop. */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 grid grid-cols-2 border-t-2 border-ink lg:hidden">
+      <div className="fixed bottom-0 left-0 right-0 z-40 grid grid-cols-2 border-t border-ink/20 bg-paper/95 backdrop-blur-xl xl:hidden">
         <button
           type="button"
           onClick={() => {
             openAIAssistant();
             track("hero_cta_click", { cta: "mobile_sticky_ai" });
           }}
-          className="flex items-center justify-center gap-2 bg-card py-3.5 font-mono text-sm font-bold"
+          className="flex items-center justify-center gap-2 bg-card py-3.5 font-sans text-sm font-semibold"
         >
           <Sparkles className="size-4" /> {t("nav.askAiShort")}
         </button>

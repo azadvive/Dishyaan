@@ -39,8 +39,8 @@ export const accentBg: Record<Accent, string> = {
 };
 
 export const accentText: Record<Accent, string> = {
-  blue: "text-neo-blue",
-  violet: "text-neo-violet",
+  blue: "text-[#a9baff]",
+  violet: "text-[#c6b3ff]",
   cyan: "text-neo-cyan",
   green: "text-neo-green",
   orange: "text-neo-orange",
